@@ -9,3 +9,7 @@ enter keydown on input field adds a new movie. replaced click event with mouseov
 2021-08-04
 
 fixed some logic with the react
+
+2021-08-09
+
+added user authentication with jwt tokens
