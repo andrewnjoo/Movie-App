@@ -1,14 +1,14 @@
 2021-07-18
 
-installed [tailwind in react folder](https://tailwindcss.com/docs/guides/create-react-app)
+installed tailwind in react
 
 2021-07-23
 
-enter keydown on input field adds a new movie. replaced click event with mouseover to hover for movie info.
+added (adds a new movie) function. 
 
 2021-08-04
 
-fixed some logic with the react
+fixed some logic with react
 
 2021-08-09
 
