@@ -12,7 +12,7 @@ Stack: PERN
 
 Front end - React, Bootstrap, axios
 
-Tools used: react-caret-position, HashRouter
+Tools used: react-caret-position, HashRouter, react-toastify
 
 Deployment - gh-pages
 

@@ -1,20 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 // import { Link } from "react-router-dom";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-export default class Mynavbar extends Component {
-  render() {
-    return (
-      <div>
-        <Navbar bg="primary" variant="dark">
-          <Container>
-            <Navbar.Brand href={process.env.PUBLIC_URL+'/'}>Movies</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href={process.env.PUBLIC_URL+'/'}>Home</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </div>
-    );
-  }
-}
+const Mynavbar = ({ setAuth }) => {
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setAuth(false);
+    toast.success("Logged out successfully.");
+  };
+
+  return (
+    <div>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand href={"/"}>iLoveMovies</Navbar.Brand>
+          <Nav>
+            <NavDropdown
+              className="ml-auto"
+              title="Login"
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item href={"/login"}>Login</NavDropdown.Item>
+              <NavDropdown.Item href={"/register"}>Get Started</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Container>
+      </Navbar>
+    </div>
+  );
+};
+
+export default Mynavbar;

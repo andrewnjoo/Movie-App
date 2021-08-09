@@ -3,7 +3,13 @@
 @tailwind utilities; */
 
 img {
-  width: 100px;
+  /* width: 100px; */
+  transition: 0.3s ease-in-out;
+}
+
+
+img:hover{
+  transform:scale(1.1);
 }
 
 .mycontainer {
