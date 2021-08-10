@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import { Container } from "react-bootstrap";
 
+// const url = 'http://localhost:5000/' //local
+const url = 'https://polar-waters-71760.herokuapp.com/'
+
 const Register = ({setAuth}) => {
   const [inputs, setInputs] = useState({
     email: "",
@@ -19,7 +22,7 @@ const Register = ({setAuth}) => {
       e.preventDefault()
       try {
         const body = {name, email, password}
-        const response = await fetch('http://localhost:5000/auth/register',{
+        const response = await fetch(`${url}auth/register`,{
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(body)
