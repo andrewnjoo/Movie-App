@@ -6,19 +6,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import Mynavbar from "./components/mynavbar.component";
-import Movielist from "./components/movielist.component";
+import MyNavBar from "./components/MyNavBar";
+import MovieList from "./components/MovieList";
 import Register from "./components/Register";
 import Login from "./components/Login";
-import LandingPage from "./components/LandingPage"
+import LandingPage from "./components/LandingPage";
+import { backendURL } from "./components/sharedVariables";
 
 // import { Helmet } from 'react-helmet'
 toast.configure({
   autoClose: 3000,
   draggable: true,
-  pauseOnHover: false
-})
-
+  pauseOnHover: false,
+});
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
@@ -30,13 +30,13 @@ function App() {
   //pass jwt token to middleware in backend to check if authorized
   async function isAuth() {
     try {
-      const response = await fetch("http://localhost:5000/auth/is-verify", {
+      const response = await fetch(`${backendURL}auth/is-verify`, {
         method: "GET",
         headers: { token: localStorage.token },
       });
 
       const parseRes = await response.json();
-      // console.log(parseRes)
+      // console.log('parseres', parseRes)
 
       parseRes === true ? setisAuthenticated(true) : setisAuthenticated(false);
     } catch (err) {
@@ -47,12 +47,11 @@ function App() {
   // check if authenticated
   useEffect(() => {
     isAuth();
-    console.log("isauth", isAuthenticated);
-  });
+  }, []);
 
   return (
     <Fragment>
-      <Mynavbar setAuth={setAuth} />
+      <MyNavBar isAuth={isAuthenticated} setAuth={setAuth} />
       <BrowserRouter>
         <Switch>
           <Route
@@ -60,9 +59,9 @@ function App() {
             path="/"
             render={(props) =>
               !isAuthenticated ? (
-                <LandingPage />
+                <LandingPage {...props} />
               ) : (
-                <Redirect to="/" />
+                <Redirect to="/dashboard" />
               )
             }
           />
@@ -88,8 +87,18 @@ function App() {
               )
             }
           />
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) =>
+              !isAuthenticated ? (
+                <Redirect to="/" />
+              ) : (
+                <MovieList {...props} />
+              )
+            }
+          />
         </Switch>
-        {/* <Route path='/' exact component={Movielist} /> we need this later*/}
       </BrowserRouter>
     </Fragment>
   );

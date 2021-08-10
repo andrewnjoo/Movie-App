@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import axios from "axios";
 
-let apiKey = "7aa9ec6612579e4bfd39288619de239c";
+import { tmdbKey } from "./sharedVariables";
 
 const Popular = (props) => {
     const url = 'https://image.tmdb.org/t/p/original/'
-    console.log(props.props.poster_path)
+    // console.log(props.props.poster_path)
     return (
-        <div style={{ display: "inline-block", overflow:'hidden' }}>
-            <img width="150px" alt="" src={`${url}${props.props.poster_path}`}></img>
+        <div style={{ display: "inline-block", overflow:'hidden', border:'1px solid black' }}>
+            <img style={{maxWidth: "200px", maxHeight:'262px'}} alt="" src={`${url}${props.props.poster_path}`}></img>
         </div>
     )
 }
@@ -30,7 +30,7 @@ class LandingPage extends Component {
   getPopular() {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${tmdbKey}&language=en-US&page=1`
       )
       .then((res) => {
           const newState = {
@@ -41,8 +41,8 @@ class LandingPage extends Component {
       });
   }
   popularList(){
-      return this.state.movies.map((e)=>{
-          return <Popular props={e} />
+      return this.state.movies.map((e,i)=>{
+          return <Popular props={e} key={i} />
       })
   }
   render() {

@@ -3,9 +3,8 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Container } from "react-bootstrap";
+import { backendURL } from "./sharedVariables";
 
-// const url = 'http://localhost:5000/' //local
-const url = 'https://polar-waters-71760.herokuapp.com/'
 
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -24,7 +23,7 @@ const Login = ({ setAuth }) => {
       // console.log('test')
       const body = { email, password };
       console.log(body);
-      const response = await fetch(`${url}auth/login`, {
+      const response = await fetch(`${backendURL}auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -52,7 +51,7 @@ const Login = ({ setAuth }) => {
       email: "bob@gmail.com",
       password: "bob",
     };
-    const response = await fetch(`${url}auth/login`, {
+    const response = await fetch(`${backendURL}auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -61,7 +60,6 @@ const Login = ({ setAuth }) => {
     console.log(parseRes);
 
     if (parseRes.token) {
-      // console.log(parseRes)
       // set token in localStorage
       localStorage.setItem("token", parseRes.token);
       setAuth(true);
@@ -71,7 +69,6 @@ const Login = ({ setAuth }) => {
 
   return (
     <Container className="my-5 w-50" 
-    // style={{ width: "90%" }}
     >
       <h1 className="text-center">Login</h1>
       {/* Login Form */}

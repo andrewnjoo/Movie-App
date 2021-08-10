@@ -7,10 +7,10 @@ import Inputfield from "./inputfield.component";
 import Movie from "./movie.component";
 import HerokuAlert from './helperfunctions.component'
 
-let apiKey = "7aa9ec6612579e4bfd39288619de239c";
+import {tmdbKey} from './sharedVariables'
 let herokuURL = "https://andrew-movie-app.herokuapp.com/";
 
-class Movielist extends Component {
+class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,7 +42,7 @@ class Movielist extends Component {
   getImage(movie) {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=${movie}`
       )
       .then((res) => {
         // console.log(res)
@@ -161,4 +161,4 @@ class Movielist extends Component {
   }
 }
 
-export default Movielist;
+export default MovieList;
