@@ -67,7 +67,7 @@ const Login = ({ setAuth }) => {
   };
 
   return (
-    <Container className="my-5" 
+    <Container className="my-5 w-50" 
     // style={{ width: "90%" }}
     >
       <h1 className="text-center">Login</h1>

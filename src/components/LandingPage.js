@@ -47,10 +47,9 @@ class LandingPage extends Component {
   }
   render() {
     return (
-      <Container className='text-center my-5'>
+      <Container className='text-center my-5 w-75'>
         <h3 className="text-center">Popular Movies</h3>
         <div>{this.popularList()}</div>
-        <br></br>
         <br></br>
         <br></br>
       </Container>
