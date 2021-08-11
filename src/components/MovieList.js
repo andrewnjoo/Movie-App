@@ -2,13 +2,12 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
-import Poster from "./poster.component";
+import Poster from "./Poster.component";
 import Inputfield from "./inputfield.component";
-import Movie from "./movie.component";
+import Movie from "./Movie.component";
 import HerokuAlert from './helperfunctions.component'
 
-import {tmdbKey} from './sharedVariables'
-let herokuURL = "https://andrew-movie-app.herokuapp.com/";
+import {tmdbKey, backendURL} from './sharedVariables'
 
 class MovieList extends Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class MovieList extends Component {
   }
 
   getMovies() {
-    axios.get("https://andrew-movie-app.herokuapp.com/").then((response) => {
+    axios.get(`${backendURL}`).then((response) => {
       this.setState({ movies: response.data });
       for (let i in response.data) {
         this.getImage(response.data[i].name);
@@ -78,7 +77,7 @@ class MovieList extends Component {
 
   editMovie(id, name) {
     axios
-      .put(herokuURL, {
+      .put(backendURL, {
         id,
         name,
       })
@@ -91,7 +90,7 @@ class MovieList extends Component {
 
   addMovie(name) {
     axios
-      .post(herokuURL, {
+      .post(backendURL, {
         movie: name,
       })
       .then((res) => {
@@ -104,7 +103,7 @@ class MovieList extends Component {
   deleteMovie(id) {
     console.log("deleting");
     axios
-      .delete(herokuURL, {
+      .delete(backendURL, {
         data: {
           id,
         },

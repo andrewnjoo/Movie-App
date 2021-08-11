@@ -13,7 +13,7 @@ const Poster = (props) => {
     myfunction();
   });
   return (
-    <div style={{ display: "inline" }}>
+    <div style={{ display: "inline-block", overflow:'hidden', border:'1px solid black' }}>
       <img src={src} width="250" alt="" />
     </div>
   );
