@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 function UserNav ({logout}){
   return (
     <Nav>
-      <NavDropdown className="ml-auto" title="Dashboard" id="basic-nav-dropdown">
-        <NavDropdown.Item href={"/dashboard"}>Dashboard</NavDropdown.Item>
+      <NavDropdown className="ml-auto" title="Menu" id="basic-nav-dropdown">
+        <NavDropdown.Item href={"/dashboard"}>My Movies</NavDropdown.Item>
         <NavDropdown.Item href={"/profile"}>My Profile</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item onClick={

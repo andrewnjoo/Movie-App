@@ -38,6 +38,15 @@ class MovieList extends Component {
     });
   }
 
+  getMoviesWithUser(user_id){
+        //should send new movie name, and user_id
+        const headers = {
+          'Content-Type': 'application/json',
+          'token': localStorage.token
+        }
+    axios.post(`${backendURL}getmovies`)
+  }
+
   getImage(movie) {
     axios
       .get(
@@ -89,9 +98,16 @@ class MovieList extends Component {
   }
 
   addMovie(name) {
+    //should send new movie name, and user_id
+    const headers = {
+      'Content-Type': 'application/json',
+      'token': localStorage.token
+    }
     axios
       .post(backendURL, {
-        movie: name,
+        movie: name
+      },{
+        headers: headers
       })
       .then((res) => {
         // console.log(res);
@@ -99,6 +115,11 @@ class MovieList extends Component {
         console.log(this.state.movies);
       });
   }
+
+  // const response = await fetch(`${backendURL}auth/is-verify`, {
+  //   method: "GET",
+  //   headers: { token: localStorage.token },
+  // });
 
   deleteMovie(id) {
     console.log("deleting");
