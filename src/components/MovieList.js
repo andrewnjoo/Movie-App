@@ -5,9 +5,9 @@ import { Container } from "react-bootstrap";
 import Poster from "./Poster.component";
 import Inputfield from "./inputfield.component";
 import Movie from "./Movie.component";
-import HerokuAlert from './helperfunctions.component'
+import HerokuAlert from "./helperfunctions.component";
 
-import {tmdbKey, backendURL} from './sharedVariables'
+import { tmdbKey, backendURL } from "./sharedVariables";
 
 class MovieList extends Component {
   constructor(props) {
@@ -21,16 +21,19 @@ class MovieList extends Component {
     this.addMovie = this.addMovie.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
     this.editName = this.editName.bind(this);
-    this.activateLasers = this.activateLasers.bind(this);
+    this.getAllMovies = this.getAllMovies.bind(this);
   }
 
   componentDidMount() {
     this.getMovies();
   }
 
-  getMovies() {
+  getAllMovies() {
     axios.get(`${backendURL}`).then((response) => {
+      console.log(response.data)
       this.setState({ movies: response.data });
+      console.log(this.state)
+      //response.data should be an array of movies 
       for (let i in response.data) {
         this.getImage(response.data[i].name);
       }
@@ -38,13 +41,27 @@ class MovieList extends Component {
     });
   }
 
-  getMoviesWithUser(user_id){
-        //should send new movie name, and user_id
-        const headers = {
-          'Content-Type': 'application/json',
-          'token': localStorage.token
+  getMovies() {
+    //should send new movie name, and user_id
+    const headers = {
+      "Content-Type": "application/json",
+      token: localStorage.token,
+    };
+    console.log(headers.token)
+    axios
+      .post(`${backendURL}getmovies`, {
+        test: 'test'
+      },{
+        headers: headers,
+      })
+      .then((response) => {
+        console.log(response.data.rows);
+        this.setState({ movies: response.data.rows });
+        console.log(this.state)
+        for (let i in response.data.rows) {
+          this.getImage(response.data.rows[i].name);
         }
-    axios.post(`${backendURL}getmovies`)
+      });
   }
 
   getImage(movie) {
@@ -56,11 +73,12 @@ class MovieList extends Component {
         // console.log(res)
         let stateCopy = Object.assign({}, this.state);
         //if unable to find the movie we will return the no poster image
-        if(res.data.results.length===0){
+        if (res.data.results.length === 0) {
           let attach = stateCopy.movies.find((e) => e.name === movie);
           // console.log('attach is', attach)
-          attach.src= 'https://raw.githubusercontent.com/adnjoo/movie-app/main/assets/no-poster.jpeg'
-          return
+          attach.src =
+            "https://raw.githubusercontent.com/adnjoo/movie-app/main/assets/no-poster.jpeg";
+          return;
         }
         let result = res.data.results[0];
         let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
@@ -100,26 +118,25 @@ class MovieList extends Component {
   addMovie(name) {
     //should send new movie name, and user_id
     const headers = {
-      'Content-Type': 'application/json',
-      'token': localStorage.token
-    }
+      "Content-Type": "application/json",
+      token: localStorage.token,
+    };
     axios
-      .post(backendURL, {
-        movie: name
-      },{
-        headers: headers
-      })
+      .post(
+        backendURL,
+        {
+          movie: name,
+        },
+        {
+          headers: headers,
+        }
+      )
       .then((res) => {
         // console.log(res);
         this.getMovies();
         console.log(this.state.movies);
       });
   }
-
-  // const response = await fetch(`${backendURL}auth/is-verify`, {
-  //   method: "GET",
-  //   headers: { token: localStorage.token },
-  // });
 
   deleteMovie(id) {
     console.log("deleting");
@@ -156,14 +173,11 @@ class MovieList extends Component {
       return <Poster key={i} props={e} />;
     });
   }
-  activateLasers(){
-    console.log(this.state)
-  }
-  
+
   render() {
     return (
       <div>
-        <HerokuAlert/>
+        <HerokuAlert />
         <Container className="mycontainer border my-3">
           <h1 className="text-center fs-2">My movie list</h1>
           <div className="">
