@@ -24,4 +24,6 @@ react (classes, hooks), react-dom-router, react-bootstrap, react-toastify, react
 
 ## [Backend](https://github.com/adnjoo/movie-app-auth-backend)
 
-Added [buildpack](https://github.com/mars/create-react-app-buildpack) to heroku
+## Notes
+
+08-14 Added [buildpack](https://github.com/mars/create-react-app-buildpack) to heroku
