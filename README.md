@@ -6,12 +6,16 @@
 
 ## Tech: 
 
-react (classes, hooks), react-dom-router, react-bootstrap, react-toastify, react-use-caret-position.
+react (classes, hooks), react-dom-router, react-bootstrap, react-toastify, react-use-caret-position
 
 ## Features:
+
 • Register/Login
+
 • CRUD (add, edit, delete movies)
+
 • Profile page
+
 • Popular movies
 
 ## APIs used:
