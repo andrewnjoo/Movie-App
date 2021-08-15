@@ -55,7 +55,7 @@ class MovieList extends Component {
       })
       .then((response) => {
         this.setState({ movies: response.data.rows });
-        // console.log('state is', this.state)
+        console.log('state is', this.state)
         for (let i in response.data.rows) {
           this.getImage(response.data.rows[i].name);
         }
@@ -79,10 +79,10 @@ class MovieList extends Component {
           return;
         }
         let result = res.data.results[0];
-        let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
+        let poster = `${result.poster_path}`;
         let attach = stateCopy.movies.find((e) => e.name === movie);
         // console.log(attach)
-        attach.src = poster;
+        attach.poster_path = poster;
         attach.overview = res.data.results[0].overview;
         attach.release = res.data.results[0].release_date;
         // console.log(attach, stateCopy)

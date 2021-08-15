@@ -1,9 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-
-
-import { toast } from "react-toastify";
 import { backendURL } from "./sharedVariables";
 
 const Profile = ({ setAuth }) => {
@@ -26,12 +23,12 @@ const Profile = ({ setAuth }) => {
     }
   }
 
-  const logout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("token");
-    setAuth(false);
-    toast.success("Logged out successfully.");
-  };
+  // const logout = (e) => {
+  //   e.preventDefault();
+  //   localStorage.removeItem("token");
+  //   setAuth(false);
+  //   toast.success("Logged out successfully.");
+  // };
 
   useEffect(() => {
     getName();

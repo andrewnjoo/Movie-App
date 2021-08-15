@@ -1,28 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import axios from "axios";
-
 import { tmdbKey } from "./sharedVariables";
-
-const Popular = (props) => {
-  const url = "https://image.tmdb.org/t/p/original/";
-  // console.log(props.props.poster_path)
-  return (
-    <div
-      style={{
-        display: "inline-block",
-        overflow: "hidden",
-        border: "1px solid black",
-      }}
-    >
-      <img
-        style={{ maxWidth: "174px", maxHeight: "262px" }}
-        alt=""
-        src={`${url}${props.props.poster_path}`}
-      ></img>
-    </div>
-  );
-};
+import Poster from "./Poster.component";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -54,12 +34,12 @@ class LandingPage extends Component {
           movies: res.data.results,
         };
         this.setState(newState);
-        console.log(this.state);
+        console.log('state is', this.state);
       });
   }
   popularList() {
     return this.state.movies.map((e, i) => {
-      return <Popular props={e} key={i} />;
+      return <Poster props={e} key={i} />;
     });
   }
   increaseCounter(num) {
