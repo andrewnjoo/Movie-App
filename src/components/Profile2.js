@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Profile2 = () => {
-    return (
-        <div data-testid='profile2'>
-            sorry not authenticated
-        </div>
-    )
-}
+  return <div data-testid="profile2">sorry not authenticated</div>;
+};
 
-export default Profile2
+export default Profile2;

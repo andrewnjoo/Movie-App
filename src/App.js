@@ -11,7 +11,7 @@ import MovieList from "./components/MovieList";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import { Profile2 } from "./components/Profile2";
+import Profile2  from "./components/Profile2";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 

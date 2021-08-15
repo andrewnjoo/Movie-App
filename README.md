@@ -6,7 +6,11 @@
 
 ## Tech: 
 
-react (classes, hooks), react-dom-router, react-bootstrap, react-toastify, react-use-caret-position
+react.js
+
+Additional imports;: react-toastify, react-use-caret-position
+
+Styling: Bootstrap
 
 Testing: Jest
 
