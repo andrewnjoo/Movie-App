@@ -19,7 +19,7 @@ const Inputfield = (props) => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={textInput}
-        placeholder='add movie'
+        placeholder="add movie"
       />
     </div>
   );
