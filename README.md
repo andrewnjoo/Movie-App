@@ -1,5 +1,5 @@
 # movie-app-auth-frontend
-<a href='andrew-movie-app.herokuapp.com'>
+<a href='https://andrew-movie-app.herokuapp.com'>
 <img src='./scrn6.png' width='250'>
 </a>
 
