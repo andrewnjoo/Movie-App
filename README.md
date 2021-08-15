@@ -33,3 +33,7 @@ Testing: Jest
 ## Notes
 
 08-14 Added [buildpack](https://github.com/mars/create-react-app-buildpack) to heroku
+
+
+## [netlify deployment](https://wizardly-mestorf-a27c3b.netlify.app/)
+
