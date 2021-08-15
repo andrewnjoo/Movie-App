@@ -5,6 +5,10 @@ import { toast } from "react-toastify";
 
 function UserNav ({logout}){
   return (
+    <>
+    <Nav className='me-auto'>
+      <Nav.Link href={'/popular'}>Popular</Nav.Link>
+    </Nav>
     <Nav>
       <NavDropdown className="ml-auto" title="Menu" id="basic-nav-dropdown">
         <NavDropdown.Item href={"/dashboard"}>My Movies</NavDropdown.Item>
@@ -17,6 +21,7 @@ function UserNav ({logout}){
           }>Logout</NavDropdown.Item>
       </NavDropdown>
     </Nav>
+    </>
   )
 }
 

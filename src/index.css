@@ -3,9 +3,7 @@
 @tailwind utilities; */
 
 img {
-  /* width: 100px; */
   transition: 0.1s ease-in-out;
-
 }
 
 

@@ -47,7 +47,6 @@ class MovieList extends Component {
       "Content-Type": "application/json",
       token: localStorage.token,
     };
-    console.log(headers.token)
     axios
       .post(`${backendURL}getmovies`, {
         test: 'test'
@@ -55,9 +54,8 @@ class MovieList extends Component {
         headers: headers,
       })
       .then((response) => {
-        console.log(response.data.rows);
         this.setState({ movies: response.data.rows });
-        console.log(this.state)
+        // console.log('state is', this.state)
         for (let i in response.data.rows) {
           this.getImage(response.data.rows[i].name);
         }

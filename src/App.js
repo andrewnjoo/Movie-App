@@ -103,6 +103,13 @@ function App() {
               !isAuthenticated ? <Profile2 {...props} />: <Profile {...props} />
             }
           />
+           <Route
+            exact
+            path="/popular"
+            render={(props) =>
+              !isAuthenticated ? <Profile2 {...props} />: <LandingPage {...props} />
+            }
+          />
         </Switch>
       </BrowserRouter>
     </Fragment>

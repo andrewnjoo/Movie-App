@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+
 
 import { toast } from "react-toastify";
 import { backendURL } from "./sharedVariables";
@@ -57,7 +59,7 @@ const Profile = ({ setAuth }) => {
   };
 
   return (
-    <Fragment>
+    <Container className='my-5'>
       <h1>Welcome {name}</h1>
       <h3>Dashboard</h3>
       <Form
@@ -82,7 +84,7 @@ const Profile = ({ setAuth }) => {
       {/* <button className={"btn btn-primary mt-5"} onClick={(e) => logout(e)}>
         Logout
       </button> */}
-    </Fragment>
+    </Container >
   );
 };
 
