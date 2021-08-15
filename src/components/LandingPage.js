@@ -82,14 +82,16 @@ class LandingPage extends Component {
         <h3 className="text-center">Popular Movies</h3>
         <div>page {this.state.counter}
         </div>
-        <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(-1)}}>get prev page</button> &nbsp;
-        <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(1)}}>get next page</button>
+        <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(-1)}}>&lt;</button> &nbsp;
+        <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(1)}}>&gt;</button>
         <br></br>
         <br></br>
         <br></br> 
         <div className='text-center'>{this.popularList()}</div>
         <br></br>
         <br></br>
+        <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(-1)}}>&lt;</button> &nbsp;
+        <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(1)}}>&gt;</button>
       </Container>
     );
   }
