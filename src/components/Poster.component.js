@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-const url = "https://image.tmdb.org/t/p/original/";
 const Poster = (props) => {
   let [src, setSrc] = useState("");
   useEffect(() => {
