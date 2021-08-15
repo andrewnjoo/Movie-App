@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "name": "v2-react",
   "version": "0.1.0",
   "private": true,
