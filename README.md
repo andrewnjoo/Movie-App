@@ -8,6 +8,8 @@
 
 react (classes, hooks), react-dom-router, react-bootstrap, react-toastify, react-use-caret-position
 
+Testing: Jest
+
 ## Features:
 
 • Register/Login
