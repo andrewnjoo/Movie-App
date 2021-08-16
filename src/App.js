@@ -17,6 +17,7 @@ import { backendURL } from "./components/sharedVariables";
 
 // import { Helmet } from 'react-helmet'
 toast.configure({
+  position: 'bottom-right',
   autoClose: 3000,
   draggable: true,
   pauseOnHover: false,
