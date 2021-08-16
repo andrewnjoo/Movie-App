@@ -12,6 +12,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Profile2  from "./components/Profile2";
+import Loading  from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 
@@ -108,7 +109,7 @@ function App() {
             exact
             path="/popular"
             render={(props) =>
-              !isAuthenticated ? <Profile2 {...props} />: <LandingPage {...props} />
+              !isAuthenticated ? <Loading {...props} />: <LandingPage {...props} />
             }
           />
         </Switch>
