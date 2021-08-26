@@ -8,32 +8,22 @@
 
 react.js
 
-Additional imports;: react-toastify, react-use-caret-position
+bootstrap
 
-Styling: Bootstrap
-
-Testing: Jest
+jest (testing)
 
 ## Features:
 
-• Register/Login
+• Register/Login (using JSON web tokens and bcrypt)
 
-• CRUD (add, edit, delete movies)
+• CRUD (add, read, edit, delete movies)
 
 • Profile page
 
-• Popular movies
-
-## APIs used:
-
-• TMDB
+• Popular movies (API calls to [TMDB](https://developers.themoviedb.org/3))
 
 ## [Backend](https://github.com/adnjoo/movie-app-auth-backend)
 
 ## Notes
 
 08-14 Added [buildpack](https://github.com/mars/create-react-app-buildpack) to heroku
-
-
-<!-- ## [netlify deployment](https://wizardly-mestorf-a27c3b.netlify.app/) -->
-
