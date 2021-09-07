@@ -54,7 +54,7 @@ function App() {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <MyNavBar isAuth={isAuthenticated} setAuth={setAuth} />
       <BrowserRouter>
         <Switch>
@@ -114,7 +114,7 @@ function App() {
           />
         </Switch>
       </BrowserRouter>
-    </Fragment>
+    </>
   );
 }
 
