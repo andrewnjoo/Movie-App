@@ -1,11 +1,11 @@
+// import modules
 import React, { Fragment, useState, useEffect } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-
+// import components
 import MyNavBar from "./components/MyNavBar";
 import MovieList from "./components/MovieList";
 import Register from "./components/Register";
