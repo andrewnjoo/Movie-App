@@ -17,6 +17,7 @@ import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 
 // import { Helmet } from 'react-helmet'
+//configure toastify
 toast.configure({
   position: 'bottom-right',
   autoClose: 3000,

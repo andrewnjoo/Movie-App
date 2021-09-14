@@ -56,6 +56,7 @@ export const LoggedNav = ({isAuth, logout}) => {
 };
 
 const MyNavBar = ({ setAuth, isAuth }) => {
+  //logout function
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");

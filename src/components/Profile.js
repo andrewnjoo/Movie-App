@@ -79,7 +79,7 @@ const Profile = ({ setAuth }) => {
       </Form>
       <br></br>
       {/* <button className={"btn btn-primary mt-5"} onClick={(e) => logout(e)}>
-        Logout
+        <Logout></Logout>
       </button> */}
     </Container >
   );
