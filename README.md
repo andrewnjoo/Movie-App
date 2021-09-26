@@ -5,6 +5,7 @@
 </a>
 
 [https://andrew-movie-app.herokuapp.com]('./scrn7.png')
+['./scrn7.png'](google.com)
 
 ## Tech: 
 
