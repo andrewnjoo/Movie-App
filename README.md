@@ -1,5 +1,5 @@
 # movie-app-auth-frontend
-<a href='https://andrew-movie-app.herokuapp.com'>
+<a href='https://andrew-movie-app.netlify.app/'>
 <img src='./scrn7.png' width='250'><br>
 <img src='./scrn8.png' width='250'>
 </a>
@@ -11,6 +11,8 @@ react.js
 bootstrap
 
 jest (testing)
+
+netlify deployment
 
 ## Features:
 
