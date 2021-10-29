@@ -68,7 +68,16 @@ const MyNavBar = ({ setAuth, isAuth }) => {
     <div>
       <Navbar bg="primary" variant="dark" >
         <Container>
-          <Navbar.Brand href={"/"}>movieApp</Navbar.Brand>
+          <Navbar.Brand href={"/"}>
+          <img
+          alt=""
+          src="https://raw.githubusercontent.com/adnjoo/movie-app-auth-frontend/main/public/movie.png"
+          width="30"
+          height="30"
+          className="d-inline-block align-top rounded-circle"
+        />{' '}
+            movieApp
+            </Navbar.Brand>
           <LoggedNav isAuth={isAuth} logout={logout}/>
         </Container>
       </Navbar>
