@@ -15,6 +15,7 @@ import Profile2  from "./components/Profile2";
 import Loading  from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
+import Footer from './components/Footer'
 
 // import { Helmet } from 'react-helmet'
 //configure toastify
@@ -115,6 +116,7 @@ function App() {
           />
         </Switch>
       </BrowserRouter>
+      <Footer/>
     </>
   );
 }
