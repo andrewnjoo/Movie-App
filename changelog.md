@@ -13,3 +13,6 @@ fixed some logic with react
 2021-08-09
 
 added user authentication with jwt tokens
+
+2021-10-29
+press left/right arrow to switch landing pages

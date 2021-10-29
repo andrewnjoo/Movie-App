@@ -64,12 +64,7 @@ class LandingPage extends Component {
         </div>
         <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(-1)}}>&lt;</button> &nbsp;
         <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(1)}}>&gt;</button>
-        <br></br>
-        <br></br>
-        <br></br> 
-        <div className='text-center'>{this.popularList()}</div>
-        <br></br>
-        <br></br>
+        <div className='text-center my-5'>{this.popularList()}</div>
         <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(-1)}}>&lt;</button> &nbsp;
         <button className='btn btn-info border border-dark' onClick={() => {this.increaseCounter(1)}}>&gt;</button>
       </Container>
