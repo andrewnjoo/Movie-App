@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import axios from "axios";
-import useKeyPress from 'react-use-keypress'
+import useKeyPress from "react-use-keypress";
 import { tmdbKey } from "./sharedVariables";
 import Poster from "./Poster.component";
 
@@ -11,12 +11,12 @@ const LandingPage = () => {
   const [counter, setCounter] = useState(1);
 
   // Nav shortcuts
-  useKeyPress('ArrowLeft',()=>{
+  useKeyPress("ArrowLeft", () => {
     increaseCounter(-1);
-  })
-  useKeyPress('ArrowRight',()=>{
+  });
+  useKeyPress("ArrowRight", () => {
     increaseCounter(1);
-  })
+  });
 
   //initial load
   useEffect(() => {
@@ -30,7 +30,7 @@ const LandingPage = () => {
 
   //if counter changes, get movies
   useEffect(() => {
-    console.log('counter', counter)
+    console.log("counter", counter);
     getPopular();
   }, [counter]);
 
@@ -55,9 +55,9 @@ const LandingPage = () => {
       console.log("not allow");
       return;
     }
-    console.log('counter is',counter, 'num is', num, counter+num)
+    console.log("counter is", counter, "num is", num, counter + num);
     setCounter(counter + num);
-    console.log('new counter is', counter)
+    console.log("new counter is", counter);
   };
 
   return (
@@ -82,23 +82,6 @@ const LandingPage = () => {
         &gt;
       </button>
       <div className="text-center my-5">{popularList()}</div>
-      {/* <button
-        className="btn btn-info border border-dark"
-        onClick={() => {
-          increaseCounter(-1);
-        }}
-      >
-        &lt;
-      </button>{" "}
-      &nbsp;
-      <button
-        className="btn btn-info border border-dark"
-        onClick={() => {
-          increaseCounter(1);
-        }}
-      >
-        &gt;
-      </button> */}
     </Container>
   );
 };

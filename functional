@@ -1,0 +1,6 @@
+[main fd4cb84] refactored LandingPage - comp
+ 8 files changed, 235 insertions(+), 118 deletions(-)
+ create mode 100644 functional
+ rewrite src/components/LandingPage.js (85%)
+ copy src/components/{LandingPage.js => LandingPage2.js} (100%)
+ create mode 100644 src/components/oldcomponents/LandingPageClass.js
