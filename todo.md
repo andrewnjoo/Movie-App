@@ -1,2 +1,1 @@
-
-press left/right arrow to switch landing pages
+add loading spinner for images

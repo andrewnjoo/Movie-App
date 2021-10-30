@@ -1,5 +1,8 @@
+2021-10-30
+add L-R key detection to landing page
+
 2021-10-29
-refactored margin on landing-page, add icon to navbar
+refactored margin on landing-page, add icon to navbar; changed page deployment from Heroku to Netlify due to speed/loading concerns
 
 2021-08-09
 
