@@ -13,10 +13,12 @@ class LandingPage extends Component {
     };
     this.getPopular = this.getPopular.bind(this);
     this.increaseCounter = this.increaseCounter.bind(this);
+    this.leftrightdetection = this.leftrightdetection.bind(this);
   }
 
   componentDidMount() {
     this.getPopular();
+    document.addEventListener('keydown',this.leftrightdetection, false)
   }
 
   getPopular() {
@@ -56,9 +58,18 @@ class LandingPage extends Component {
     },100)
 
   }
+  leftrightdetection(e){
+    //left arrow
+    if(e.keyCode==37){ 
+      this.increaseCounter(-1)
+    }
+    if(e.keyCode==39){ 
+      this.increaseCounter(1)
+    }
+  }
   render() {
     return (
-      <Container className="my-5 w-75 text-center">
+      <Container className="my-5 w-75 text-center" >
         <h3 className="text-center">Popular Movies</h3>
         <div>page {this.state.counter}
         </div>
