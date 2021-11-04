@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { Container } from "react-bootstrap";
 import { backendURL } from "./sharedVariables";
 
-
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
     email: "",
@@ -67,11 +66,11 @@ const Login = ({ setAuth }) => {
   };
 
   return (
-    <Container className="my-5 border registerloginbox" 
-    >
+    <Container className="my-5 border registerloginbox">
       <h1 className="text-center">Login</h1>
       {/* Login Form */}
-      <form className="text-center mt-5 mb-3" onSubmit={onSubmitForm}>
+      <form className="mt-5 mb-3" onSubmit={onSubmitForm}>
+        <h5>Email</h5>
         <input
           type="email"
           name="email"
@@ -80,6 +79,7 @@ const Login = ({ setAuth }) => {
           value={email}
           onChange={(e) => onChange(e)}
         ></input>
+        <h5>Password</h5>
         <input
           type="password"
           name="password"
@@ -89,18 +89,18 @@ const Login = ({ setAuth }) => {
           onChange={(e) => onChange(e)}
         ></input>
         <button className="btn btn-success w-100">Sign In</button>
-
       </form>
       <div className="text-center">
         <button
           className="btn btn-warning w-100 mb-3"
           onClick={() => {
-              demoUser();
-            }}
+            demoUser();
+          }}
         >
           Demo
         </button>
-        <Link to="/register">Create Account</Link>
+        Dont' have an account? &nbsp;
+        <Link to="/register">Sign Up</Link>
       </div>
     </Container>
   );
