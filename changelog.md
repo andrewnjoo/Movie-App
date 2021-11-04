@@ -1,11 +1,14 @@
 2021-11-04
+
 add login/register styling
 
 2021-10-30
-add L-R key detection to landing page
+
+add Left-Right key detection to LandingPage; refactored LandingPage from class to functional component.
 
 2021-10-29
-refactored margin on landing-page, add icon to navbar; changed page deployment from Heroku to Netlify due to speed/loading concerns
+
+refactored margin on LandingPage, add icon to navbar; changed page deployment from Heroku to Netlify due to speed/loading concerns. 
 
 2021-08-09
 
