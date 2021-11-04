@@ -11,7 +11,7 @@ export default function Footer () {
       >
         app made by &nbsp;
         <a
-          href="https://github.com/adnjoo/artexplorer"
+          href="https://github.com/adnjoo/movie-app-auth-frontend"
           target="_blank"
           rel="noreferrer"
         >
