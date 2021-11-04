@@ -175,7 +175,6 @@ class MovieList extends Component {
   render() {
     return (
       <div>
-        <HerokuAlert />
         <Container className="mycontainer border my-3">
           <h1 className="text-center fs-2">My movie list</h1>
           <div className="">
