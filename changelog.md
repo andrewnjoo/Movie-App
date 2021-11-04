@@ -1,3 +1,6 @@
+2021-11-04
+add login/register styling
+
 2021-10-30
 add L-R key detection to landing page
 
