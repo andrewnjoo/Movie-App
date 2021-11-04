@@ -1,6 +1,6 @@
 2021-11-04
 
-add login/register styling
+add login/register styling; add modal popup to click on movie poster.
 
 2021-10-30
 

@@ -1,3 +1,4 @@
+// import dependencies
 import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
@@ -52,7 +53,7 @@ const LandingPage = () => {
 
   const increaseCounter = (num) => {
     if (counter === 1 && num === -1) {
-      console.log("not allow");
+      console.log("not allowed");
       return;
     }
     console.log("counter is", counter, "num is", num, counter + num);
