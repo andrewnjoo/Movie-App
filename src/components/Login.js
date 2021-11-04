@@ -67,7 +67,7 @@ const Login = ({ setAuth }) => {
   };
 
   return (
-    <Container className="my-5 w-50" 
+    <Container className="my-5 border registerloginbox" 
     >
       <h1 className="text-center">Login</h1>
       {/* Login Form */}
