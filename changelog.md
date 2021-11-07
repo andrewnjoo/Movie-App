@@ -1,3 +1,6 @@
+2021-11-07
+movie poster same height - 261px
+
 2021-11-04
 
 add login/register styling; add modal popup to click on movie poster.
