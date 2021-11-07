@@ -34,7 +34,7 @@ const Poster = (props) => {
         border: "1px solid black",
       }}
     >
-      <img onClick={handleShow} src={src} style={{ maxHeight: 370, maxWidth: 174 }} alt="" />
+      <img onClick={handleShow} src={src} style={{ maxHeight: 370, maxWidth: 174, height: 261 }} alt="" />
       <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>{data.title}</Modal.Title>

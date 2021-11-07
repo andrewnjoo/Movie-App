@@ -1,3 +1,7 @@
+## urgent
+
+refactor movielist component from class to functional
+
 ### nice to have
 
 clicking movie poster pops up modal with more info
