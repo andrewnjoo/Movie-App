@@ -40,7 +40,7 @@ const Poster = (props) => {
               datasets: [
                 {
                   data: [data.vote_average * 10, 100 - data.vote_average * 10],
-                  backgroundColor: ["rgba(202, 205, 47, 0.4)", "rgba(0,0,0,0)"],
+                  backgroundColor: ["rgba(202, 205, 47, 0.6)", "rgba(0,0,0,0)"],
                   borderColor: ["rgba(0, 0, 0, 0)", "rgba(0,0,0,0)"],
                 },
               ],
@@ -69,7 +69,7 @@ const Poster = (props) => {
               datasets: [
                 {
                   data: [data.vote_average * 10, 100 - data.vote_average * 10],
-                  backgroundColor: ["rgba(33, 208, 122, 0.4)", "rgba(0,0,0,0)"],
+                  backgroundColor: ["rgba(33, 208, 122, 0.6)", "rgba(0,0,0,0)"],
                   borderColor: ["rgba(0, 0, 0, 0)", "rgba(0,0,0,0)"],
                 },
               ],
