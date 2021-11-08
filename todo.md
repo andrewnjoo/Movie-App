@@ -1,5 +1,7 @@
 ## high-prio
 
+make donut rating smaller; add % rating inside donut
+
 ### n2h
 
 refactor LandingPage to save output of API call into state to save time
