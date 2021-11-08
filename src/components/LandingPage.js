@@ -46,6 +46,7 @@ const LandingPage = () => {
   };
 
   const popularList = () => {
+    console.log('movies',movies)
     return movies.map((e, i) => {
       return <Poster props={e} key={i} />;
     });

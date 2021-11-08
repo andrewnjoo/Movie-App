@@ -1,38 +1,72 @@
+//import dependencies
 import React, { useState, useEffect } from "react";
-import { useCaretPosition } from 'react-use-caret-position';
+import { useCaretPosition } from "react-use-caret-position";
 
-const Movie = (props) => {
+
+import axios from "axios";
+import { tmdbKey, backendURL } from "./sharedVariables";
+
+const Movie2 = (props) => {
   const [name, setName] = useState("");
   const [id, setId] = useState(props.movies.id);
-  const {ref:inputRef, updateCaret} = useCaretPosition();
+  const { ref: inputRef, updateCaret } = useCaretPosition();
 
+  // initial load
   useEffect(() => {
-    function test() {
-      if (props.movies.name == null) {
-        return;
-      } else {
-        setName(props.movies.name);
-        setId(props.movies.id);
-      }
+    console.log("props", props);
+    if (props.movies == null) {
+      return;
+    } else {
+      setName(props.movies.name);
+      setId(props.movies.id);
     }
-    test();
-  });
+  }, []);
+
+  // edit state but dont get movies with axios
+  const editName = (newname) => {
+    setName(newname);
+  };
+
+  const editMovie = (id, name)=> {
+    axios
+      .put(backendURL, {
+        id,
+        name,
+      })
+      .then((res) => {
+        // console.log(res.data);
+        props.getMovies();
+      });
+  }
+
+  const deleteMovie = (id) => {
+    axios
+      .delete(backendURL, {
+        data: {
+          id,
+        },
+      })
+      .then((res) => {
+        props.getMovies();
+      });
+  }
 
   const handleChange = (e) => {
-    props.editName(name, e.target.value, id);
+    editName(e.target.value);
     updateCaret();
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       console.log("enter pressed");
-      props.editMovie(id, name);
+      editMovie(id, name);
     }
   };
+
   return (
     <div className="mx-auto text-center" style={{ width: "100%" }}>
       <input
-        ref={inputRef} 
+        ref={inputRef}
         className="text-center movieListInput"
         onChange={handleChange}
         value={name}
@@ -40,8 +74,7 @@ const Movie = (props) => {
       ></input>
       <button
         onClick={() => {
-          // console.log('id is', id)
-          props.deleteMovie(id);
+          deleteMovie(id);
         }}
       >
         x
@@ -50,4 +83,4 @@ const Movie = (props) => {
   );
 };
 
-export default Movie;
+export default Movie2;

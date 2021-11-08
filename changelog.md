@@ -1,4 +1,9 @@
+2021-11-08
+
+refactor movielist from Class->Functional component
+
 2021-11-07
+
 movie poster same height - 261px
 
 2021-11-04
