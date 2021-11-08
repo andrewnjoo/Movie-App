@@ -1,6 +1,6 @@
 2021-11-08
 
-refactor movielist from Class->Functional component
+refactor movielist from Class->Functional component; add donut rating
 
 2021-11-07
 

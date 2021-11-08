@@ -1,8 +1,6 @@
 //import dependencies
 import React, { useState, useEffect } from "react";
 import { useCaretPosition } from "react-use-caret-position";
-
-
 import axios from "axios";
 import { tmdbKey, backendURL } from "./sharedVariables";
 

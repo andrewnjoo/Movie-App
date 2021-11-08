@@ -2,11 +2,11 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
-import Poster from "./Poster.component";
-import Inputfield from "./Inputfield.component";
-import Movie from "./Movie.component";
+import Poster from "../Poster.component";
+import Inputfield from "../Inputfield.component";
+import Movie from "./MovieClass.component";
 
-import { tmdbKey, backendURL } from "./sharedVariables";
+import { tmdbKey, backendURL } from "../sharedVariables";
 
 class MovieList extends Component {
   constructor(props) {
