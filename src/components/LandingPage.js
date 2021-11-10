@@ -31,7 +31,7 @@ const LandingPage = () => {
 
   //if counter changes, get movies
   useEffect(() => {
-    console.log("counter", counter);
+    // console.log("counter", counter);
     getPopular();
   }, [counter]);
 

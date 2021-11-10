@@ -116,6 +116,7 @@ const Poster = (props) => {
           <img
             src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
             style={{ maxHeight: 370, maxWidth: 174 }}
+            alt=""
           />{" "}
           <br />
           <br />
