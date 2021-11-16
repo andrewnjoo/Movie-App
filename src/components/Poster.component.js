@@ -108,6 +108,9 @@ const Poster = (props) => {
       <div style={{height:0}}>
         {whichDonut()}
       </div>
+
+      {/* Modal */}
+      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{data.title}</Modal.Title>

@@ -1,5 +1,7 @@
 ## high-prio
 
+add a movies watched list
+
 make donut rating smaller; add % rating inside donut
 
 ### n2h

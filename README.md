@@ -4,28 +4,42 @@
 <img src='./scrn8.png' width='250'>
 </a>
 
-## Tech: 
-
-react.js
-
-bootstrap
-
-jest (testing)
-
-netlify deployment
+<br><hr>
 
 ## Features:
 
-• Register/Login (using JSON web tokens and bcrypt)
+• Register/Login (JWT | bcrypt)
 
-• CRUD (add, read, edit, delete movies)
+• CRUD (add, read, edit, delete data)
 
-• Profile page
+• Profile page (edit username)
 
 • Popular movies (API calls to [TMDB](https://developers.themoviedb.org/3))
 
-## [Backend](https://github.com/adnjoo/movie-app-auth-backend)
+<hr>
 
-## Notes
+## Tech: 
 
-08-14 Added [buildpack](https://github.com/mars/create-react-app-buildpack) to heroku
+react 18
+
+bootstrap 5
+
+jest (tests)
+
+netlify (deploy)
+
+redux (rtk)
+
+[backend](https://github.com/adnjoo/movie-app-auth-backend)
+
+## instructions:
+
+```
+git clone https://github.com/adnjoo/movie-app-auth-frontend
+
+cd movie-app-auth-frontend
+
+npm install
+
+npm start
+```

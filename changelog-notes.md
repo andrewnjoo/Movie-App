@@ -1,4 +1,12 @@
-2021-11-08
+2021-11-13 
+
+swapped out axios with rtk-query in LandingPage
+
+2021-11-12 (redux branch)
+
+styled profile component; 
+
+2021-11-08 
 
 refactor movielist from Class->Functional component; add donut rating
 
@@ -17,6 +25,10 @@ add Left-Right key detection to LandingPage; refactored LandingPage from class t
 2021-10-29
 
 refactored margin on LandingPage, add icon to navbar; changed page deployment from Heroku to Netlify due to speed/loading concerns. 
+
+2021-08-14
+
+Added [buildpack](https://github.com/mars/create-react-app-buildpack) to heroku
 
 2021-08-09
 

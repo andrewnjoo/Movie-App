@@ -56,8 +56,8 @@ const Profile = ({ setAuth }) => {
   };
 
   return (
-    <Container className='my-5'>
-      <h1>Welcome {name}</h1>
+    <Container className='my-5 registerloginbox'>
+      <h2>Welcome {name}</h2>
       <h3>Dashboard</h3>
       <Form
         onSubmit={(e) => {

@@ -1,75 +1,63 @@
-// import dependencies
+// import components
 import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import Poster from "./Poster.component";
+//import other
 import axios from "axios";
 import useKeyPress from "react-use-keypress";
 import { tmdbKey } from "./sharedVariables";
-import Poster from "./Poster.component";
+import { useGetMoviesQuery } from "./services/movies";
+import Reduxtest from "./oldcomponents/Reduxtest";
 
 const LandingPage = () => {
-  const [movies, setMovies] = useState([]);
-  const [counter, setCounter] = useState(1);
 
-  // Nav shortcuts
+  const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+  const { data, error, isLoading } = useGetMoviesQuery(page);
+
+  useEffect(() => {
+    console.log(data)
+    setMovies(data)
+  }, [data]);
+
+  // nav shortcuts
   useKeyPress("ArrowLeft", () => {
-    increaseCounter(-1);
+    increasePage(-1);
   });
   useKeyPress("ArrowRight", () => {
-    increaseCounter(1);
+    increasePage(1);
   });
 
-  //initial load
-  useEffect(() => {
-    getPopular();
-  }, []);
-
-  //if movies change
-  useEffect(() => {
-    console.log(movies);
-  }, [movies]);
-
-  //if counter changes, get movies
-  useEffect(() => {
-    // console.log("counter", counter);
-    getPopular();
-  }, [counter]);
-
-  const getPopular = async () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${tmdbKey}&language=en-US&page=${counter}`
-      )
-      .then((res) => {
-        setMovies(res.data.results);
-      });
-  };
-
-  const popularList = () => {
-    console.log('movies',movies)
-    return movies.map((e, i) => {
-      return <Poster props={e} key={i} />;
-    });
-  };
-
-  const increaseCounter = (num) => {
-    if (counter === 1 && num === -1) {
+  const increasePage = (num) => {
+    if (page + num === 0) {
       console.log("not allowed");
       return;
     }
-    console.log("counter is", counter, "num is", num, counter + num);
-    setCounter(counter + num);
-    console.log("new counter is", counter);
+    setPage(page + num);
   };
+
+  // if movies change
+  useEffect(() => {
+    console.log('movies',movies);
+  }, [movies]);
+
+  // popular movies
+  const popularList = () => {
+    return data.results.map((e,i) => {
+      return <Poster props={e} key={i} />
+    })
+  };
+
 
   return (
     <Container className="my-5 w-75 text-center">
       <h3 className="text-center">Popular Movies</h3>
-      <div>page {counter}</div>
+      <div>page {page}</div>
       <button
         className="btn btn-info border border-dark"
         onClick={() => {
-          increaseCounter(-1);
+          increasePage(-1);
         }}
       >
         &lt;
@@ -78,12 +66,13 @@ const LandingPage = () => {
       <button
         className="btn btn-info border border-dark"
         onClick={() => {
-          increaseCounter(1);
+          increasePage(1);
         }}
       >
         &gt;
       </button>
       <div className="text-center my-5">{popularList()}</div>
+
     </Container>
   );
 };

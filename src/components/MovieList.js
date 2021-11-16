@@ -1,10 +1,10 @@
-//import dependencies
+//import components
 import React, { useEffect, useState } from "react";
 import Poster from "./Poster.component";
 import { Container } from "react-bootstrap";
 import Inputfield from "./Inputfield.component";
 import Movie from "./Movie.component";
-
+//import other
 import axios from "axios";
 import { tmdbKey, backendURL } from "./sharedVariables";
 
@@ -21,8 +21,9 @@ const MovieList = () => {
   }, []);
 
   const getMovies = () => {
+    //reset movies
+    setMovies([]); 
     //should send new movie name, and user_id
-    setMovies([]) //reset movies 
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.token,
@@ -47,11 +48,12 @@ const MovieList = () => {
           getDetails(tempArr[i].name);
         }
       });
-      
   };
 
   const getDetails = (movie) => {
-    setMovies2([]) //reset TMDB movies  
+    //reset TMDB movies
+    setMovies2([]);
+
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=${movie}`
@@ -63,6 +65,9 @@ const MovieList = () => {
         }
         let tempArr2 = [];
         tempArr2.push(res.data.results[0]);
+
+        //redux
+
         setMovies2((x) => [...x, ...tempArr2]); //*deep copy
       });
   };
@@ -92,9 +97,7 @@ const MovieList = () => {
   const movieList = () => {
     console.log("movies", movies);
     return movies.map((e, i) => {
-      return (
-        <Movie key={i} movies={e} getMovies={getMovies} />
-      );
+      return <Movie key={i} movies={e} getMovies={getMovies} />;
     });
   };
 
@@ -109,7 +112,7 @@ const MovieList = () => {
   return (
     <>
       <Container className="mycontainer border my-3">
-        <h1 className="text-center fs-2">My movie list</h1>
+        <h1 className="text-center fs-3 mt-2">Movies to watch:</h1>
         <div className="text-center my-5">{movieList()}</div>
         <div className="text-center my-5">{popularList()}</div>
         <Inputfield addMovie={addMovie} getMovies={getMovies} />
