@@ -4,20 +4,19 @@ import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Poster from "./Poster.component";
 //import other
-import axios from "axios";
 import useKeyPress from "react-use-keypress";
-import { tmdbKey } from "./sharedVariables";
 import { useGetMoviesQuery } from "./services/movies";
-import Reduxtest from "./oldcomponents/Reduxtest";
 
 const LandingPage = () => {
-
+  
+  const [movies, setMovies] = useState([]) 
   const [page, setPage] = useState(1);
-  const { data, error, isLoading } = useGetMoviesQuery(page);
+  const { data } = useGetMoviesQuery(page);
 
   //check if data changed
   useEffect(() => {
     console.log(data)
+    setMovies(data)
   }, [data]);
 
   // nav shortcuts
@@ -42,11 +41,10 @@ const LandingPage = () => {
     if(data === undefined) {
       return
     }
-    return data.results.map((e,i) => {
+    return data.map((e,i) => {
       return <Poster props={e} key={i} />
     })
   };
-
 
   return (
     <Container className="my-5 w-75 text-center">

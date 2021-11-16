@@ -28,75 +28,32 @@ const Poster = (props) => {
     setImage();
   });
 
-  const whichDonut = () => {
-    if(data.vote_average===0){
-      return
+  const movieRating = () => {
+    if (data.vote_average === 0) {
+      return;
     }
-    if(data.vote_average < 7 ){
+    if (data.vote_average < 7) {
       return (
-        <Doughnut
-            data={{
-              labels: [""],
-              datasets: [
-                {
-                  data: [data.vote_average * 10, 100 - data.vote_average * 10],
-                  backgroundColor: ["rgba(202, 205, 47, 0.6)", "rgba(0,0,0,0)"],
-                  borderColor: ["rgba(0, 0, 0, 0)", "rgba(0,0,0,0)"],
-                },
-              ],
-            }}
-            options = {{
-              events:[],
-              plugins: {
-                legend: {
-                  display: false
-                }
-              },
-              maintainAspectRatio: false
-            }}
-            height={25}
-            width={25}
-            style={{
-          transform: 'translate(-40px, -80px)',
-          }}
-          />
-      )
+        <div style={{ color: "#cacd2f", position: "absolute", top: "240px" }}>
+          {data.vote_average * 10 + "%"}
+        </div>
+      );
     } else {
       return (
-        <Doughnut
-            data={{
-              labels: [""],
-              datasets: [
-                {
-                  data: [data.vote_average * 10, 100 - data.vote_average * 10],
-                  backgroundColor: ["rgba(33, 208, 122, 0.6)", "rgba(0,0,0,0)"],
-                  borderColor: ["rgba(0, 0, 0, 0)", "rgba(0,0,0,0)"],
-                },
-              ],
-            }}
-            options = {{
-              events:[],
-              plugins: {
-                legend: {
-                  display: false
-                }
-              },
-              maintainAspectRatio: false
-            }}
-            height={25}
-            width={25}
-            style={{transform: `translate(-40px, -80px)`}}
-          />
-      )
+        <div style={{ color: "#21d07a", position: "absolute", top: "240px" }}>
+          {data.vote_average * 10 + "%"}
+        </div>
+      );
     }
-  }
+  };
 
   return (
     <div
       style={{
         display: "inline-block",
+        position: "relative",
         overflow: "hidden",
-        margin: "auto 2px auto 2px"
+        margin: "auto 2px auto 2px",
       }}
     >
       <img
@@ -105,12 +62,11 @@ const Poster = (props) => {
         style={{ maxHeight: 370, maxWidth: 174, height: 261, borderRadius: 8 }}
         alt=""
       />
-      <div style={{height:0}}>
-        {whichDonut()}
-      </div>
+
+      {movieRating()}
 
       {/* Modal */}
-      
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{data.title}</Modal.Title>

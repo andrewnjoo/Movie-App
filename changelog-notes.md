@@ -1,4 +1,6 @@
+2021-11-16
 
+replaced donut rating with bottom-right text in LandingPage
 
 2021-11-13 - 2021-11-15
 
