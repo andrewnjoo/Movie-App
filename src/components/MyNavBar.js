@@ -2,6 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { toast } from "react-toastify";
+const logo = require( '../assets/logo.png')
 
 function UserNav ({logout}){
   return (
@@ -71,7 +72,7 @@ const MyNavBar = ({ setAuth, isAuth }) => {
           <Navbar.Brand href={"/"}>
           <img
           alt=""
-          src="https://raw.githubusercontent.com/adnjoo/movie-app-auth-frontend/main/public/movie.png"
+          src={logo.default}
           width="30"
           height="30"
           className="d-inline-block align-top rounded-circle"

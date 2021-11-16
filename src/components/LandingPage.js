@@ -8,15 +8,14 @@ import useKeyPress from "react-use-keypress";
 import { useGetMoviesQuery } from "./services/movies";
 
 const LandingPage = () => {
-  
-  const [movies, setMovies] = useState([]) 
+  const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const { data } = useGetMoviesQuery(page);
 
   //check if data changed
   useEffect(() => {
-    console.log(data)
-    setMovies(data)
+    console.log(data);
+    setMovies(data);
   }, [data]);
 
   // nav shortcuts
@@ -38,12 +37,12 @@ const LandingPage = () => {
 
   // popular movies
   const popularList = () => {
-    if(data === undefined) {
-      return
+    if (data === undefined) {
+      return;
     }
-    return data.map((e,i) => {
-      return <Poster props={e} key={i} />
-    })
+    return data.map((e, i) => {
+      return <Poster props={e} key={i} />;
+    });
   };
 
   return (
@@ -53,7 +52,7 @@ const LandingPage = () => {
       <button
         className="btn btn-info border border-dark"
         onClick={() => {
-          increasePage(-1);
+          setPage(page+1);
         }}
       >
         &lt;
@@ -62,13 +61,12 @@ const LandingPage = () => {
       <button
         className="btn btn-info border border-dark"
         onClick={() => {
-          increasePage(1);
+          setPage(page-1);
         }}
       >
         &gt;
       </button>
       <div className="text-center my-5">{popularList()}</div>
-
     </Container>
   );
 };
