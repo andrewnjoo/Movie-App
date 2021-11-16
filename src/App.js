@@ -6,21 +6,22 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 // import components
-import MyNavBar from "./components/MyNavBar";
+import NavBar from "./components/NavBar";
 import MovieList from "./components/MovieList";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import Profile2  from "./components/Profile2";
-import Loading  from "./components/Loading";
+import Profile2 from "./components/Profile2";
+import Loading from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
-import Footer from './components/Footer'
+import Footer from "./components/Footer";
+import TopRated from './components/TopRated'
 
 // import { Helmet } from 'react-helmet'
 //configure toastify
 toast.configure({
-  position: 'bottom-right',
+  position: "bottom-right",
   autoClose: 3000,
   draggable: true,
   pauseOnHover: false,
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <>
-      <MyNavBar isAuth={isAuthenticated} setAuth={setAuth} />
+      <NavBar isAuth={isAuthenticated} setAuth={setAuth} />
       <BrowserRouter>
         <Switch>
           <Route
@@ -104,19 +105,38 @@ function App() {
             exact
             path="/profile"
             render={(props) =>
-              !isAuthenticated ? <Profile2 {...props} />: <Profile {...props} />
+              !isAuthenticated ? (
+                <Profile2 {...props} />
+              ) : (
+                <Profile {...props} />
+              )
             }
           />
-           <Route
+          <Route
             exact
             path="/popular"
             render={(props) =>
-              !isAuthenticated ? <Loading {...props} />: <LandingPage {...props} />
+              !isAuthenticated ? (
+                <Loading {...props} />
+              ) : (
+                <LandingPage {...props} />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/toprated"
+            render={(props) =>
+              !isAuthenticated ? (
+                <Loading {...props} />
+              ) : (
+                <TopRated {...props} />
+              )
             }
           />
         </Switch>
       </BrowserRouter>
-      <Footer/>
+      <Footer />
     </>
   );
 }

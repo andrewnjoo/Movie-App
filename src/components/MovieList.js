@@ -103,7 +103,6 @@ const MovieList = () => {
 
   //TMDB movies
   const popularList = () => {
-    // console.log('movies2',movies2)
     return movies2.map((e, i) => {
       return <Poster props={e} key={i} />;
     });

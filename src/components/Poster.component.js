@@ -30,7 +30,7 @@ const Poster = (props) => {
   const movieRating = () => {
     if (data.vote_average === 0) {
       return (
-        <div className='movierating' style={{ color: "#FF7F7F" }}>
+        <div className='movierating' style={{ color: "black" }}>
           N/A
         </div>
       );

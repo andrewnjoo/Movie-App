@@ -13,3 +13,5 @@ add loading spinner during api call | fetch pre-load X page api data
 add infinite || vertical scroll to landingpage
 
 trailer link (? possible)
+
+did you mean this movie name popup

@@ -65,7 +65,7 @@ const Movie2 = (props) => {
     <div className="mx-auto text-center" style={{ width: "100%" }}>
       <input
         ref={inputRef}
-        className="text-center movieListInput"
+        className="text-center movielistinput"
         onChange={handleChange}
         value={name}
         onKeyDown={handleKeyDown}

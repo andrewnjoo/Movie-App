@@ -8,7 +8,9 @@ function UserNav ({logout}){
   return (
     <>
     <Nav className='me-auto'>
+      <Nav.Link href={'/dashboard'}>My Movies</Nav.Link>
       <Nav.Link href={'/popular'}>Popular</Nav.Link>
+      <Nav.Link href={'/toprated'}>Top Rated</Nav.Link>
     </Nav>
     <Nav
   
@@ -18,9 +20,6 @@ function UserNav ({logout}){
       flip
       title="Menu" 
       id="basic-nav-dropdown">
-        <NavDropdown.Item 
-        
-        href={"/dashboard"}>My Movies</NavDropdown.Item>
         <NavDropdown.Item href={"/profile"}>My Profile</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item onClick={
@@ -56,7 +55,7 @@ export const LoggedNav = ({isAuth, logout}) => {
   }
 };
 
-const MyNavBar = ({ setAuth, isAuth }) => {
+const NavBar = ({ setAuth, isAuth }) => {
   //logout function
   const logout = (e) => {
     e.preventDefault();
@@ -86,4 +85,4 @@ const MyNavBar = ({ setAuth, isAuth }) => {
   );
 };
 
-export default MyNavBar;
+export default NavBar;
