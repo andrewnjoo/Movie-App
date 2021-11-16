@@ -35,28 +35,37 @@ const LandingPage = () => {
           return <Poster props={e} key={i} />;
         });
 
+
   return (
-    <Container className="my-5 w-75 text-center">
+    <Container className="my-5 w-75">
       <h3 className="text-center">Popular Movies</h3>
-      <div>page {page}</div>
-      <button
-        className="btn btn-info border border-dark"
-        onClick={() => {
-          decreasePage();
-        }}
-      >
-        &lt;
-      </button>{" "}
-      &nbsp;
-      <button
-        className="btn btn-info border border-dark"
-        onClick={() => {
-          setPage(page + 1);
-        }}
-      >
-        &gt;
-      </button>
-      <div className="text-center my-5">{popularList()}</div>
+
+      <div className="text-center mt-5">{popularList()}</div>
+      <div className="pagination">
+        <div className="me-auto">page {page}</div>
+        
+        <p style={{display: page === 1 ? 'none' : 'block'}}>
+          <a
+            className="btn border-dark custombtn"
+            onClick={() => {
+              decreasePage();
+            }}
+          >
+            ←
+          </a>{" "}
+        </p>
+        &nbsp;
+        <p>
+          <a
+            className="btn border-dark custombtn"
+            onClick={() => {
+              setPage(page + 1);
+            }}
+          >
+            →
+          </a>
+        </p>
+      </div>
     </Container>
   );
 };
