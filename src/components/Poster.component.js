@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import useKeypress from "react-use-keypress";
-import { Doughnut } from "react-chartjs-2";
 
 const Poster = (props) => {
   useKeypress("Enter", () => {
@@ -30,17 +29,21 @@ const Poster = (props) => {
 
   const movieRating = () => {
     if (data.vote_average === 0) {
-      return;
+      return (
+        <div className='movierating' style={{ color: "#FF7F7F" }}>
+          N/A
+        </div>
+      );
     }
     if (data.vote_average < 7) {
       return (
-        <div style={{ color: "#cacd2f", position: "absolute", top: "240px" }}>
+        <div className='movierating' style={{ color: "#cacd2f" }}>
           {data.vote_average * 10 + "%"}
         </div>
       );
     } else {
       return (
-        <div style={{ color: "#21d07a", position: "absolute", top: "240px" }}>
+        <div className='movierating' style={{ color: "#21d07a" }}>
           {data.vote_average * 10 + "%"}
         </div>
       );

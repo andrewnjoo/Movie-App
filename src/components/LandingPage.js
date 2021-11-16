@@ -8,42 +8,32 @@ import useKeyPress from "react-use-keypress";
 import { useGetMoviesQuery } from "./services/movies";
 
 const LandingPage = () => {
-  const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const { data } = useGetMoviesQuery(page);
 
-  //check if data changed
-  useEffect(() => {
-    console.log(data);
-    setMovies(data);
-  }, [data]);
+  const decreasePage = () => {
+    if (page === 1) {
+      return;
+    } else {
+      setPage(page - 1);
+    }
+  };
 
   // nav shortcuts
   useKeyPress("ArrowLeft", () => {
-    increasePage(-1);
+    decreasePage();
   });
   useKeyPress("ArrowRight", () => {
-    increasePage(1);
+    setPage(page + 1);
   });
 
-  //increase/decrease page function
-  const increasePage = (num) => {
-    if (page + num === 0) {
-      console.log("not allowed");
-      return;
-    }
-    setPage(page + num);
-  };
-
   // popular movies
-  const popularList = () => {
-    if (data === undefined) {
-      return;
-    }
-    return data.map((e, i) => {
-      return <Poster props={e} key={i} />;
-    });
-  };
+  const popularList = () =>
+    data === undefined
+      ? null
+      : data.map((e, i) => {
+          return <Poster props={e} key={i} />;
+        });
 
   return (
     <Container className="my-5 w-75 text-center">
@@ -52,7 +42,7 @@ const LandingPage = () => {
       <button
         className="btn btn-info border border-dark"
         onClick={() => {
-          setPage(page+1);
+          decreasePage();
         }}
       >
         &lt;
@@ -61,7 +51,7 @@ const LandingPage = () => {
       <button
         className="btn btn-info border border-dark"
         onClick={() => {
-          setPage(page-1);
+          setPage(page + 1);
         }}
       >
         &gt;

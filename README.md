@@ -28,7 +28,7 @@ jest (tests)
 
 netlify (deploy)
 
-redux (rtk)
+redux (rtk-query)
 
 [backend](https://github.com/adnjoo/movie-app-auth-backend)
 

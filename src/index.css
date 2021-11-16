@@ -25,7 +25,7 @@ img:hover{
   margin: auto;
 }
 
-.movieListInput {
+.movielistInput {
   width: 40%;
   /* min-width: 170px; */
 }
@@ -50,4 +50,12 @@ img:hover{
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
+}
+
+.movierating {
+  position: absolute;
+  top: 0px;
+  font-weight: 600;
+  background-color: white;
+  outline: 1px solid black;
 }
