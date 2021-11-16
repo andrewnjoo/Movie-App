@@ -4,6 +4,7 @@ export default function Footer () {
     return (
       <div
         className="text-center"
+        data-testid="footer"
         style={{
           marginTop: "200px",
           marginBottom: "20px",

@@ -108,6 +108,9 @@ const Poster = (props) => {
       <div style={{height:0}}>
         {whichDonut()}
       </div>
+
+      {/* Modal */}
+      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{data.title}</Modal.Title>
@@ -116,6 +119,7 @@ const Poster = (props) => {
           <img
             src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
             style={{ maxHeight: 370, maxWidth: 174 }}
+            alt=""
           />{" "}
           <br />
           <br />

@@ -78,7 +78,6 @@ const Register = ({ setAuth }) => {
         <div className="text-center">
           <Link to="/login">Login</Link>
         </div>
-
     </Container>
   );
 };

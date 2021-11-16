@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useCaretPosition } from "react-use-caret-position";
 import axios from "axios";
-import { tmdbKey, backendURL } from "./sharedVariables";
+import { backendURL } from "./sharedVariables";
 
 const Movie2 = (props) => {
   const [name, setName] = useState("");
