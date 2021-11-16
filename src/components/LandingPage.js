@@ -12,13 +12,12 @@ import Reduxtest from "./oldcomponents/Reduxtest";
 
 const LandingPage = () => {
 
-  const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const { data, error, isLoading } = useGetMoviesQuery(page);
 
+  //check if data changed
   useEffect(() => {
     console.log(data)
-    setMovies(data)
   }, [data]);
 
   // nav shortcuts
@@ -29,6 +28,7 @@ const LandingPage = () => {
     increasePage(1);
   });
 
+  //increase/decrease page function
   const increasePage = (num) => {
     if (page + num === 0) {
       console.log("not allowed");
@@ -37,13 +37,11 @@ const LandingPage = () => {
     setPage(page + num);
   };
 
-  // if movies change
-  useEffect(() => {
-    console.log('movies',movies);
-  }, [movies]);
-
   // popular movies
   const popularList = () => {
+    if(data === undefined) {
+      return
+    }
     return data.results.map((e,i) => {
       return <Poster props={e} key={i} />
     })
