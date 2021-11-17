@@ -1,5 +1,5 @@
 // import modules
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, Suspense } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -105,7 +105,7 @@ function App() {
             path="/profile"
             render={(props) =>
               !isAuthenticated ? (
-                <Profile2 {...props} />
+                <Suspense />
               ) : (
                 <Profile {...props} />
               )
