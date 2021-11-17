@@ -1,6 +1,6 @@
 2021-11-17
 
-combine login|register navbar into login; rewrite jest tests from profile2 to profile.
+combine login|register navbar into login; rewrite jest tests from profile2 to profile. fixed login | register box overspilling on responsive.
 
 2021-11-16
 
