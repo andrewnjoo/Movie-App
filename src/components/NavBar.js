@@ -8,8 +8,9 @@ function UserNav ({logout}){
   return (
     <>
     <Nav className='me-auto'>
-      <Nav.Link href={'/dashboard'}>My Movies</Nav.Link>
       <Nav.Link href={'/popular'}>Popular</Nav.Link>
+      <Nav.Link href={'/dashboard'}>Movie List</Nav.Link>
+      <Nav.Link href={'/moviesivewatched'}>Movies watched</Nav.Link>
     </Nav>
     <Nav
   
