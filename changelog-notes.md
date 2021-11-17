@@ -1,6 +1,6 @@
 2021-11-17
 
-combine login|register navbar into login
+combine login|register navbar into login; rewrite jest tests from profile2 to profile.
 
 2021-11-16
 

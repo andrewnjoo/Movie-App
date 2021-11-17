@@ -1,23 +1,21 @@
-// import modules
+// import
 import React, { Fragment, useState, useEffect, Suspense } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-// import components
 import NavBar from "./components/NavBar";
 import MovieList from "./components/MovieList";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import Profile2 from "./components/Profile2";
 import Loading from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
-
 // import { Helmet } from 'react-helmet'
+
 //configure toastify
 toast.configure({
   position: "bottom-right",

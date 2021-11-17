@@ -56,7 +56,7 @@ const Profile = ({ setAuth }) => {
   };
 
   return (
-    <Container className='my-5 registerloginbox'>
+    <Container data-testid="profile" className='my-5 registerloginbox'>
       <h2>Welcome {name}</h2>
       <h3>Dashboard</h3>
       <Form
