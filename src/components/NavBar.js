@@ -10,7 +10,6 @@ function UserNav ({logout}){
     <Nav className='me-auto'>
       <Nav.Link href={'/dashboard'}>My Movies</Nav.Link>
       <Nav.Link href={'/popular'}>Popular</Nav.Link>
-      <Nav.Link href={'/toprated'}>Top Rated</Nav.Link>
     </Nav>
     <Nav
   
@@ -36,12 +35,8 @@ function UserNav ({logout}){
 function GuestNav (props){
   return (
     <Nav>
-      <NavDropdown 
-      alignLeft
-      className="ml-auto" title="Login" id="basic-nav-dropdown">
-        <NavDropdown.Item href={"/login"}>Login</NavDropdown.Item>
-        <NavDropdown.Item href={"/register"}>Get Started</NavDropdown.Item>
-      </NavDropdown>
+                <Nav.Link href={"/login"}>Login</Nav.Link>
+
     </Nav>
   );
 }

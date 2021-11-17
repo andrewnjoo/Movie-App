@@ -112,9 +112,9 @@ const MovieList = () => {
     <>
       <Container className="mycontainer border my-3">
         <h1 className="text-center fs-3 mt-2">Movies to watch:</h1>
+        <Inputfield addMovie={addMovie} getMovies={getMovies} />
         <div className="text-center my-5">{movieList()}</div>
         <div className="text-center my-5">{popularList()}</div>
-        <Inputfield addMovie={addMovie} getMovies={getMovies} />
       </Container>
     </>
   );

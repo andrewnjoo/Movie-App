@@ -1,6 +1,10 @@
+2021-11-17
+
+combine login|register navbar into login
+
 2021-11-16
 
-replaced donut rating with bottom-right text in LandingPage; edit navbar
+replaced donut rating with bottom-right text in LandingPage; edit navbar. moved buttons from top to bottom of LP.
 
 2021-11-13 - 2021-11-15
 

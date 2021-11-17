@@ -16,7 +16,6 @@ import Loading from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
-import TopRated from './components/TopRated'
 
 // import { Helmet } from 'react-helmet'
 //configure toastify
@@ -120,17 +119,6 @@ function App() {
                 <Loading {...props} />
               ) : (
                 <LandingPage {...props} />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/toprated"
-            render={(props) =>
-              !isAuthenticated ? (
-                <Loading {...props} />
-              ) : (
-                <TopRated {...props} />
               )
             }
           />

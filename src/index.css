@@ -68,3 +68,8 @@ img:hover {
   transform: scale(1.05);
   transition: 0.3s
 }
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}

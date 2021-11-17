@@ -19,7 +19,7 @@ const Inputfield = (props) => {
     }
   };
   return (
-    <div style={{ textAlign: "center", position: 'relative' }}>
+    <div className='pt-2' style={{ textAlign: "center", position: 'relative' }}>
       <img className='magnifying' alt=''src={magnifying.default} />
       <input
         onChange={handleChange}

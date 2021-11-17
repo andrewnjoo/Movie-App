@@ -11,6 +11,10 @@ const LandingPage = () => {
   const [page, setPage] = useState(1);
   const { data } = useGetMoviesQuery(page);
 
+  useEffect(()=>{
+    console.log(data)
+  },[data])
+
   const decreasePage = () => {
     if (page === 1) {
       return;

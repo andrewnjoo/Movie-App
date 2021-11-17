@@ -1,16 +1,16 @@
 ## high-prio
 
-add a movies watched list
+create pagination
 
-highest rated page
+add a movies watched list
 
 tv shows page
 
 add a people page
 
-move left right arrow keys on LP to bottom right corner of popularlist
+add sort by popular | top rated
 
-add sort by
+trailer example : http://api.themoviedb.org/3/movie/566525/videos?api_key=7aa9ec6612579e4bfd39288619de239c
 
 ### n2h
 
