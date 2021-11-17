@@ -1,5 +1,9 @@
 ## high-prio
 
+Fix page buttons on responsive
+
+responsive styling
+
 create pagination
 
 add a movies watched list

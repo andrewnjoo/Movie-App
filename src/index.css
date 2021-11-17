@@ -48,6 +48,10 @@ img:hover {
   .registerloginbox {
     width: auto;
   }
+
+  .pagination{
+    margin: 0 50px 0 50px;
+  }
 }
 
 .movierating {
