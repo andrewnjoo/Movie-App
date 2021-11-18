@@ -1,3 +1,7 @@
+.primarycolor {
+  background: #445bf5
+}
+
 img {
   transition: 0.1s ease-in-out;
 }
@@ -70,6 +74,10 @@ img:hover {
   left: auto;
 }
 
+.addmovieinput {
+  min-width: 250px;
+}
+
 
 @media only screen and (max-width:600px){
   .registerloginbox {
@@ -82,5 +90,9 @@ img:hover {
 
   .movielistinput {
     min-width: 220px;
+  }
+
+  .addmovieinput {
+    min-width: 200px
   }
 }

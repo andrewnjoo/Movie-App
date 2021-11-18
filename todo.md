@@ -2,15 +2,13 @@
 
 create pagination
 
-add a movies watched list
-
-tv shows page
+hamburger menu for mobile
 
 add a people page
 
 add sort by popular | top rated
 
-search bar
+improve search bar
 
 ### n2h
 

@@ -3,11 +3,12 @@
 export default function Footer () {
     return (
       <div
-        className="text-center"
+        className="text-center primarycolor"
         data-testid="footer"
         style={{
           marginTop: "200px",
-          marginBottom: "20px",
+          paddingTop: "30px",
+          paddingBottom: "30px",
         }}
       >
         app made by &nbsp;
@@ -15,6 +16,7 @@ export default function Footer () {
           href="https://github.com/adnjoo/movie-app-auth-frontend"
           target="_blank"
           rel="noreferrer"
+          style={{color:'white'}}
         >
           adnjoo
         </a>

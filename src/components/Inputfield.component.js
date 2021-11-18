@@ -22,11 +22,11 @@ const Inputfield = (props) => {
     <div className='pt-2' style={{ textAlign: "center", position: 'relative' }}>
       <img className='magnifying' alt=''src={magnifying.default} />
       <input
+        className='addmovieinput'
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={textInput}
         placeholder="add movie"
-        style={{minWidth:'250px'}}
       />
     </div>
   );
