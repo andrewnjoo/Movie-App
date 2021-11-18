@@ -1,9 +1,5 @@
 ## high-prio
 
-Fix page buttons on responsive
-
-responsive styling
-
 create pagination
 
 add a movies watched list
@@ -16,9 +12,9 @@ add sort by popular | top rated
 
 search bar
 
-trailer example : http://api.themoviedb.org/3/movie/566525/videos?api_key=7aa9ec6612579e4bfd39288619de239c
-
 ### n2h
+
+trailer example : http://api.themoviedb.org/3/movie/566525/videos?api_key=7aa9ec6612579e4bfd39288619de239c
 
 refactor LandingPage to save output of API call into state to save time
 

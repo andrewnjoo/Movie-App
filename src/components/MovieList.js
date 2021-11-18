@@ -90,6 +90,7 @@ const MovieList = () => {
       )
       .then((res) => {
         // console.log(res);
+        getMovies()
       });
   };
 

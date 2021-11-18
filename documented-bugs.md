@@ -1,8 +1,10 @@
 ## bugs 
 
-11-04-21 
+11-18-21
 
-modal not working properly on my movies page
+adding a movie doesn't reflect changes automatically
+
+11-04-21 
 
 adding same movie name shouldnt be allowed -> bugs
 
