@@ -79,4 +79,8 @@ img:hover {
   .pagination {
     margin: 0 50px 0 50px;
   }
+
+  .movielistinput {
+    min-width: 220px;
+  }
 }

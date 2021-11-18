@@ -2,7 +2,7 @@
 
 11-18-21
 
-adding a movie doesn't reflect changes automatically
+~~adding a movie doesn't reflect changes automatically~~ - resolved
 
 11-04-21 
 

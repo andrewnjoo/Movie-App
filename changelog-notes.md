@@ -1,3 +1,7 @@
+2021-11-18
+
+fix movielist; add TV component.
+
 2021-11-17
 
 combine login|register navbar into login; rewrite jest tests from profile2 to profile. fixed login | register box overspilling on responsive.
@@ -6,7 +10,7 @@ combine login|register navbar into login; rewrite jest tests from profile2 to pr
 
 replaced donut rating with bottom-right text in LandingPage; edit navbar. moved buttons from top to bottom of LP.
 
-2021-11-13 - 2021-11-15
+2021-11-15
 
 swapped out axios with rtk-query in LandingPage
 

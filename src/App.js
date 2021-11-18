@@ -14,6 +14,7 @@ import Loading from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
+import { Television } from "./components/Television";
 // import { Helmet } from 'react-helmet'
 
 //configure toastify
@@ -111,12 +112,23 @@ function App() {
           />
           <Route
             exact
-            path="/popular"
+            path="/movies"
             render={(props) =>
               !isAuthenticated ? (
                 <Loading {...props} />
               ) : (
                 <LandingPage {...props} />
+              )
+            }
+          />
+                    <Route
+            exact
+            path="/television"
+            render={(props) =>
+              !isAuthenticated ? (
+                <Loading {...props} />
+              ) : (
+                <Television {...props} />
               )
             }
           />
