@@ -71,7 +71,7 @@ const LandingPage = () => {
   }
 
   return (
-    <Container className="my-5 w-75">
+    <Container className="my-5">
       <h3 className="text-center">Popular Movies</h3>
       <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {data === undefined
