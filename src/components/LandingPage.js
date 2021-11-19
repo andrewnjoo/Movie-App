@@ -38,7 +38,7 @@ const LandingPage = () => {
   });
 
   return (
-    <Container className="my-5">
+    <Container className="my-5 customcontainer">
       <h3 className="text-center">Popular Movies</h3>
       <div
         id="movielist"
