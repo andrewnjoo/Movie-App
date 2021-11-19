@@ -3,9 +3,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Poster from "./Poster.component";
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+
 //import other
 import useKeyPress from "react-use-keypress";
 import { useGetMoviesQuery } from "./services/movies";
+
 
 const LandingPage = () => {
   const [page, setPage] = useState(1);
@@ -43,8 +46,14 @@ const LandingPage = () => {
   return (
     <Container className="my-5 w-75">
       <h3 className="text-center">Popular Movies</h3>
-
-      <div className="text-center mt-5">{popularList()}</div>
+      <ScrollMenu
+        >
+          {data === undefined
+      ? null : data.map((e,i)=>{
+            return <Poster props={e} key={i} />;
+          })}
+              </ScrollMenu>
+      
       <div className="pagination">
         <div className="me-auto">page {page}</div>
         

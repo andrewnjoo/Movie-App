@@ -1,6 +1,6 @@
 2021-11-18
 
-fix movielist; add TV component.
+fix movielist; add TV component. edit styling; add horizontal scroll.
 
 2021-11-17
 
