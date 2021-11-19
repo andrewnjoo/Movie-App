@@ -59,7 +59,7 @@ const NavBar = ({ setAuth, isAuth }) => {
 
   return (
     <div>
-      <Navbar className="primarycolor" variant="dark" expand='lg'>
+      <Navbar className="primarycolor" variant="dark" expand='md'>
         <Container>
           <Navbar.Brand href={"/"}>
             <img

@@ -14,7 +14,7 @@ import Loading from "./components/Loading";
 import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
-import { Television } from "./components/Television";
+import Television from "./components/Television";
 // import { Helmet } from 'react-helmet'
 
 //configure toastify
