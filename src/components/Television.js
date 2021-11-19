@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Poster from "./Poster.component";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
 //import other
 import useKeyPress from "react-use-keypress";
