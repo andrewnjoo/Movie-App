@@ -1,3 +1,7 @@
+2021-11-19
+
+working on horiz-scroll
+
 2021-11-18
 
 fix movielist; add TV shows. edit styling; add horizontal scroll. add burger menu.
