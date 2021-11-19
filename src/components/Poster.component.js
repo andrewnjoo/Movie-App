@@ -72,7 +72,7 @@ const Poster = (props) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{data.title}</Modal.Title>
+          <Modal.Title>{data.title || data.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img
@@ -86,7 +86,7 @@ const Poster = (props) => {
           <br />
           Vote count: <br /> {data.vote_count} <br />
           <br />
-          Release date: <br /> {data.release_date} <br />
+          Release date: <br /> {data.release_date || data.first_air_date} <br />
           <br />
           Overview: <br /> {data.overview} <br />
           <br />
