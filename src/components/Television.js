@@ -36,13 +36,20 @@ const Television = () => {
   return (
     <Container className="my-5 w-75">
       <h3 className="text-center">Popular TV Shows</h3>
-      <ScrollMenu>
+      <div
+        id="movielist"
+        style={{
+          overflow: "auto",
+          whiteSpace: "nowrap",
+          scrollBehavior: "smooth",
+        }}
+      >
         {data === undefined
           ? null
           : data.map((e, i) => {
-              return <Poster props={e} key={i} />;
+              return <Poster props={e} key={i} itemId={i} />;
             })}
-      </ScrollMenu>
+      </div>
 
       <div className="pagination">
         <div className="me-auto">page {page}</div>
