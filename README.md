@@ -8,8 +8,6 @@
 
 ## Features:
 
-<hr>
-
 • Register/Login (JWT | bcrypt)
 
 • CRUD (add, read, edit, delete data)
@@ -18,7 +16,6 @@
 
 • Popular movies (API calls to [TMDB](https://developers.themoviedb.org/3))
 
-<hr>
 
 ## Tech: 
 
