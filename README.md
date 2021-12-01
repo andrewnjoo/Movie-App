@@ -4,9 +4,11 @@
 <img src='./scrn8.png' width='250'>
 </a>
 
-<br><hr>
+<br>
 
 ## Features:
+
+<hr>
 
 • Register/Login (JWT | bcrypt)
 
