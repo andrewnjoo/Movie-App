@@ -44,7 +44,7 @@
 
 • Jest (Tests)
 
-• Netlify (Deployment)
+• Netlify & Heroku (Deployment)
 
 • Redux (RTK-Query)
 
