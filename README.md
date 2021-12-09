@@ -12,7 +12,7 @@
     <br />
     <br />
     <br />
-    <h2><a href="https://andrew-movie-app.netlify.app/">Try App</a></h2>
+    <a href="https://andrew-movie-app.netlify.app/">Try App</a>
   </p>
 </p>
 
