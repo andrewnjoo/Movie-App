@@ -33,22 +33,22 @@
 
 • Profile page (edit username)
 
-• Popular movies (API calls to [TMDB](https://developers.themoviedb.org/3))
+• Popular movies & TV-shows (API calls to [TMDB](https://developers.themoviedb.org/3))
 
 
 ## Technology: 
 
-react 18
+• React 18
 
-bootstrap 5
+• Bootstrap 5
 
-jest (tests)
+• Jest (Tests)
 
-netlify (deploy)
+• Netlify (Deployment)
 
-redux (rtk-query)
+• Redux (RTK-Query)
 
-[backend](https://github.com/adnjoo/movie-app-auth-backend)
+• [Backend](https://github.com/adnjoo/movie-app-auth-backend)
 
 ## Instructions:
 
