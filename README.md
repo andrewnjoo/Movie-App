@@ -1,4 +1,4 @@
-# movie-app-auth-frontend
+# movieApp
 <a href='https://andrew-movie-app.netlify.app/'>
 <img src='./scrn9.png' width='250'><br>
 <img src='./scrn8.png' width='250'>
