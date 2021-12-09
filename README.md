@@ -36,7 +36,7 @@
 • Popular movies (API calls to [TMDB](https://developers.themoviedb.org/3))
 
 
-## Tech: 
+## Technology: 
 
 react 18
 
@@ -50,7 +50,7 @@ redux (rtk-query)
 
 [backend](https://github.com/adnjoo/movie-app-auth-backend)
 
-## instructions:
+## Instructions:
 
 ```
 git clone https://github.com/adnjoo/movie-app-auth-frontend
