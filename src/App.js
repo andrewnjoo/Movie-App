@@ -15,7 +15,7 @@ import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
 import Television from "./components/Television";
-// import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 //configure toastify
 toast.configure({
@@ -56,6 +56,9 @@ function App() {
 
   return (
     <>
+    <Helmet>
+
+    </Helmet>
       <NavBar isAuth={isAuthenticated} setAuth={setAuth} />
       <BrowserRouter>
         <Switch>
