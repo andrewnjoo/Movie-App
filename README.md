@@ -26,28 +26,20 @@
 
 ## Features:
 
-• Register/Login (JWT | bcrypt)
-
-• CRUD (add, read, edit, delete data)
-
-• Profile page (edit username)
-
-• Popular movies & TV-shows (API calls to [TMDB](https://developers.themoviedb.org/3))
+*Register/Login (JWT | bcrypt)
+*CRUD (add, read, edit, delete data)
+*Profile page (edit username)
+*Popular movies & TV-shows (API calls to [TMDB](https://developers.themoviedb.org/3))
 
 
 ## Technology: 
 
-• React 18
-
-• Bootstrap 5
-
-• Jest (Tests)
-
-• Netlify & Heroku (Deployment)
-
-• Redux (RTK-Query)
-
-• [Backend](https://github.com/adnjoo/movie-app-auth-backend)
+*React 18
+*Bootstrap 5
+*Jest (Tests)
+*Netlify & Heroku (Deployment)
+*Redux (RTK-Query)
+*[Backend](https://github.com/adnjoo/movie-app-auth-backend)
 
 ## Instructions:
 
