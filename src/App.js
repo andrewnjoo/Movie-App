@@ -15,7 +15,8 @@ import LandingPage from "./components/LandingPage";
 import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
 import Television from "./components/Television";
-import { Helmet } from 'react-helmet'
+// import { Helmet } from 'react-helmet'
+import MetaTags from 'react-meta-tags';
 
 //configure toastify
 toast.configure({
@@ -56,11 +57,6 @@ function App() {
 
   return (
     <>
-    <MetaTags>
-    <meta property="og:image" content="https://raw.githubusercontent.com/adnjoo/Movie-App/main/scrn11.png"></meta>
-    </MetaTags>
-
-
       <NavBar isAuth={isAuthenticated} setAuth={setAuth} />
       <BrowserRouter>
         <Switch>
