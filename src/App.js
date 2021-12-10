@@ -56,9 +56,11 @@ function App() {
 
   return (
     <>
-    <Helmet>
-    <meta property="og:image" content="https://raw.githubusercontent.com/adnjoo/Movie-App/main/scrn10.png"></meta>
-    </Helmet>
+    <MetaTags>
+    <meta property="og:image" content="https://raw.githubusercontent.com/adnjoo/Movie-App/main/scrn11.png"></meta>
+    </MetaTags>
+
+
       <NavBar isAuth={isAuthenticated} setAuth={setAuth} />
       <BrowserRouter>
         <Switch>
