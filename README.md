@@ -45,10 +45,7 @@
 
 ```
 git clone https://github.com/adnjoo/movie-app-auth-frontend
-
 cd movie-app-auth-frontend
-
 npm install
-
 npm start
 ```
