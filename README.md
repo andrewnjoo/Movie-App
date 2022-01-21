@@ -1,18 +1,14 @@
 <!-- PROJECT LOGO -->
 <br />
-[<img src='./src/assets/logo.png'>]('https://github.com/adnjoo/Movie-App')
 <p align="center">
-    
-    
-
+  <img src='./src/assets/logo.png' width='80'>
   <h3 align="center">Movie App</h3>
-
   <p align="center">
     This application allows you to save your favorite movies using the TMDB api. You can also find highly rated Television shows.
     <br />
     <br />
-    <br />
     <a href="https://andrew-movie-app.netlify.app/">Try App</a>
+    <br />
   </p>
 </p>
 
