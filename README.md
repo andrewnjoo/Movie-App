@@ -1,9 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <a href='https://github.com/adnjoo/Movie-App'>
-    <img src="src/assets/logo.png" alt="Logo" width="80" height="80">
-    </a>
+    [<img src="src/assets/logo.png" alt="Logo" width="80" height="80">](https://github.com/adnjoo/Movie-App')
 
   <h3 align="center">Movie App</h3>
 
