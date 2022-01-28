@@ -40,7 +40,7 @@
 ## Instructions:
 
 ```
-git clone https://github.com/adnjoo/movie-app
+git clone https://github.com/adnjoo/Movie-App
 cd movie-app
 npm install
 npm start
