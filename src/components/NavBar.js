@@ -7,25 +7,25 @@ const logo = require("../assets/logo.png");
 function UserNav({ logout }) {
   return (
     <>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
-        <Nav.Link href={"/movies"}>Movies</Nav.Link>
-        <Nav.Link href={"/television"}>TV Shows</Nav.Link>
-        <Nav.Link href={"/dashboard"}>My Movies</Nav.Link>
-      </Nav>
-      <Nav>
-        <NavDropdown align="end" flip title="Menu" id="basic-nav-dropdown">
-          <NavDropdown.Item href={"/profile"}>My Profile</NavDropdown.Item>
-          <NavDropdown.Item
-            onClick={(e) => {
-              logout(e);
-            }}
-          >
-            Logout
-          </NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href={"/movies"}>Movies</Nav.Link>
+          <Nav.Link href={"/television"}>TV Shows</Nav.Link>
+          <Nav.Link href={"/dashboard"}>My Movies</Nav.Link>
+        </Nav>
+        <Nav>
+          <NavDropdown align="end" flip title="Menu" id="basic-nav-dropdown">
+            <NavDropdown.Item href={"/profile"}>My Profile</NavDropdown.Item>
+            <NavDropdown.Item
+              onClick={(e) => {
+                logout(e);
+              }}
+            >
+              Logout
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       </Navbar.Collapse>
     </>
   );
@@ -59,7 +59,7 @@ const NavBar = ({ setAuth, isAuth }) => {
 
   return (
     <div>
-      <Navbar className="primarycolor" variant="dark" expand='md'>
+      <Navbar className="primarycolor" variant="dark" expand="md">
         <Container>
           <Navbar.Brand href={"/"}>
             <img
@@ -69,7 +69,7 @@ const NavBar = ({ setAuth, isAuth }) => {
               height="30"
               className="d-inline-block align-top rounded-circle"
             />{" "}
-            movieApp
+            Movie App
           </Navbar.Brand>
           <LoggedNav isAuth={isAuth} logout={logout} />
         </Container>

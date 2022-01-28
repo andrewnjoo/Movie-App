@@ -84,12 +84,15 @@ img:hover {
 
 .customcontainer {
   width: 75%;
+
 }
 
-
+/* Mobile breakpoint */
 @media only screen and (max-width:600px){
   .customcontainer {
     width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
   }
 
   .registerloginbox {
