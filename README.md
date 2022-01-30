@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img src='./src/assets/logo.png' width='80' style='border-radius:10px'>
+  <img src='./src/assets/logo.png' width='80' style="border-radius:10px">
   <h3 align="center">Movie App</h3>
   <p align="center">
     This application allows you to save your favorite movies using the TMDB api. You can also find highly rated Television shows.
