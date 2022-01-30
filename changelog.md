@@ -83,6 +83,8 @@
 
 ## high-prio
 
+- app reflashes when routing: how to fix: maybe move to Next.js / SSR
+
 - horizontal scroll to vertical scroll for movies / TV
 
 - create pagination
