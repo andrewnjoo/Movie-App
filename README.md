@@ -45,8 +45,3 @@ cd movie-app
 npm install
 npm start
 ```
-
-
-
-
-t
