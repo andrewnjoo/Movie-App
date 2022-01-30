@@ -33,7 +33,7 @@ const Television = () => {
   });
 
   return (
-    <Container className="my-5 w-75">
+    <Container className="my-5 customcontainer">
       <h3 className="text-center">Popular TV Shows</h3>
       <div
         id="movielist"
