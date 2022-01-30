@@ -4,7 +4,7 @@ html {
 
 .primarycolor {
   /* dark to -> light */
-  background: linear-gradient(90deg,#1835F2, #8B9AF8);
+  background: linear-gradient(-90deg,#1835F2, #8B9AF8);
 }
 
 img {

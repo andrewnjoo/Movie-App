@@ -90,7 +90,7 @@ const Login = ({ setAuth }) => {
         ></input>
         <button className="btn btn-success w-100">Sign In</button>
       </form>
-      <div className="text-center">
+      <div className="text-center mb-2">
         <button
           className="btn btn-warning w-100 mb-3"
           onClick={() => {
