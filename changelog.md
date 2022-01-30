@@ -2,9 +2,12 @@
 
 - set padding to 0 for TV container for mobile devices
 
-- install fontawesome for React
+- install FontAwesome for React
 
 - add user profile icon to NavBar
+
+- change from horizontal scrolling for movies/TV to grid layout
+
 
 2022-01-28
 

@@ -30,20 +30,20 @@ const Poster = (props) => {
   const movieRating = () => {
     if (data.vote_average === 0) {
       return (
-        <div className='movierating' style={{ color: "black" }}>
+        <div className="movierating" style={{ color: "black" }}>
           N/A
         </div>
       );
     }
     if (data.vote_average < 7) {
       return (
-        <div className='movierating' style={{ color: "#cacd2f" }}>
+        <div className="movierating" style={{ color: "#cacd2f" }}>
           {data.vote_average * 10 + "%"}
         </div>
       );
     } else {
       return (
-        <div className='movierating' style={{ color: "#21d07a" }}>
+        <div className="movierating" style={{ color: "#21d07a" }}>
           {data.vote_average * 10 + "%"}
         </div>
       );
@@ -51,14 +51,7 @@ const Poster = (props) => {
   };
 
   return (
-    <div
-      style={{
-        display: "inline-block",
-        position: "relative",
-        overflow: "hidden",
-        margin: "auto 2px auto 2px",
-      }}
-    >
+    <div className="poster-display-inline">
       <img
         onClick={handleShow}
         src={src}

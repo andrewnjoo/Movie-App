@@ -22,7 +22,7 @@ const MovieList = () => {
 
   const getMovies = () => {
     //reset movies
-    setMovies([]); 
+    setMovies([]);
     //should send new movie name, and user_id
     const headers = {
       "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const MovieList = () => {
       )
       .then((res) => {
         // console.log(res);
-        getMovies()
+        getMovies();
       });
   };
 
@@ -111,7 +111,7 @@ const MovieList = () => {
 
   return (
     <>
-      <Container className="mycontainer border my-3">
+      <Container className="mycontainer my-3">
         <h1 className="text-center fs-3 mt-2">Movies to watch:</h1>
         <Inputfield addMovie={addMovie} getMovies={getMovies} />
         <div className="text-center my-5">{movieList()}</div>

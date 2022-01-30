@@ -99,7 +99,7 @@ const Login = ({ setAuth }) => {
         >
           Demo
         </button>
-        Dont' have an account? &nbsp;
+        Don't have an account? &nbsp; <br />
         <Link to="/register">Sign Up</Link>
       </div>
     </Container>

@@ -1,10 +1,5 @@
-html {
-  background: #445bf5;
-}
-
 .primarycolor {
-  /* dark to -> light */
-  background: linear-gradient(-90deg,#1835F2, #8B9AF8);
+  background: linear-gradient(-90deg, #1835f2, #8b9af8);
 }
 
 img {
@@ -17,7 +12,7 @@ img:hover {
 
 .mycontainer {
   margin: auto;
-  width: 80%;
+  /* width: 80%; */
 }
 
 .centertext {
@@ -33,9 +28,23 @@ img:hover {
   min-width: 270px;
 }
 
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  padding-top: 15px;
+}
+
 @media only screen and (max-width: 600px) {
   .movieListInput {
     width: 80%;
+  }
+
+  .footer {
+    height: 40px;
+    padding-top: 0px;
   }
 }
 
@@ -50,8 +59,10 @@ img:hover {
 }
 
 .movierating {
-  position: absolute;
-  top: 0px;
+  position: relative;
+  width: 50px;
+  bottom: 20px;
+  border-radius: 0px 20px 20px 0px;
   font-weight: 600;
   background-color: white;
   outline: 1px solid black;
@@ -71,7 +82,7 @@ img:hover {
 
 .custombtn:hover {
   transform: scale(1.05);
-  transition: 0.3s
+  transition: 0.3s;
 }
 
 .dropdown-menu {
@@ -84,20 +95,51 @@ img:hover {
 }
 
 .customcontainer {
-  width: 75%;
-
+  display: grid;
+  justify-content: center;
+  padding-left: 25px !important;
 }
 
+.movie-poster {
+  position: "relative";
+  overflow: "hidden";
+  margin: "auto 2px auto 2px";
+}
+
+.movie-grid {
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  gap: 1rem 0em;
+  display: grid;
+  justify-content: "center";
+}
+
+/* Extra Large breakpoint */
+@media only screen and (max-width: 1200px) {
+  .movie-grid {
+    grid-template-columns: 200px 200px 200px 200px;
+  }
+
+@media only screen and (max-width: 900px) {
+  .movie-grid {
+    grid-template-columns: 200px 200px 200px ;
+  }
+}
+
+}
 /* Mobile breakpoint */
-@media only screen and (max-width:600px){
+@media only screen and (max-width: 600px) {
+  .movie-grid {
+    grid-template-columns: 200px 200px;
+  }
+
   .customcontainer {
     width: 100%;
-  padding-left: 0px;
-  padding-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .registerloginbox {
-    width: auto;
+    width: 90%;
   }
 
   .pagination {
@@ -109,11 +151,14 @@ img:hover {
   }
 
   .addmovieinput {
-    min-width: 200px
+    min-width: 200px;
   }
 }
 
-
 .dropdown-toggle::after {
   display: none;
+}
+
+.poster-display-inline {
+  display: inline-block;
 }

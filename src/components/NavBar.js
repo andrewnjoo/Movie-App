@@ -22,6 +22,7 @@ function UserNav({ logout }) {
             flip
             title={<FontAwesomeIcon icon={faUserCircle} size="2x" />}
             id="basic-nav-dropdown"
+            style={{ paddingRight: "20px" }}
           >
             <NavDropdown.Item href={"/profile"}>My Profile</NavDropdown.Item>
             <NavDropdown.Item
@@ -41,7 +42,9 @@ function UserNav({ logout }) {
 function GuestNav(props) {
   return (
     <Nav>
-      <Nav.Link href={"/login"}>Login</Nav.Link>
+      <Nav.Link href={"/login"} style={{ paddingRight: "20px" }}>
+        Login
+      </Nav.Link>
     </Nav>
   );
 }
@@ -65,10 +68,10 @@ const NavBar = ({ setAuth, isAuth }) => {
   };
 
   return (
-    <div>
+    <nav>
       <Navbar className="primarycolor" variant="dark" expand="md">
         <Container>
-          <Navbar.Brand href={"/"}>
+          <Navbar.Brand href={"/"} style={{ paddingLeft: "20px" }}>
             <img
               alt=""
               src={logo.default}
@@ -81,7 +84,7 @@ const NavBar = ({ setAuth, isAuth }) => {
           <LoggedNav isAuth={isAuth} logout={logout} />
         </Container>
       </Navbar>
-    </div>
+    </nav>
   );
 };
 

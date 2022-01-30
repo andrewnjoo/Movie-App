@@ -36,11 +36,11 @@ const Television = () => {
     <Container className="my-5 customcontainer">
       <h3 className="text-center">Popular TV Shows</h3>
       <div
+        className="movie-grid"
         id="movielist"
         style={{
-          overflow: "auto",
-          whiteSpace: "nowrap",
-          scrollBehavior: "smooth",
+          display: "grid",
+          justifyContent: "center",
         }}
       >
         {data === undefined
