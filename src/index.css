@@ -3,7 +3,8 @@ html {
 }
 
 .primarycolor {
-  background: #445bf5;
+  /* dark to -> light */
+  background: linear-gradient(90deg,#1835F2, #8B9AF8);
 }
 
 img {
@@ -110,4 +111,9 @@ img:hover {
   .addmovieinput {
     min-width: 200px
   }
+}
+
+
+.dropdown-toggle::after {
+  display: none;
 }

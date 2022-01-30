@@ -2,6 +2,8 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 const logo = require("../assets/logo.png");
 
 function UserNav({ logout }) {
@@ -15,7 +17,12 @@ function UserNav({ logout }) {
           <Nav.Link href={"/dashboard"}>My Movies</Nav.Link>
         </Nav>
         <Nav>
-          <NavDropdown align="end" flip title="Menu" id="basic-nav-dropdown">
+          <NavDropdown
+            align="end"
+            flip
+            title={<FontAwesomeIcon icon={faUserCircle} size="2x" />}
+            id="basic-nav-dropdown"
+          >
             <NavDropdown.Item href={"/profile"}>My Profile</NavDropdown.Item>
             <NavDropdown.Item
               onClick={(e) => {

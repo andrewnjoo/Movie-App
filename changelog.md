@@ -2,6 +2,10 @@
 
 - set padding to 0 for TV container for mobile devices
 
+- install fontawesome for React
+
+- add user profile icon to NavBar
+
 2022-01-28
 
 - set padding to 0 for movie container for mobile devices
