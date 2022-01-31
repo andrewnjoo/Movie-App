@@ -12,8 +12,13 @@ const LandingPage = () => {
   const [page, setPage] = useState(1);
   const { data } = useGetMoviesQuery(page);
 
+  // check local storage token
   useEffect(() => {
-    console.log(data);
+    // console.log(localStorage.token);
+  }, []);
+
+  useEffect(() => {
+    // console.log(data);
   }, [data]);
 
   const decreasePage = () => {
@@ -51,7 +56,7 @@ const LandingPage = () => {
       <div className="pagination">
         <div className="me-auto">page {page}</div>
         <p style={{ display: page === 1 ? "none" : "block" }}>
-          <a
+          <button
             className="btn border-dark custombtn"
             onClick={() => {
               setZero();
@@ -59,7 +64,7 @@ const LandingPage = () => {
             }}
           >
             ←
-          </a>{" "}
+          </button>{" "}
         </p>
         &nbsp;
         <p>

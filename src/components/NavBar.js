@@ -68,23 +68,21 @@ const NavBar = ({ setAuth, isAuth }) => {
   };
 
   return (
-    <nav>
-      <Navbar className="primarycolor" variant="dark" expand="md">
-        <Container>
-          <Navbar.Brand href={"/"} style={{ paddingLeft: "20px" }}>
-            <img
-              alt=""
-              src={logo.default}
-              width="30"
-              height="30"
-              className="d-inline-block align-top rounded-circle"
-            />{" "}
-            Movie App
-          </Navbar.Brand>
-          <LoggedNav isAuth={isAuth} logout={logout} />
-        </Container>
-      </Navbar>
-    </nav>
+    <Navbar className="primarycolor" variant="dark" expand="md">
+      <Container>
+        <Navbar.Brand href={"/"} style={{ paddingLeft: "20px" }}>
+          <img
+            alt=""
+            src={logo.default}
+            width="30"
+            height="30"
+            className="d-inline-block align-top rounded-circle"
+          />{" "}
+          Movie App
+        </Navbar.Brand>
+        <LoggedNav isAuth={isAuth} logout={logout} />
+      </Container>
+    </Navbar>
   );
 };
 

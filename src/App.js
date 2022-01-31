@@ -16,7 +16,6 @@ import { backendURL } from "./components/sharedVariables";
 import Footer from "./components/Footer";
 import Television from "./components/Television";
 // import { Helmet } from 'react-helmet'
-import MetaTags from 'react-meta-tags';
 
 //configure toastify
 toast.configure({
@@ -35,19 +34,22 @@ function App() {
 
   //pass jwt token to middleware in backend to check if authorized
   async function isAuth() {
-    try {
-      const response = await fetch(`${backendURL}auth/is-verify`, {
-        method: "GET",
-        headers: { token: localStorage.token },
-      });
-
-      const parseRes = await response.json();
-      // console.log('parseres', parseRes)
-
-      parseRes === true ? setisAuthenticated(true) : setisAuthenticated(false);
-    } catch (err) {
-      console.error(err.message);
+    if (localStorage.token) {
+      setisAuthenticated(true);
+    } else {
+      setisAuthenticated(false);
     }
+    // try {
+    //   const response = await fetch(`${backendURL}auth/is-verify`, {
+    //     method: "GET",
+    //     headers: { token: localStorage.token },
+    //   });
+    //   const parseRes = await response.json();
+    //   // console.log('parseres', parseRes)
+    //   parseRes === true ? setisAuthenticated(true) : setisAuthenticated(false);
+    // } catch (err) {
+    //   console.error(err.message);
+    // }
   }
 
   // check if authenticated
@@ -104,11 +106,7 @@ function App() {
             exact
             path="/profile"
             render={(props) =>
-              !isAuthenticated ? (
-                <Suspense />
-              ) : (
-                <Profile {...props} />
-              )
+              !isAuthenticated ? <Suspense /> : <Profile {...props} />
             }
           />
           <Route
@@ -122,7 +120,7 @@ function App() {
               )
             }
           />
-                    <Route
+          <Route
             exact
             path="/television"
             render={(props) =>

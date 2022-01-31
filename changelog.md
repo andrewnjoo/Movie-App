@@ -1,3 +1,7 @@
+2021-01-30
+
+- experimenting with different isAuthenticated (checking localStorage instead of going to back-end)
+
 2021-01-29
 
 - set padding to 0 for TV container for mobile devices
