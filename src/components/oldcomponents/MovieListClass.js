@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { Link } from "react-router-dom";
-import axios from "axios";
-import { Container } from "react-bootstrap";
-import Poster from "../Poster.component";
-import Inputfield from "../Inputfield.component";
-import Movie from "./MovieClass.component";
+import axios from 'axios';
+import { Container } from 'react-bootstrap';
+import Poster from '../Poster.component';
+import InputField from '../InputField.component';
+import Movie from './MovieClass.component';
 
-import { tmdbKey, backendURL } from "../sharedVariables";
+import { tmdbKey, backendURL } from '../sharedVariables';
 
 class MovieList extends Component {
   constructor(props) {
@@ -29,11 +29,11 @@ class MovieList extends Component {
 
   getAllMovies() {
     axios.get(`${backendURL}`).then((response) => {
-      console.log(response.data)
+      console.log(response.data);
       this.setState({ movies: response.data });
-      console.log(this.state)
-      //response.data should be an array of movies 
-      for (let i in response.data) {
+      console.log(this.state);
+      // response.data should be an array of movies
+      for (const i in response.data) {
         this.getImage(response.data[i].name);
       }
       // console.log('state of movies', this.state.movies)
@@ -41,21 +41,21 @@ class MovieList extends Component {
   }
 
   getMovies() {
-    //should send new movie name, and user_id
+    // should send new movie name, and user_id
     const headers = {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       token: localStorage.token,
     };
     axios
       .post(`${backendURL}getmovies`, {
-        test: 'test'
-      },{
-        headers: headers,
+        test: 'test',
+      }, {
+        headers,
       })
       .then((response) => {
         this.setState({ movies: response.data.rows });
-        console.log('state is', this.state)
-        for (let i in response.data.rows) {
+        console.log('state is', this.state);
+        for (const i in response.data.rows) {
           this.getImage(response.data.rows[i].name);
         }
       });
@@ -64,22 +64,21 @@ class MovieList extends Component {
   getImage(movie) {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=${movie}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=${movie}`,
       )
       .then((res) => {
         // console.log(res)
-        let stateCopy = Object.assign({}, this.state);
-        //if unable to find the movie we will return the no poster image
+        const stateCopy = Object.assign({}, this.state);
+        // if unable to find the movie we will return the no poster image
         if (res.data.results.length === 0) {
-          let attach = stateCopy.movies.find((e) => e.name === movie);
+          const attach = stateCopy.movies.find((e) => e.name === movie);
           // console.log('attach is', attach)
-          attach.src =
-            "https://raw.githubusercontent.com/adnjoo/movie-app/main/assets/no-poster.jpeg";
+          attach.src =            'https://raw.githubusercontent.com/adnjoo/movie-app/main/assets/no-poster.jpeg';
           return;
         }
-        let result = res.data.results[0];
-        let poster = `${result.poster_path}`;
-        let attach = stateCopy.movies.find((e) => e.name === movie);
+        const result = res.data.results[0];
+        const poster = `${result.poster_path}`;
+        const attach = stateCopy.movies.find((e) => e.name === movie);
         // console.log(attach)
         attach.poster_path = poster;
         attach.overview = res.data.results[0].overview;
@@ -91,9 +90,9 @@ class MovieList extends Component {
 
   editName(name, newname, id) {
     // edit state but dont get movies with axios
-    let stateCopy = Object.assign({}, this.state);
+    const stateCopy = Object.assign({}, this.state);
     // console.log(name, id, this.state, stateCopy)
-    let movieEdit = stateCopy.movies.find((e) => e.name === name);
+    const movieEdit = stateCopy.movies.find((e) => e.name === name);
     console.log(movieEdit);
     movieEdit.name = newname;
     this.setState(stateCopy);
@@ -113,9 +112,9 @@ class MovieList extends Component {
   }
 
   addMovie(name) {
-    //should send new movie name, and user_id
+    // should send new movie name, and user_id
     const headers = {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       token: localStorage.token,
     };
     axios
@@ -125,8 +124,8 @@ class MovieList extends Component {
           movie: name,
         },
         {
-          headers: headers,
-        }
+          headers,
+        },
       )
       .then((res) => {
         // console.log(res);
@@ -136,7 +135,7 @@ class MovieList extends Component {
   }
 
   deleteMovie(id) {
-    console.log("deleting");
+    console.log('deleting');
     axios
       .delete(backendURL, {
         data: {
@@ -152,8 +151,7 @@ class MovieList extends Component {
 
   movieList() {
     // console.log('this state movies', this.state.movies)
-    return this.state.movies.map((e, i) => {
-      return (
+    return this.state.movies.map((e, i) => (
         <Movie
           key={i}
           movies={e}
@@ -161,14 +159,11 @@ class MovieList extends Component {
           deleteMovie={this.deleteMovie}
           editName={this.editName}
         />
-      );
-    });
+      ));
   }
 
   posterList() {
-    return this.state.movies.map((e, i) => {
-      return <Poster key={i} props={e} />;
-    });
+    return this.state.movies.map((e, i) => <Poster key={i} props={e} />);
   }
 
   render() {
@@ -180,11 +175,11 @@ class MovieList extends Component {
             <div>{this.movieList()}</div>
           </div>
           <div>
-            <div id="posters" className="my-3" style={{ textAlign: "center" }}>
+            <div id="posters" className="my-3" style={{ textAlign: 'center' }}>
               {this.posterList()}
             </div>
           </div>
-          <Inputfield addMovie={this.addMovie} />
+          <InputField addMovie={this.addMovie} />
         </Container>
       </div>
     );

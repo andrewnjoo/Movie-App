@@ -1,14 +1,13 @@
 // import components
-import React from "react";
-import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
-import Poster from "./Poster.component";
+import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import useKeyPress from 'react-use-keypress';
+import Poster from './Poster.component';
 
-//import other
-import useKeyPress from "react-use-keypress";
-import { useGetTvQuery } from "./services/television";
+// import other
+import { useGetTvQuery } from './services/television';
 
-const Television = () => {
+function Television() {
   const [page, setPage] = useState(1);
   const { data } = useGetTvQuery(page);
 
@@ -18,17 +17,17 @@ const Television = () => {
 
   const decreasePage = () => {
     if (page === 1) {
-      return;
-    } else {
-      setPage(page - 1);
+      return null;
     }
+    setPage(page - 1);
+    return null;
   };
 
   // nav shortcuts
-  useKeyPress("ArrowLeft", () => {
+  useKeyPress('ArrowLeft', () => {
     decreasePage();
   });
-  useKeyPress("ArrowRight", () => {
+  useKeyPress('ArrowRight', () => {
     setPage(page + 1);
   });
 
@@ -39,43 +38,53 @@ const Television = () => {
         className="movie-grid"
         id="movielist"
         style={{
-          display: "grid",
-          justifyContent: "center",
+          display: 'grid',
+          justifyContent: 'center',
         }}
       >
         {data === undefined
           ? null
-          : data.map((e, i) => {
-              return <Poster props={e} key={i} itemId={i} />;
-            })}
+          : data.map((e, i) => (
+            <Poster
+              props={e}
+           // key={i}
+              itemId={i}
+            />
+          ))}
       </div>
 
       <div className="pagination">
-        <div className="me-auto">page {page}</div>
-        <p style={{ display: page === 1 ? "none" : "block" }}>
-          <a
+        <div className="me-auto">
+          page
+          {page}
+        </div>
+        <p style={{ display: page === 1 ? 'none' : 'block' }}>
+          <button
+            type="button"
             className="btn border-dark custombtn"
             onClick={() => {
               decreasePage();
             }}
           >
             ←
-          </a>{" "}
+          </button>
+          {' '}
         </p>
         &nbsp;
         <p>
-          <a
+          <button
+            type="button"
             className="btn border-dark custombtn"
             onClick={() => {
               setPage(page + 1);
             }}
           >
             →
-          </a>
+          </button>
         </p>
       </div>
     </Container>
   );
-};
+}
 
 export default Television;

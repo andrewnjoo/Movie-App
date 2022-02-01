@@ -1,4 +1,6 @@
-//footer to github
+// Footer to github
+
+import React from 'react';
 
 export default function Footer() {
   return (
@@ -8,7 +10,7 @@ export default function Footer() {
         href="https://github.com/adnjoo/movie-app-auth-frontend"
         target="_blank"
         rel="noreferrer"
-        style={{ color: "white" }}
+        style={{ color: 'white' }}
       >
         adnjoo
       </a>

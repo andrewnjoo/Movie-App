@@ -1,14 +1,13 @@
 // import components
-import React from "react";
-import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
-import Poster from "./Poster.component";
+import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import useKeyPress from 'react-use-keypress';
+import Poster from './Poster.component';
 
-//import other
-import useKeyPress from "react-use-keypress";
-import { useGetMoviesQuery } from "./services/movies";
+// import other
+import { useGetMoviesQuery } from './services/movies';
 
-const LandingPage = () => {
+function LandingPage() {
   const [page, setPage] = useState(1);
   const { data } = useGetMoviesQuery(page);
 
@@ -23,21 +22,21 @@ const LandingPage = () => {
 
   const decreasePage = () => {
     if (page === 1) {
-      return;
+      console.log('page is 1');
     } else {
       setPage(page - 1);
     }
   };
 
-  const setZero = () => (document.getElementById("movielist").scrollLeft = 0);
+  const setZero = () => { document.getElementById('movielist').scrollLeft = 0; };
 
   // nav shortcuts
-  useKeyPress("ArrowLeft", () => {
+  useKeyPress('ArrowLeft', () => {
     setZero();
     decreasePage();
   });
 
-  useKeyPress("ArrowRight", () => {
+  useKeyPress('ArrowRight', () => {
     setZero();
     setPage(page + 1);
   });
@@ -48,15 +47,23 @@ const LandingPage = () => {
       <div className="movie-grid" id="movielist">
         {data === undefined
           ? null
-          : data.map((e, i) => {
-              return <Poster props={e} key={i} itemId={i} />;
-            })}
+          : data.map((e, i) => (
+            <Poster
+              props={e}
+           // key={i}
+              itemId={i}
+            />
+          ))}
       </div>
 
       <div className="pagination">
-        <div className="me-auto">page {page}</div>
-        <p style={{ display: page === 1 ? "none" : "block" }}>
+        <div className="me-auto">
+          page
+          {page}
+        </div>
+        <p style={{ display: page === 1 ? 'none' : 'block' }}>
           <button
+            type="button"
             className="btn border-dark custombtn"
             onClick={() => {
               setZero();
@@ -64,11 +71,13 @@ const LandingPage = () => {
             }}
           >
             ←
-          </button>{" "}
+          </button>
+          {' '}
         </p>
         &nbsp;
         <p>
           <button
+            type="button"
             className="btn border-dark custombtn"
             onClick={() => {
               setZero();
@@ -81,6 +90,6 @@ const LandingPage = () => {
       </div>
     </Container>
   );
-};
+}
 
 export default LandingPage;

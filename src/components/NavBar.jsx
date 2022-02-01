@@ -31,6 +31,7 @@ function UserNav({ logout }) {
             <NavDropdown.Item
               onClick={(e) => {
                 logout(e);
+                localStorage.removeItem('login_time');
               }}
             >
               Logout

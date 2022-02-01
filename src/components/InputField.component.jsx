@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 // import { Button, Form, FormControl } from "react-bootstrap";
-const magnifying = require("../assets/magnifying-glass.svg");
+const magnifying = require('../assets/magnifying-glass.svg');
 
-const Inputfield = (props) => {
-  const [textInput, setTextInput] = useState("");
+function InputField({ addMovie, getMovies }) {
+  const [textInput, setTextInput] = useState('');
 
   const handleChange = (e) => {
     setTextInput(e.target.value);
@@ -11,15 +11,15 @@ const Inputfield = (props) => {
 
   const handleKeyDown = (e) => {
     setTextInput(e.target.value);
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       // console.log("enter pressed");
-      props.addMovie(textInput);
-      setTextInput("");
-      props.getMovies();
+      addMovie(textInput);
+      setTextInput('');
+      getMovies();
     }
   };
   return (
-    <div className="pt-2" style={{ textAlign: "center", position: "relative" }}>
+    <div className="pt-2" style={{ textAlign: 'center', position: 'relative' }}>
       <img className="magnifying" alt="" src={magnifying.default} />
       {/* React Form */}
       {/* <Form className="d-flex">
@@ -40,6 +40,6 @@ const Inputfield = (props) => {
       />
     </div>
   );
-};
+}
 
-export default Inputfield;
+export default InputField;

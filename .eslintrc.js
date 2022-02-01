@@ -9,14 +9,18 @@ module.exports = {
   ],
   parserOptions: {
     ecmaFeatures: {
+      modules: true,
       jsx: true,
     },
-    ecmaVersion: 'latest',
+    ecmaVersion: 6,
     sourceType: 'module',
   },
   plugins: [
     'react',
   ],
   rules: {
+    'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/destructuring-assignment': 'off',
   },
 };

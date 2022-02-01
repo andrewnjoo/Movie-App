@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { backendURL } from "./sharedVariables";
+import React, { useState, useEffect } from 'react';
+import { Form, Button, Container } from 'react-bootstrap';
+import { backendURL } from './sharedVariables';
 
-const Profile = ({ setAuth }) => {
-  const [name, setName] = useState("");
-  const [newName, setNewName] = useState('')
+// { setAuth }
+function Profile() {
+  const [name, setName] = useState('');
+  const [newName, setNewName] = useState('');
 
   async function getName() {
     try {
       const response = await fetch(`${backendURL}dashboard/`, {
-        method: "GET",
+        method: 'GET',
         headers: { token: localStorage.token },
       });
       const parseRes = await response.json();
 
       console.log(parseRes);
-      //set name
+      // set name
       setName(parseRes.user_name);
     } catch (err) {
       console.error(err.message);
@@ -34,55 +34,59 @@ const Profile = ({ setAuth }) => {
     getName();
   }, []);
 
-  //form will trigger this function to change name
-  const changeName =  async (e) => {
-    e.preventDefault()
+  // form will trigger this function to change name
+  const changeName = async (e) => {
+    e.preventDefault();
     const body = {
-      name: newName
+      name: newName,
     };
     // console.log("changeName", newName);
     const response = await fetch(`${backendURL}dashboard/changeName`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         token: localStorage.token,
       },
       body: JSON.stringify(body),
     });
     const parseRes = await response.json();
     console.log(parseRes);
-    //update new name
+    // update new name
     getName();
   };
 
   return (
-    <Container data-testid="profile" className='my-5 registerloginbox'>
-      <h2>Welcome {name}</h2>
+    <Container data-testid="profile" className="my-5 registerloginbox">
+      <h2>
+        Welcome&nbsp;
+        {name}
+      </h2>
       <h3>Dashboard</h3>
       <Form
         onSubmit={(e) => {
-          console.log('test')
+          console.log('test');
           changeName(e);
         }}
       >
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
-          <Form.Control 
-          type="name" 
-          value={newName} 
-          placeholder={name}
-          onChange={e=>setNewName(e.target.value)} />
+          <Form.Control
+            type="name"
+            value={newName}
+            placeholder={name}
+            onChange={(e) => setNewName(e.target.value)}
+          />
         </Form.Group>
-      <Button variant="primary" type="submit">
-        Save changes
-      </Button>
+        <Button variant="primary" type="submit">
+          Save changes
+        </Button>
       </Form>
-      <br></br>
+      <br />
       {/* <button className={"btn btn-primary mt-5"} onClick={(e) => logout(e)}>
         <Logout></Logout>
       </button> */}
-    </Container >
+    </Container>
   );
-};
+}
 
 export default Profile;
