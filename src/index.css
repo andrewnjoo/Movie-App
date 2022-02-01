@@ -38,6 +38,10 @@ img:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  main {
+    min-width:400px;
+  }
+  
   .movieListInput {
     width: 80%;
   }
@@ -46,6 +50,10 @@ img:hover {
     height: 40px;
     padding-top: 5px;
   }
+}
+
+main {
+  min-height:800px;
 }
 
 .registerloginbox {
@@ -160,4 +168,13 @@ img:hover {
 
 .poster-display-inline {
   display: inline-block;
+}
+
+#top-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  z-index: 1232;
 }

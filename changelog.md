@@ -1,3 +1,7 @@
+2021-01-31
+
+- edit styling
+
 2021-01-30
 
 - experimenting with different isAuthenticated (checking localStorage instead of going to back-end)

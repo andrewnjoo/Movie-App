@@ -32,13 +32,21 @@ function App() {
     setisAuthenticated(boolean);
   };
 
-  //pass jwt token to middleware in backend to check if authorized
   async function isAuth() {
-    if (localStorage.token) {
+    // check current time; if it's 1 hour later (JWT expires), delete login_time token
+    let current_time = Date.now();
+    console.log(
+      (current_time - localStorage.getItem(["login_time"])) / 1000 + " seconds"
+    );
+    if ((current_time - localStorage.getItem(["login_time"])) / 1000 > 3600) {
+      localStorage.removeItem("login_time");
+    }
+    if (localStorage.login_time) {
       setisAuthenticated(true);
     } else {
       setisAuthenticated(false);
     }
+    //pass jwt token to middleware in backend to check if authorized
     // try {
     //   const response = await fetch(`${backendURL}auth/is-verify`, {
     //     method: "GET",
@@ -60,7 +68,7 @@ function App() {
   return (
     <>
       <NavBar isAuth={isAuthenticated} setAuth={setAuth} />
-      <main style={{ minHeight: "600px" }}>
+      <main style={{ marginTop: "70px" }}>
         <BrowserRouter>
           <Switch>
             <Route

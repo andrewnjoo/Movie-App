@@ -60,6 +60,8 @@ const Login = ({ setAuth }) => {
     if (parseRes.token) {
       // set token in localStorage
       localStorage.setItem("token", parseRes.token);
+      // set expiry for 1 hour
+      localStorage.setItem("login_time", Date.now());
       setAuth(true);
       toast.success("Successfully logged in");
     }
