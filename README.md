@@ -36,6 +36,7 @@
 * Netlify & Heroku
 * Redux (RTK-Query)
 * JSON Web Tokens | bcrypt
+* ESLint
 * [TMDB API](https://developers.themoviedb.org/3)
 * [Backend API](https://github.com/adnjoo/movie-app-auth-backend)
 
