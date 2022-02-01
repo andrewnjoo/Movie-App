@@ -27,6 +27,7 @@
 * Profile Page
 * Popular Movies & TV-Shows 
 * Responsive Application with breakpoints for mobile devices
+* Keyboard Shortcuts
 
 ## Technology: 
 
