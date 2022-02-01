@@ -30,14 +30,15 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- W3 Sticky Nav -->
     <script>
-      var prevScrollpos = window.pageYOffset;
+      let prevScrollpos = window.pageYOffset;
       window.onscroll = function() {
-      var currentScrollPos = window.pageYOffset;
+      let currentScrollPos = window.pageYOffset;
         if (prevScrollpos > currentScrollPos) {
           document.getElementById("top-header").style.top = "0";
         } else {
-          document.getElementById("top-header").style.top = "-60px";
+          document.getElementById("top-header").style.top = "-50px";
         }
         prevScrollpos = currentScrollPos;
       }
