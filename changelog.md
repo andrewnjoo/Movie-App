@@ -1,3 +1,7 @@
+2022-02-01
+
+- configure + clean with ESLint
+
 2021-01-31
 
 - edit styling

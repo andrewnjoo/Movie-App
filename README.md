@@ -22,10 +22,10 @@
 
 ## Features:
 
-* Register/Login (JWT | bcrypt)
-* CRUD (add, read, edit, delete data)
-* Profile page (edit username)
-* Popular movies & TV-shows (API calls to [TMDB](https://developers.themoviedb.org/3))
+* Register/Login 
+* CRUD Functionality
+* Profile Page
+* Popular Movies & TV-Shows 
 
 
 ## Technology: 
@@ -35,6 +35,8 @@
 * Jest (Tests)
 * Netlify & Heroku (Deployment)
 * Redux (RTK-Query)
+* JSON Web Tokens | bcrypt
+* [TMDB API](https://developers.themoviedb.org/3)
 * [Backend](https://github.com/adnjoo/movie-app-auth-backend)
 
 ## Instructions:
