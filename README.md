@@ -43,7 +43,7 @@
 
 ```
 git clone https://github.com/adnjoo/Movie-App
-cd movie-app
+cd Movie-App
 npm install
 npm start
 ```
