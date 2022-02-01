@@ -30,14 +30,14 @@
 
 ## Technology: 
 
-* React 18
-* Bootstrap 5
-* Jest (Tests)
-* Netlify & Heroku (Deployment)
+* React
+* Bootstrap
+* Jest
+* Netlify & Heroku
 * Redux (RTK-Query)
 * JSON Web Tokens | bcrypt
 * [TMDB API](https://developers.themoviedb.org/3)
-* [Backend](https://github.com/adnjoo/movie-app-auth-backend)
+* [Backend API](https://github.com/adnjoo/movie-app-auth-backend)
 
 ## Instructions:
 
