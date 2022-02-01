@@ -44,7 +44,7 @@ img:hover {
 
   .footer {
     height: 40px;
-    padding-top: 0px;
+    padding-top: 5px;
   }
 }
 
@@ -97,20 +97,19 @@ img:hover {
 .customcontainer {
   display: grid;
   justify-content: center;
-  padding-left: 25px !important;
 }
 
 .movie-poster {
-  position: "relative";
-  overflow: "hidden";
-  margin: "auto 2px auto 2px";
+  position: relative;
+  overflow: hidden;
+  margin: auto 2px auto 2px;
 }
 
 .movie-grid {
   grid-template-columns: 200px 200px 200px 200px 200px;
   gap: 1rem 0em;
   display: grid;
-  justify-content: "center";
+  justify-items: center;
 }
 
 /* Extra Large breakpoint */

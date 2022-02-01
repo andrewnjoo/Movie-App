@@ -60,79 +60,87 @@ function App() {
   return (
     <>
       <NavBar isAuth={isAuthenticated} setAuth={setAuth} />
-      <BrowserRouter>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={(props) =>
-              !isAuthenticated ? (
-                <LandingPage {...props} />
-              ) : (
-                <Redirect to="/dashboard" />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/register"
-            render={(props) =>
-              !isAuthenticated ? (
-                <Register {...props} setAuth={setAuth} />
-              ) : (
-                <Redirect to="/" />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/login"
-            render={(props) =>
-              !isAuthenticated ? (
-                <Login {...props} setAuth={setAuth} />
-              ) : (
-                <Redirect to="/" />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/dashboard"
-            render={(props) =>
-              !isAuthenticated ? <Redirect to="/" /> : <MovieList {...props} />
-            }
-          />
-          <Route
-            exact
-            path="/profile"
-            render={(props) =>
-              !isAuthenticated ? <Suspense /> : <Profile {...props} />
-            }
-          />
-          <Route
-            exact
-            path="/movies"
-            render={(props) =>
-              !isAuthenticated ? (
-                <Loading {...props} />
-              ) : (
-                <LandingPage {...props} />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/television"
-            render={(props) =>
-              !isAuthenticated ? (
-                <Loading {...props} />
-              ) : (
-                <Television {...props} />
-              )
-            }
-          />
-        </Switch>
-      </BrowserRouter>
+      <main style={{ minHeight: "600px" }}>
+        <BrowserRouter>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) =>
+                !isAuthenticated ? (
+                  <LandingPage {...props} />
+                ) : (
+                  <Redirect to="/dashboard" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/register"
+              render={(props) =>
+                !isAuthenticated ? (
+                  <Register {...props} setAuth={setAuth} />
+                ) : (
+                  <Redirect to="/" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/login"
+              render={(props) =>
+                !isAuthenticated ? (
+                  <Login {...props} setAuth={setAuth} />
+                ) : (
+                  <Redirect to="/" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/dashboard"
+              render={(props) =>
+                !isAuthenticated ? (
+                  <Redirect to="/" />
+                ) : (
+                  <MovieList {...props} />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/profile"
+              render={(props) =>
+                !isAuthenticated ? <Suspense /> : <Profile {...props} />
+              }
+            />
+            <Route
+              exact
+              path="/movies"
+              render={(props) =>
+                !isAuthenticated ? (
+                  // <Loading {...props} />
+                  <LandingPage {...props} />
+                ) : (
+                  <LandingPage {...props} />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/television"
+              render={(props) =>
+                !isAuthenticated ? (
+                  // <Loading {...props} />
+                  <Television {...props} />
+                ) : (
+                  <Television {...props} />
+                )
+              }
+            />
+          </Switch>
+        </BrowserRouter>
+      </main>
       <Footer />
     </>
   );
