@@ -12,13 +12,14 @@ module.exports = {
       modules: true,
       jsx: true,
     },
-    ecmaVersion: 6,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
   plugins: [
     'react',
   ],
   rules: {
+    'no-console': 0,
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/destructuring-assignment': 'off',

@@ -12,7 +12,7 @@ function Television() {
   const { data } = useGetTvQuery(page);
 
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
   }, [data]);
 
   const decreasePage = () => {
@@ -55,7 +55,7 @@ function Television() {
 
       <div className="pagination">
         <div className="me-auto">
-          page
+          page&nbsp;
           {page}
         </div>
         <p style={{ display: page === 1 ? 'none' : 'block' }}>

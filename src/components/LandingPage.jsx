@@ -58,7 +58,7 @@ function LandingPage() {
 
       <div className="pagination">
         <div className="me-auto">
-          page
+          page&nbsp;
           {page}
         </div>
         <p style={{ display: page === 1 ? 'none' : 'block' }}>

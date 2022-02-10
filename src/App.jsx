@@ -36,12 +36,13 @@ function App() {
     setisAuthenticated(boolean);
   };
 
-  async function isAuth() {
-    // check current time; if it's 1 hour later (JWT expires), delete login_time token
+  // check current time; if it's 1 hour later (JWT expires), delete login_time token
+  const isAuth = async function isAuth() {
     const currentTime = Date.now();
-    console.log(
-      `${(currentTime - localStorage.getItem(['login_time'])) / 1000} seconds`,
-    );
+    // Debugging
+    // console.log(
+    //   `${(currentTime - localStorage.getItem(['login_time'])) / 1000} seconds`,
+    // );
     if ((currentTime - localStorage.getItem(['login_time'])) / 1000 > 3600) {
       localStorage.removeItem('login_time');
     }
@@ -62,7 +63,7 @@ function App() {
     // } catch (err) {
     //   console.error(err.message);
     // }
-  }
+  };
 
   // check if authenticated
   useEffect(() => {

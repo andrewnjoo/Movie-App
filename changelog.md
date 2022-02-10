@@ -4,7 +4,7 @@
 
 2021-01-31
 
-- edit styling
+- edit styling, [make NavBar sticky using W3Schools :)](https://www.w3schools.com/howto/howto_js_navbar_sticky.asp)
 
 2021-01-30
 
@@ -95,7 +95,9 @@
 
 ## high-prio
 
-- app reflashes when routing: how to fix: maybe move to Next.js / SSR
+- trailer link (? possible)
+  
+- add sort by popular | top rated
 
 - horizontal scroll to vertical scroll for movies / TV
 
@@ -103,7 +105,8 @@
 
 - add a people page
 
-- add sort by popular | top rated
+- create test for correct space in between page and number -> e.g. page 10 not page10
+
 
 - improve search bar
 
@@ -115,13 +118,14 @@
 
 - add loading spinner during api call | fetch pre-load X page api data
 
-- trailer link (? possible)
 
 - did you mean this movie name popup
 
 - add app stats page - e.g. movies added, number of users, most liked movies etc.
 
 ## done
+
+~~app reflashes when routing: how to fix: maybe move to Next.js / SSR (fixed with short-circuit authorization)~~
 
 ~~hamburger menu for mobile~~
 

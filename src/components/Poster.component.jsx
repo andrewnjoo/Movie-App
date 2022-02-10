@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import useKeypress from 'react-use-keypress';
 
-function Poster(props) {
+function Poster({ props }) {
   const [show, setShow] = useState(false);
   const [src, setSrc] = useState('');
   const [data, setData] = useState([]);
@@ -15,13 +15,13 @@ function Poster(props) {
   });
 
   useEffect(() => {
-    console.log(props);
+    // console.log(props);
     const setImage = () => {
-      if (props.props == null) {
+      if (props == null) {
         console.log('no props');
       } else {
-        setSrc(`https://image.tmdb.org/t/p/original${props.props.poster_path}`);
-        setData(props.props);
+        setSrc(`https://image.tmdb.org/t/p/original${props.poster_path}`);
+        setData(props);
       }
     };
     setImage();
