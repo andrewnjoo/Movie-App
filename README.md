@@ -4,7 +4,7 @@
   <img src='./src/assets/logo.png' width='80'>
   <h3 align="center">Movie App</h3>
   <p align="center">
-    This application allows you to save your favorite movies using the TMDB api. You can also find highly rated Television shows.
+    This application allows you to save your favorite movies using the TMDB API. You can also find highly rated Television shows.
     <br />
     <br />
     <a href="https://andrew-movie-app.netlify.app/">Try App</a>
