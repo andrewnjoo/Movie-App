@@ -95,7 +95,7 @@
 
 ## high-prio
 
-- trailer link (? possible)
+- trailer link (would be super cool)
   
 - add sort by popular | top rated
 
