@@ -1,5 +1,9 @@
 ## Bugs 
 
+2021-02-21
+
+- movie is sometimes rendered twice after being added in dashboard
+
 2022-01-29
 
 - left/right arrow keys update the pages but also move the scroll slider
