@@ -178,3 +178,19 @@ main {
   transition: top 0.3s;
   z-index: 1232;
 }
+
+.trailer-modal {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  outline: 0;
+  overflow: hidden;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

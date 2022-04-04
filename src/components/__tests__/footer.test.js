@@ -1,4 +1,7 @@
-import { render, screen, cleanup } from '@testing-library/react';
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import Footer from '../Footer';
 import '@testing-library/jest-dom';
 

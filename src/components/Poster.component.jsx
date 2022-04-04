@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import useKeypress from 'react-use-keypress';
+import TrailerModal from './TrailerModal.component';
 
 function Poster({ props }) {
   const [show, setShow] = useState(false);
   const [src, setSrc] = useState('');
   const [data, setData] = useState([]);
+  const [displayTrailer, setDisplayTrailer] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(!show);
+    setDisplayTrailer(false);
+  };
 
   useKeypress('Enter', () => {
-    handleClose();
+    handleShow();
   });
 
   useEffect(() => {
@@ -66,7 +70,7 @@ function Poster({ props }) {
 
       {/* Modal */}
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleShow}>
         <Modal.Header closeButton>
           <Modal.Title>{data.title || data.name}</Modal.Title>
         </Modal.Header>
@@ -75,6 +79,12 @@ function Poster({ props }) {
             src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
             style={{ maxHeight: 370, maxWidth: 174 }}
             alt=""
+          />
+          <Button className="mx-3" variant="primary" onClick={() => setDisplayTrailer(true)}>▶ Play Trailer</Button>
+          <TrailerModal
+            displayTrailer={displayTrailer}
+            youtubeLink={data.youtubeLink}
+            setDisplayTrailer={setDisplayTrailer}
           />
           {' '}
           <br />
@@ -113,7 +123,7 @@ function Poster({ props }) {
           <br />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleShow}>
             Close
           </Button>
         </Modal.Footer>

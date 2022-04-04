@@ -1,24 +1,31 @@
+/* eslint-disable no-unused-vars */
 // import components
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import useKeyPress from 'react-use-keypress';
+import axios from 'axios';
 import Poster from './Poster.component';
-
-// import other
 import { useGetMoviesQuery } from './services/movies';
+import { tmdbKey } from './sharedVariables';
 
 function LandingPage() {
   const [page, setPage] = useState(1);
-  const { data } = useGetMoviesQuery(page);
+  const [data, setData] = useState([]);
 
-  // check local storage token
+  const reduxData = useGetMoviesQuery(page);
   useEffect(() => {
-    // console.log(localStorage.token);
-  }, []);
-
-  useEffect(() => {
-    // console.log(data);
-  }, [data]);
+    if (reduxData.isSuccess) {
+      const youtubeLinks = reduxData.data.map(async (movie) => {
+        let temp = await axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${tmdbKey}&language=en-US`);
+        temp = temp.data.results.filter((video) => video.type === 'Trailer');
+        return temp[0]?.key || '';
+      });
+      Promise.all(youtubeLinks).then((values) => {
+        const temp = reduxData.data.map((movie, idx) => ({ ...movie, youtubeLink: values[idx] }));
+        setData(temp);
+      });
+    }
+  }, [reduxData]);
 
   const decreasePage = () => {
     if (page === 1) {
@@ -28,7 +35,9 @@ function LandingPage() {
     }
   };
 
-  const setZero = () => { document.getElementById('movielist').scrollLeft = 0; };
+  const setZero = () => {
+    document.getElementById('movielist').scrollLeft = 0;
+  };
 
   // nav shortcuts
   useKeyPress('ArrowLeft', () => {
@@ -47,13 +56,7 @@ function LandingPage() {
       <div className="movie-grid" id="movielist">
         {data === undefined
           ? null
-          : data.map((e, i) => (
-            <Poster
-              props={e}
-           // key={i}
-              itemId={i}
-            />
-          ))}
+          : data.map((e, i) => <Poster props={e} key={e.id} itemId={i} />)}
       </div>
 
       <div className="pagination">
