@@ -13,7 +13,6 @@ function Television() {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const reduxData = useGetTvQuery(page);
-  
   // console.log(reduxData);
 
   useEffect(() => {
