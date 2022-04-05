@@ -5,7 +5,7 @@ import axios from 'axios';
 import { tmdbKey } from './sharedVariables';
 import TrailerModal from './TrailerModal.component';
 
-function Poster({ props }) {
+function Poster({ props, type }) {
   const [show, setShow] = useState(false);
   const [src, setSrc] = useState('');
   const [data, setData] = useState([]);
@@ -20,6 +20,7 @@ function Poster({ props }) {
   useKeypress('Enter', () => {
     handleShow();
   });
+
   useEffect(() => {
     console.log(youtube);
   }, [youtube]);
@@ -30,20 +31,19 @@ function Poster({ props }) {
       setSrc(`https://image.tmdb.org/t/p/original${props.poster_path}`);
       setData(props);
     }
-  });
+  }, [props]);
 
   useEffect(async () => {
     if (props !== null) {
       // console.log(props);
       // try movie
-      let temp = await axios.get(`https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=${tmdbKey}&language=en-US`);
-      if (temp.data.results.length > 0) {
-        temp = temp.data.results;
-      // try tv
-      } else {
+      let temp;
+      if (type === 'tv') {
         temp = await axios.get(`https://api.themoviedb.org/3/tv/${props.id}/videos?api_key=${tmdbKey}&language=en-US`);
-        temp = temp.data.results;
+      } else {
+        temp = await axios.get(`https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=${tmdbKey}&language=en-US`);
       }
+      temp = temp.data.results;
       temp = temp.filter((video) => video.type === 'Trailer');
       // console.log(temp);
       temp = temp[0]?.key || '';

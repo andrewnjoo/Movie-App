@@ -56,6 +56,7 @@ function Television() {
               props={e}
               key={e.id}
               itemId={i}
+              type="tv"
             />
           ))}
       </div>
