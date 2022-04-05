@@ -14,17 +14,7 @@ function LandingPage() {
 
   const reduxData = useGetMoviesQuery(page);
   useEffect(() => {
-    if (reduxData.isSuccess) {
-      const youtubeLinks = reduxData.data.map(async (movie) => {
-        let temp = await axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${tmdbKey}&language=en-US`);
-        temp = temp.data.results.filter((video) => video.type === 'Trailer');
-        return temp[0]?.key || '';
-      });
-      Promise.all(youtubeLinks).then((values) => {
-        const temp = reduxData.data.map((movie, idx) => ({ ...movie, youtubeLink: values[idx] }));
-        setData(temp);
-      });
-    }
+    setData(reduxData.data);
   }, [reduxData]);
 
   const decreasePage = () => {
@@ -54,9 +44,7 @@ function LandingPage() {
     <Container className="my-5 customcontainer">
       <h3 className="text-center">Popular Movies</h3>
       <div className="movie-grid" id="movielist">
-        {data === undefined
-          ? null
-          : data.map((e, i) => <Poster props={e} key={e.id} itemId={i} />)}
+        {data && data.map((e, i) => <Poster props={e} key={e.id} itemId={i} />)}
       </div>
 
       <div className="pagination">

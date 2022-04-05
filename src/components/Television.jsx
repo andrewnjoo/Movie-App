@@ -13,24 +13,13 @@ function Television() {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const reduxData = useGetTvQuery(page);
-  // console.log(reduxData);
 
   useEffect(() => {
-    if (reduxData.isSuccess) {
-      const youtubeLinks = reduxData.data.map(async (movie) => {
-        let temp = await axios.get(`https://api.themoviedb.org/3/tv/${movie.id}/videos?api_key=${tmdbKey}&language=en-US`);
-        temp = temp.data.results.filter((video) => video.type === 'Trailer');
-        return temp[0]?.key || '';
-      });
-      Promise.all(youtubeLinks).then((values) => {
-        const temp = reduxData.data.map((movie, idx) => ({ ...movie, youtubeLink: values[idx] }));
-        setData(temp);
-      });
-    }
+    setData(reduxData.data);
   }, [reduxData]);
 
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
   }, [data]);
 
   const decreasePage = () => {

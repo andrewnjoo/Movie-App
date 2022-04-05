@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import useKeypress from 'react-use-keypress';
+import axios from 'axios';
+import { tmdbKey } from './sharedVariables';
 import TrailerModal from './TrailerModal.component';
 
 function Poster({ props }) {
@@ -8,6 +10,7 @@ function Poster({ props }) {
   const [src, setSrc] = useState('');
   const [data, setData] = useState([]);
   const [displayTrailer, setDisplayTrailer] = useState(false);
+  const [youtube, setYoutube] = useState('');
 
   const handleShow = () => {
     setShow(!show);
@@ -17,19 +20,40 @@ function Poster({ props }) {
   useKeypress('Enter', () => {
     handleShow();
   });
+  useEffect(() => {
+    console.log(youtube);
+  }, [youtube]);
 
   useEffect(() => {
     // console.log(props);
-    const setImage = () => {
-      if (props == null) {
-        console.log('no props');
-      } else {
-        setSrc(`https://image.tmdb.org/t/p/original${props.poster_path}`);
-        setData(props);
-      }
-    };
-    setImage();
+    if (props !== null) {
+      setSrc(`https://image.tmdb.org/t/p/original${props.poster_path}`);
+      setData(props);
+    }
   });
+
+  useEffect(async () => {
+    if (props !== null) {
+      // console.log(props);
+      // try movie
+      let temp = await axios.get(`https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=${tmdbKey}&language=en-US`);
+      if (temp.data.results.length > 0) {
+        temp = temp.data.results;
+      // try tv
+      } else {
+        temp = await axios.get(`https://api.themoviedb.org/3/tv/${props.id}/videos?api_key=${tmdbKey}&language=en-US`);
+        temp = temp.data.results;
+      }
+      temp = temp.filter((video) => video.type === 'Trailer');
+      // console.log(temp);
+      temp = temp[0]?.key || '';
+      setYoutube(temp);
+    }
+  }, [props]);
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   const movieRating = () => {
     if (data.vote_average === 0) {
@@ -83,7 +107,7 @@ function Poster({ props }) {
           <Button className="mx-3" variant="primary" onClick={() => setDisplayTrailer(true)}>▶ Play Trailer</Button>
           <TrailerModal
             displayTrailer={displayTrailer}
-            youtubeLink={data.youtubeLink}
+            youtubeLink={youtube}
             setDisplayTrailer={setDisplayTrailer}
           />
           {' '}
