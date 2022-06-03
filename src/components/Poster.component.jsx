@@ -18,11 +18,11 @@ function Poster({ props, type }) {
   };
 
   useKeypress('Enter', () => {
-    handleShow();
+    // handleShow();
   });
 
   useEffect(() => {
-    console.log(youtube);
+    // console.log(youtube);
   }, [youtube]);
 
   useEffect(() => {
