@@ -1,0 +1,13 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "cd client && npm i && npm start",
+    "server": "cd server && npm i && nodemon server",
+    "dev": "concurrently \"npm run server\" \"npm run start\""
+  },
+  "dependencies": {
+    "concurrently": "^7.2.1"
+  }
+}
