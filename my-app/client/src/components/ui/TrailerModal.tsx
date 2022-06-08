@@ -53,7 +53,7 @@ export default function TrailerModal({ open, setOpen, trailer }) {
 }
 
 TrailerModal.propTypes = {
-  open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
-  trailer: PropTypes.string.isRequired,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+  trailer: PropTypes.string,
 };
