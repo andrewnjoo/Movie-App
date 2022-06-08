@@ -23,15 +23,13 @@ export default function MovieHero({ data, trailer }) {
           <div className="w-full">
             {/* Heading */}
             <div>
-              {`${data.title} (${moment(data.release_date).format('YYYY')})`}
+              {`${data.title || data.name} (${moment(data.release_date).format('YYYY')})`}
             </div>
             {/* Subheading #1 */}
             <div>
-              {moment(data.release_date).format('DD MMM YYYY')}
-              &nbsp;•&nbsp;
+              {`${moment(data.release_date).format('DD MMM YYYY')} • `}
               {data.genres?.map((genre, idx) => (idx !== data.genres.length - 1 ? `${genre.name}, ` : `${genre.name}`))}
-              &nbsp;•&nbsp;
-              {`${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m`}
+              {data.runtime ? ` • ${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m` : ''}
             </div>
             {/* Subheading #2 */}
             <div className="my-6 flex items-center">
@@ -79,6 +77,7 @@ MovieHero.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
+    name: PropTypes.string,
     poster_path: PropTypes.string,
     release_date: PropTypes.string,
     vote_average: PropTypes.number,

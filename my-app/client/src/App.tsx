@@ -7,6 +7,7 @@ import {
 import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import MoviePage from './components/pages/MoviePage';
+import TVPage from './components/pages/TVPage';
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
+          <Route path="/movies" element={<Home />} />
           <Route path="/movie/:id" element={<MoviePage />} />
+          <Route path="/tv" element={<TVPage />} />
+          <Route path="/tv/:id" element={<MoviePage movie={false} />} />
         </Routes>
       </BrowserRouter>
     </>

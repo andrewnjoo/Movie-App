@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import MovieHero from '../ui/MovieHero';
 import tmdbKey from '../../sharedVariables';
 
-function MoviePage() {
+function MoviePage({ movie = true }) {
   const { id } = useParams();
   const history = useNavigate();
   const location = useLocation();
@@ -14,7 +15,7 @@ function MoviePage() {
   useEffect(() => {
     // get movie details
     (async () => {
-      const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbKey}`);
+      const { data } = await axios.get(`https://api.themoviedb.org/3/${movie ? 'movie' : 'tv'}/${id}?api_key=${tmdbKey}`);
       setMovieData(data);
       if (!location.pathname.includes('-')) {
         history(`../movie/${id}-${data.title.replace(/:/g, '').replace(/\s/g, '-').toLowerCase()}`);
@@ -22,7 +23,7 @@ function MoviePage() {
     })();
     // get trailer
     (async () => {
-      const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${tmdbKey}&language=en-US`);
+      const { data } = await axios.get(`https://api.themoviedb.org/3/${movie ? 'movie' : 'tv'}/${id}/videos?api_key=${tmdbKey}&language=en-US`);
       setTrailer(data.results.filter((item) => item.type === 'Trailer')[0].key);
     })();
   }, [id]);
@@ -38,5 +39,9 @@ function MoviePage() {
     </div>
   );
 }
+
+MoviePage.propTypes = {
+  movie: PropTypes.bool,
+};
 
 export default MoviePage;
