@@ -1,7 +1,6 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-const tmdbKey = '7aa9ec6612579e4bfd39288619de239c';
+import tmdbKey from '../sharedVariables';
 
 // Define a service using a base URL and expected endpoints
 export const moviesApi = createApi({
