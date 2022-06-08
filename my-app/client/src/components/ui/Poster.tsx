@@ -1,10 +1,10 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import CustomCircularProgressBar from './CustomCircularProgressBar';
 
-function Poster({ data }) {
+export default function Poster({ data }) {
   return (
     <div key={data.id} className="w-full mx-4" style={{ minWidth: '150px' }}>
       <a href={`movie/${data.id}`}>
@@ -15,13 +15,7 @@ function Poster({ data }) {
         />
       </a>
       <div className="flex">
-        <div className="w-8" style={{ transform: 'translate(8px, -10px)' }}>
-          <CircularProgressbar value={data.vote_average * 10} styles={buildStyles({ pathColor: data.vote_average > 7 ? '#39d07a' : '#d2d531' })} />
-        </div>
-        <p className="ml-3 text-sm">
-          {data.vote_average * 10}
-          %
-        </p>
+        <CustomCircularProgressBar data={data} />
       </div>
       <div className="pt-1 px-2.5 pb-3" id="content">
         <a href={`movie/${data.id}`}>
@@ -52,5 +46,3 @@ Poster.defaultProps = {
     vote_average: 0,
   },
 };
-
-export default Poster;
