@@ -9,20 +9,22 @@ import TrailerModal from './TrailerModal';
 export default function MovieHero({ data, trailer }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex px-10">
+    <div className="flex flex-col md:flex-row px-10 w-full">
       {data && (
         <>
-          {/* Poster */}
-          <div key={data.id} className="mx-4" style={{ width: '300px' }}>
+          {/* Left Column / Poster */}
+          <div className="px-3 mx-auto" style={{ width: '300px' }}>
             <img
-              className="m-auto object-cover w-full rounded"
-              src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${data.poster_path}`}
+              className="m-auto mb-2 object-cover w-full rounded"
+              src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
               alt="Movie Poster"
+              style={{ minWidth: '300px' }}
             />
           </div>
-          <div className="w-full">
+          {/* Right Column / Info */}
+          <div className="px-4 my-3 ml-3 mx-auto md:text-left text-center">
             {/* Heading */}
-            <div>
+            <div className="text-xl font-bold">
               {`${data.title || data.name} (${moment(data.release_date).format('YYYY')})`}
             </div>
             {/* Subheading #1 */}
@@ -32,7 +34,7 @@ export default function MovieHero({ data, trailer }) {
               {data.runtime ? ` • ${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m` : ''}
             </div>
             {/* Subheading #2 */}
-            <div className="my-6 flex items-center">
+            <div className="my-6 flex justify-center md:justify-start items-center">
               <CustomCircularProgressBar
                 transformData=""
                 data={data}

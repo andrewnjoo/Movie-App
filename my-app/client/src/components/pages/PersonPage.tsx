@@ -15,15 +15,18 @@ export default function PersonPage() {
     })();
   }, [id]);
   return (
-    <div className="flex my-12">
-      <div key={state?.id} className="mx-4" style={{ width: '300px' }}>
+    <div className="flex flex-col md:flex-row my-12">
+      {/* Left Column */}
+      <div className="px-3 mx-auto">
         <img
-          className="m-auto object-cover w-full rounded"
-          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${state?.profile_path}`}
+          className="object-cover w-full rounded-xl"
+          src={`https://image.tmdb.org/t/p/original${state?.profile_path}`}
           alt="Headshot"
+          style={{ width: '300px', minWidth: '300px' }}
         />
       </div>
-      <div className="w-full px-4">
+      {/* Right Column */}
+      <div className="px-4 my-3 mx-auto md:text-left text-center" style={{ maxWidth: '70%' }}>
         {/* Heading */}
         <div className="text-3xl font-bold">
           {`${state?.name}`}

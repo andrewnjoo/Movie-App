@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 
 export default function TrailerModal({ open, setOpen, trailer }) {
-  console.log(trailer === undefined);
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -33,10 +32,10 @@ export default function TrailerModal({ open, setOpen, trailer }) {
               <Dialog.Panel className="relative rounded-lg align-center">
                 <div className="sm:flex sm:items-start">
                   <iframe
-                    className="trailer-modal"
+                    className="trailer-modal rounded-md"
                     loading="lazy"
-                    width="800"
-                    height="500"
+                    width={`${window.innerWidth > 400 ? '800px' : `${window.innerWidth * 0.8}px`}`}
+                    height={`${window.innerWidth > 400 ? '500px' : `${window.innerWidth * 0.8}px`}`}
                     src={`https://www.youtube.com/embed/${trailer}`}
                     title="YouTube video player"
                     frameBorder="0"
