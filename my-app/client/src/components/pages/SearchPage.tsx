@@ -30,11 +30,11 @@ export default function SearchPage() {
     <>
       {/* Left Column */}
       <div className="flex flex-col text-center">
-        <div className="text-2xl font-bold">Search</div>
+        <div className="text-2xl font-bold mt-6 mb-3">Search</div>
         <div className="text-md">
-          <a className="hover:text-sky-700" href={`/search?type=movie&query=${searchParams.get('query')}`}>Movies </a>
-          <a className="hover:text-sky-700" href={`/search?type=tv&query=${searchParams.get('query')}`}>TV </a>
-          <a className="hover:text-sky-700" href={`/search?type=person&query=${searchParams.get('query')}`}>People</a>
+          <a className={`${searchParams.get('type') === 'movie' ? 'border-indigo-500' : 'border-transparent'} hover:text-sky-700 border-b-2 mx-1`} href={`/search?type=movie&query=${searchParams.get('query')}`}>Movies</a>
+          <a className={`${searchParams.get('type') === 'tv' ? 'border-indigo-500' : 'border-transparent'} hover:text-sky-700 border-b-2 mx-1`} href={`/search?type=tv&query=${searchParams.get('query')}`}>TV</a>
+          <a className={`${searchParams.get('type') === 'person' ? 'border-indigo-500' : 'border-transparent'} hover:text-sky-700 border-b-2 mx-1`} href={`/search?type=person&query=${searchParams.get('query')}`}>People</a>
         </div>
       </div>
       <ScrollContainer className="scroll-container py-12">
