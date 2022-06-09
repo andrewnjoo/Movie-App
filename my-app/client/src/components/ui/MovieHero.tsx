@@ -62,8 +62,9 @@ export default function MovieHero({ data, trailer }) {
             </div>
             {/* Description */}
             <div className="mt-4">
-              <strong>Overview</strong>
-              <br />
+              <div className="font-bold">
+                Overview
+              </div>
               {data.overview}
             </div>
           </div>
