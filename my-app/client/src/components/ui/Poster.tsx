@@ -22,14 +22,14 @@ export default function Poster({ data, movie }) {
   }, [data]);
 
   return (
-    <div key={data.id} className="w-full mx-4" style={{ minWidth: '150px' }}>
+    <div key={data.id} className="w-48 mx-4" style={{ minWidth: '150px' }}>
       {/* Movie Poster */}
       <a href={movie ? `movie/${data.id}` : `tv/${data.id}`}>
         <img
           className="m-auto object-cover w-full rounded"
-          src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`}
+          src={data?.poster_path ? `https://image.tmdb.org/t/p/original/${data?.poster_path}` : 'https://i.stack.imgur.com/6M513.png'}
           alt="Movie Poster"
-          style={{ minHeight: '225px' }}
+          style={{ minHeight: '225px', maxWidth: '150px' }}
         />
       </a>
       <div className="flex justify-between">
