@@ -19,7 +19,7 @@ function Home({ movie = true }) {
   }, [reduxData]);
 
   return (
-    <ScrollContainer className="scroll-container py-12">
+    <ScrollContainer className="scroll-container py-12 lg:mx-24">
       <div className="flex">
         {data?.map((element) => (
           <Poster

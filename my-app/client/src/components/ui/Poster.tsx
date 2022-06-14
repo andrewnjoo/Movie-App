@@ -9,7 +9,7 @@ import CustomCircularProgressBar from './CustomCircularProgressBar';
 import TrailerModal from './TrailerModal';
 import tmdbKey from '../../sharedVariables';
 
-export default function Poster({ data, movie }) {
+export default function Poster({ data, movie, search = false }) {
   const [open, setOpen] = useState(false);
   const [trailer, setTrailer] = useState('');
 
@@ -22,7 +22,7 @@ export default function Poster({ data, movie }) {
   }, [data]);
 
   return (
-    <div key={data.id} className="w-48 mx-4" style={{ minWidth: '150px' }}>
+    <div key={data.id} className="mx-4" style={{ minWidth: '150px', width: search ? '150px' : '' }}>
       {/* Movie Poster */}
       <a href={movie ? `movie/${data.id}` : `tv/${data.id}`}>
         <img
@@ -48,7 +48,7 @@ export default function Poster({ data, movie }) {
       {/* Title and Release Date */}
       <div className="pt-1 px-2.5 pb-3" id="content">
         <a href={`movie/${data.id}`}>
-          <div className="text-sm font-bold">{data.title || data.name }</div>
+          <div className="text-sm font-bold overflow-clip">{data.title || data.name }</div>
         </a>
         <div className="text-sm">{moment(data.release_date).format('DD MMM YYYY')}</div>
       </div>
@@ -66,6 +66,7 @@ Poster.propTypes = {
     name: PropTypes.string,
   }),
   movie: PropTypes.bool,
+  search: PropTypes.bool,
 };
 
 Poster.defaultProps = {

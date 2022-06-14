@@ -47,6 +47,7 @@ export default function SearchPage() {
                   data={item}
                   movie={type === 'movie'}
                   key={item.id}
+                  search
                 />
               )
           ))}
