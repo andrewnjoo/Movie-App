@@ -5,9 +5,19 @@
   "scripts": {
     "start": "cd client && npm i && npm start",
     "server": "cd server && npm i && nodemon server",
-    "dev": "concurrently \"npm run server\" \"npm run start\""
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "test": "jest"
   },
   "dependencies": {
     "concurrently": "^7.2.1"
+  },
+  "devDependencies": {
+    "supertest": "^6.2.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

@@ -36,8 +36,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 (async () => {
-  await sequelize.sync({ force: false })
-  console.log('Database synced');
+  // await sequelize.sync({ force: false })
+  // console.log('Database synced');
   // sequelize.close();
 })();
 
