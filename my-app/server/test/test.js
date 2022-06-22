@@ -1,7 +1,15 @@
 /* eslint-disable no-undef */
 const server = require('../server');
 const request = require('supertest');
-// const requestWithSupertest = supertest(server);
+
+let appServer;
+beforeAll(async()=>{
+    appServer = server.listen(5000, ()=> console.log(`listening`))
+})
+
+afterAll(async()=>{
+    await appServer.close();
+})
 
 describe('User Endpoints', () => {
     it('should return a Hello World', async () => {
