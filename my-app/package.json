@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "start": "cd client && npm i && npm start",
-    "server": "cd server && npm i && nodemon server",
+    "server": "cd server/config && nodemon startServer",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
-    "concurrently": "^7.2.1"
+    "concurrently": "^7.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
   },
   "devDependencies": {
     "supertest": "^6.2.3"
