@@ -29,6 +29,8 @@ module.exports = {
   },
   rules: {
     'react/require-default-props': 'off',
+    'jsx-quotes': ['error', 'prefer-single'],
+    'comma-dangle': ['error', 'always-multiline'],
     'import/extensions': [
       'error',
       'ignorePackages',

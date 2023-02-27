@@ -15,30 +15,44 @@ export default function Poster({ data, movie, search = false }) {
 
   useEffect(() => {
     (async () => {
-    // get trailer
-      const res2 = await axios.get(`https://api.themoviedb.org/3/${movie ? 'movie' : 'tv'}/${data.id}/videos?api_key=${tmdbKey}&language=en-US`);
-      setTrailer(res2.data.results.filter((item) => item.type === 'Trailer')[0]?.key);
+      // get trailer
+      const res2 = await axios.get(
+        `https://api.themoviedb.org/3/${movie ? 'movie' : 'tv'}/${
+          data.id
+        }/videos?api_key=${tmdbKey}&language=en-US`,
+      );
+      setTrailer(
+        res2.data.results.filter((item) => item.type === 'Trailer')[0]?.key,
+      );
     })();
   }, [data]);
 
   return (
-    <div key={data.id} className="mx-4" style={{ minWidth: '150px', width: search ? '150px' : '' }}>
+    <div
+      key={data.id}
+      className='mx-4'
+      style={{ minWidth: '150px', width: search ? '150px' : '' }}
+    >
       {/* Movie Poster */}
       <a href={movie ? `movie/${data.id}` : `tv/${data.id}`}>
         <img
-          className="m-auto object-cover w-full rounded"
-          src={data?.poster_path ? `https://image.tmdb.org/t/p/original/${data?.poster_path}` : 'https://i.stack.imgur.com/6M513.png'}
-          alt="Movie Poster"
+          className='m-auto object-cover w-full rounded'
+          src={
+            data?.poster_path
+              ? `https://image.tmdb.org/t/p/original/${data?.poster_path}`
+              : 'https://i.stack.imgur.com/6M513.png'
+          }
+          alt='Movie Poster'
           style={{ minHeight: '225px', maxWidth: '150px' }}
         />
       </a>
-      <div className="flex justify-between">
+      <div className='flex justify-between'>
         {/* Movie Score */}
         <CustomCircularProgressBar data={data} />
         {/* Trailer Preview */}
         {trailer && (
           <IconContext.Provider value={{ size: '1.4em' }}>
-            <button type="button" onClick={() => setOpen(true)}>
+            <button type='button' onClick={() => setOpen(true)}>
               <AiOutlineYoutube />
             </button>
             <TrailerModal open={open} setOpen={setOpen} trailer={trailer} />
@@ -46,11 +60,15 @@ export default function Poster({ data, movie, search = false }) {
         )}
       </div>
       {/* Title and Release Date */}
-      <div className="pt-1 px-2.5 pb-3" id="content">
+      <div className='pt-1 px-2.5 pb-3' id='content'>
         <a href={`movie/${data.id}`}>
-          <div className="text-sm font-bold overflow-clip">{data.title || data.name }</div>
+          <div className='text-sm font-bold overflow-clip'>
+            {data.title || data.name}
+          </div>
         </a>
-        <div className="text-sm">{moment(data.release_date).format('DD MMM YYYY')}</div>
+        <div className='text-sm'>
+          {moment(data.release_date).format('DD MMM YYYY')}
+        </div>
       </div>
     </div>
   );

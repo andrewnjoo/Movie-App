@@ -30,7 +30,7 @@ function MoviePage({ movie = true }) {
 
   return (
     <div>
-      <section className="flex my-12">
+      <section className='flex my-12'>
         <MovieHero
           data={movieData}
           trailer={trailer}

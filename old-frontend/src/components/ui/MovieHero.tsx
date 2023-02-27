@@ -9,64 +9,60 @@ import TrailerModal from './TrailerModal';
 export default function MovieHero({ data, trailer }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex flex-col md:flex-row px-10 w-full">
+    <div className='flex flex-col md:flex-row px-10 w-full'>
       {data && (
         <>
           {/* Left Column / Poster */}
-          <div className="px-3 mx-auto" style={{ width: '300px' }}>
+          <div className='px-3 mx-auto' style={{ width: '300px' }}>
             <img
-              className="m-auto mb-2 object-cover w-full rounded"
+              className='m-auto mb-2 object-cover w-full rounded'
               src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
-              alt="Movie Poster"
+              alt='Movie Poster'
               style={{ minWidth: '300px' }}
             />
           </div>
           {/* Right Column / Info */}
-          <div className="px-4 my-3 ml-3 mx-auto md:text-left text-center">
+          <div className='px-4 my-3 ml-3 mx-auto md:text-left text-center'>
             {/* Heading */}
-            <div className="text-xl font-bold">
-              {`${data.title || data.name} (${moment(data.release_date).format('YYYY')})`}
+            <div className='text-xl font-bold'>
+              {`${data.title || data.name} (${moment(data.release_date).format(
+                'YYYY',
+              )})`}
             </div>
             {/* Subheading #1 */}
             <div>
               {`${moment(data.release_date).format('DD MMM YYYY')} • `}
-              {data.genres?.map((genre, idx) => (idx !== data.genres.length - 1 ? `${genre.name}, ` : `${genre.name}`))}
-              {data.runtime ? ` • ${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m` : ''}
+              {data.genres && data.genres.map((genre) => genre.name).join(', ')}
+              {data.runtime
+                ? ` • ${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m`
+                : ''}
             </div>
             {/* Subheading #2 */}
-            <div className="my-6 flex justify-center md:justify-start items-center">
+            <div className='my-6 flex justify-center md:justify-start items-center'>
               <CustomCircularProgressBar
-                transformData=""
+                transformData=''
                 data={data}
-                width="w-14"
-                textSize="text-lg"
+                width='w-14'
+                textSize='text-lg'
               />
-              <div className="w-6 mx-4">
-                User Score
-              </div>
+              <div className='w-6 mx-4'>User Score</div>
               <button
-                className="w-32 mx-6 flex items-center"
-                type="button"
+                className='w-32 mx-6 flex items-center'
+                type='button'
                 onClick={() => setOpen(true)}
               >
-                <BsFillPlayBtnFill className="mr-2" />
+                <BsFillPlayBtnFill className='mr-2' />
                 Play Trailer
               </button>
-              <TrailerModal
-                open={open}
-                setOpen={setOpen}
-                trailer={trailer}
-              />
+              <TrailerModal open={open} setOpen={setOpen} trailer={trailer} />
             </div>
             {/* Tagline */}
-            <div className="mt-4">
+            <div className='mt-4'>
               <em>{data.tagline}</em>
             </div>
             {/* Description */}
-            <div className="mt-4">
-              <div className="font-bold">
-                Overview
-              </div>
+            <div className='mt-4'>
+              <div className='font-bold'>Overview</div>
               {data.overview}
             </div>
           </div>
@@ -86,10 +82,12 @@ MovieHero.propTypes = {
     vote_average: PropTypes.number,
     overview: PropTypes.string,
     tagline: PropTypes.string,
-    genres: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-    })),
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+      }),
+    ),
     runtime: PropTypes.number,
   }),
   trailer: PropTypes.string,

@@ -8,13 +8,17 @@ export default function PeoplePage() {
   // show popular people
   useEffect(() => {
     (async () => {
-      const { data: { results } } = await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=${tmdbKey}&language=en-US&page=1`);
+      const {
+        data: { results },
+      } = await axios.get(
+        `https://api.themoviedb.org/3/person/popular?api_key=${tmdbKey}&language=en-US&page=1`,
+      );
       console.log(results);
       setState(results);
     })();
   }, []);
   return (
-    <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-x-5 place-items-center my-16">
+    <div className='grid sm:grid-cols-3 lg:grid-cols-5 gap-x-5 place-items-center my-16'>
       {state.map((item) => (
         <Person data={item} />
       ))}

@@ -19,13 +19,14 @@ function Home({ movie = true }) {
   }, [reduxData]);
 
   return (
-    <ScrollContainer className="scroll-container py-12 lg:mx-24">
-      <div className="flex">
+    <ScrollContainer
+      className='scroll-container py-12 lg:mx-24'
+      horizontal
+      hideScrollbars={false}
+    >
+      <div className='flex'>
         {data?.map((element) => (
-          <Poster
-            data={element}
-            movie={movie}
-          />
+          <Poster data={element} movie={movie} />
         ))}
       </div>
     </ScrollContainer>
