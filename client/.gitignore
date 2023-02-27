@@ -1,7 +1,3 @@
-# Mac OS
-.DS_Store
-
-# Client
 # Logs
 logs
 *.log

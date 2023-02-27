@@ -1,6 +1,6 @@
 2023-02-27
 
-- swap for new movie app built with tailwind
+- swap for new movie app built with tailwind, use vite for client
 
 2022-02-01
 
