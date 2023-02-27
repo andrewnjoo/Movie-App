@@ -112,14 +112,6 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className='hidden lg:ml-4 lg:flex lg:items-center'>
-                <button
-                  type='button'
-                  className='flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                >
-                  <span className='sr-only'>View notifications</span>
-                  <BellIcon className='h-6 w-6' aria-hidden='true' />
-                </button>
-
                 {/* Profile dropdown */}
                 <Menu as='div' className='ml-4 relative flex-shrink-0'>
                   <div>
@@ -152,19 +144,6 @@ export default function Navbar() {
                             )}
                           >
                             Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }: { active: any }) => (
-                          <a
-                            href='#'
-                            className={classNames(
-                              active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Settings
                           </a>
                         )}
                       </Menu.Item>
@@ -252,13 +231,6 @@ export default function Navbar() {
                     tom@example.com
                   </div>
                 </div>
-                <button
-                  type='button'
-                  className='ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                >
-                  <span className='sr-only'>View notifications</span>
-                  <BellIcon className='h-6 w-6' aria-hidden='true' />
-                </button>
               </div>
               <div className='mt-3 space-y-1'>
                 <Disclosure.Button
@@ -267,13 +239,6 @@ export default function Navbar() {
                   className='block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100'
                 >
                   Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as='a'
-                  href='#'
-                  className='block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100'
-                >
-                  Settings
                 </Disclosure.Button>
                 <Disclosure.Button
                   as='a'
