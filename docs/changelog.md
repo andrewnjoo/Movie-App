@@ -1,3 +1,7 @@
+2023-02-27
+
+- swap for new movie app built with tailwind
+
 2022-02-01
 
 - configure + clean with ESLint
@@ -19,7 +23,6 @@
 - add user profile icon to NavBar
 
 - change from horizontal scrolling for movies/TV to grid layout
-
 
 2022-01-28
 
@@ -90,57 +93,3 @@
 2021-07-18
 
 - installed tailwind in react
-
-# TODO
-
-## high-prio
-
-- trailer link (would be super cool)
-  
-- add sort by popular | top rated
-
-- horizontal scroll to vertical scroll for movies / TV
-
-- create pagination
-
-- add a people page
-
-- create test for correct space in between page and number -> e.g. page 10 not page10
-
-
-- improve search bar
-
-- pre-load movies / TV shows
-
-### n2h
-
-- trailer example : <http://api.themoviedb.org/3/movie/566525/videos?api_key=7aa9ec6612579e4bfd39288619de239c>
-
-- add loading spinner during api call | fetch pre-load X page api data
-
-
-- did you mean this movie name popup
-
-- add app stats page - e.g. movies added, number of users, most liked movies etc.
-
-## done
-
-~~app reflashes when routing: how to fix: maybe move to Next.js / SSR (fixed with short-circuit authorization)~~
-
-~~hamburger menu for mobile~~
-
-~~refactor LandingPage to save output of API call into state to save time~~
-
-## Color scheme
-
-Primary
-#445bf5
-dark blue
-
-Secondary
-#f5de44
-light yellow
-
-Tertiary
-#bdc5fb
-light blue 
