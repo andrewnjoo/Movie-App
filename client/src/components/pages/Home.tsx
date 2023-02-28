@@ -6,16 +6,20 @@ import Poster from '../ui/Poster';
 
 function Home({ movie = true }): JSX.Element {
   const [data, setData] = useState([]);
-  const reduxData = movie ? useGetMoviesQuery(1) : useGetTVQuery(1);
+  const reduxDataPage1 = movie ? useGetMoviesQuery(1) : useGetTVQuery(1);
+  const reduxDataPage2 = movie ? useGetMoviesQuery(2) : useGetTVQuery(2);
 
   useEffect(() => {
-    if (movie) {
-      setData(reduxData.data);
-    } else {
-      setData(reduxData.data);
-    }
-    console.log(reduxData);
-  }, [reduxData]);
+    const combinedData: any = [
+      ...(reduxDataPage1?.data?.filter(
+        (item: any) => item.original_language === 'en',
+      ) || []),
+      ...(reduxDataPage2?.data?.filter(
+        (item: any) => item.original_language === 'en',
+      ) || []),
+    ];
+    setData(combinedData);
+  }, [reduxDataPage1, reduxDataPage2]);
 
   return (
     <ScrollContainer
