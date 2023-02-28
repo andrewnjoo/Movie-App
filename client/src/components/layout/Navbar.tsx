@@ -7,6 +7,8 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
+const hrefs = ['/', '/movies', '/tv', '/person', '/favorites'];
+
 export default function Navbar() {
   const { href } = window.location;
   const [searchText, setSearchText] = useState<any>('');
@@ -24,11 +26,11 @@ export default function Navbar() {
             <div className='flex justify-between h-16'>
               <div className='flex px-2 lg:px-0'>
                 <div className='flex-shrink-0 flex items-center'>
-                  <a href='/'>MovieApp</a>
+                  <a href={hrefs[0]}>MovieApp</a>
                 </div>
                 <div className='hidden lg:ml-6 lg:flex lg:space-x-8'>
                   <a
-                    href='/movie'
+                    href={hrefs[1]}
                     className={`${
                       href.slice(-1) === '/' || href.includes('movie')
                         ? 'border-indigo-500 text-gray-900'
@@ -38,7 +40,7 @@ export default function Navbar() {
                     Movies
                   </a>
                   <a
-                    href='/tv'
+                    href={hrefs[2]}
                     className={`${
                       href.includes('tv')
                         ? 'border-indigo-500 text-gray-900'
@@ -48,7 +50,7 @@ export default function Navbar() {
                     TV Shows
                   </a>
                   <a
-                    href='/person'
+                    href={hrefs[3]}
                     className={`${
                       href.includes('person')
                         ? 'border-indigo-500 text-gray-900'
@@ -58,7 +60,7 @@ export default function Navbar() {
                     People
                   </a>
                   <a
-                    href='/favorites'
+                    href={hrefs[4]}
                     className={`${
                       href.includes('favorites')
                         ? 'border-indigo-500 text-gray-900'
@@ -140,7 +142,7 @@ export default function Navbar() {
                             href='#'
                             className={classNames(
                               active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
+                              'block px-4 py-2 text-sm text-gray-700',
                             )}
                           >
                             Your Profile
@@ -153,7 +155,7 @@ export default function Navbar() {
                             href='#'
                             className={classNames(
                               active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
+                              'block px-4 py-2 text-sm text-gray-700',
                             )}
                           >
                             Sign out
@@ -171,7 +173,7 @@ export default function Navbar() {
             <div className='pt-2 pb-3 space-y-1'>
               <Disclosure.Button
                 as='a'
-                href='/movie'
+                href={hrefs[0]}
                 className={`${
                   href.slice(-1) === '/' || href.includes('movie')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
@@ -182,7 +184,7 @@ export default function Navbar() {
               </Disclosure.Button>
               <Disclosure.Button
                 as='a'
-                href='/tv'
+                href={hrefs[1]}
                 className={`${
                   href.includes('tv')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
@@ -193,7 +195,7 @@ export default function Navbar() {
               </Disclosure.Button>
               <Disclosure.Button
                 as='a'
-                href='/person'
+                href={hrefs[2]}
                 className={`${
                   href.includes('person')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
@@ -204,7 +206,7 @@ export default function Navbar() {
               </Disclosure.Button>
               <Disclosure.Button
                 as='a'
-                href='/favorites'
+                href={hrefs[3]}
                 className={`${
                   href.includes('favorites')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'

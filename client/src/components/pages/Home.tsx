@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
+
 import { useGetMoviesQuery, useGetTVQuery } from '../../redux/movies';
 import Poster from '../ui/Poster';
 

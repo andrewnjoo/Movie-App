@@ -25,10 +25,11 @@ export default function Poster({
       const res2 = await axios.get(
         `https://api.themoviedb.org/3/${movie ? 'movie' : 'tv'}/${
           data.id
-        }/videos?api_key=${tmdbKey}&language=en-US`
+        }/videos?api_key=${tmdbKey}&language=en-US`,
       );
       setTrailer(
-        res2.data.results.filter((item: any) => item.type === 'Trailer')[0]?.key
+        res2.data.results.filter((item: any) => item.type === 'Trailer')[0]
+          ?.key,
       );
     })();
   }, [data]);
@@ -40,7 +41,7 @@ export default function Poster({
       style={{ minWidth: '150px', width: search ? '150px' : '' }}
     >
       {/* Movie Poster */}
-      <a href={movie ? `movie/${data.id}` : `tv/${data.id}`}>
+      <a href={movie ? `movies/${data.id}` : `tv/${data.id}`}>
         <img
           className='m-auto object-cover w-full rounded'
           src={

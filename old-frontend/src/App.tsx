@@ -15,8 +15,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path='/movie' element={<Home />} />
-          <Route path='/movie/:id' element={<MoviePage />} />
+          <Route path='/movies' element={<Home />} />
+          <Route path='/movies/:id' element={<MoviePage />} />
           <Route path='/tv' element={<TVPage />} />
           <Route path='/tv/:id' element={<MoviePage movie={false} />} />
           <Route path='/person' element={<PeoplePage />} />
