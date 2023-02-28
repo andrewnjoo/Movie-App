@@ -1,15 +1,15 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BsSearch } from 'react-icons/bs';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
-function classNames(...classes: any) {
+function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
 }
 
 const hrefs = ['/', '/movies', '/tv', '/people']; // TODO - '/favorites'
 
-export default function Navbar() {
+export default function Navbar(): JSX.Element {
   const { href } = window.location;
   const [searchText, setSearchText] = useState<any>('');
   const windowUrl = window.location.search;
@@ -92,7 +92,9 @@ export default function Navbar() {
                       placeholder='Search'
                       type='search'
                       value={searchText}
-                      onChange={(e) => setSearchText(e.target.value)}
+                      onChange={(e) => {
+                        setSearchText(e.target.value);
+                      }}
                       onKeyPress={(e) => {
                         if (e.key === 'Enter') {
                           e.preventDefault();
@@ -104,7 +106,7 @@ export default function Navbar() {
                           if (typeParam) {
                             searchUrl += `type=${typeParam}&`;
                           } else {
-                            searchUrl += `type=movie&`;
+                            searchUrl += 'type=movie&';
                           }
                           searchUrl += `query=${searchText}`;
                           window.location.href = searchUrl;

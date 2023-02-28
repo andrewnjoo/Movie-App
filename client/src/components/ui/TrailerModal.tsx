@@ -9,7 +9,7 @@ export default function TrailerModal({
   open: boolean;
   setOpen: (open: boolean) => void;
   trailer: string;
-}) {
+}): JSX.Element {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={setOpen}>

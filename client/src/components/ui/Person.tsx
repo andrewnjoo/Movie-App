@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Person({ data }: { data: any }) {
+export default function Person({ data }: { data: any }): JSX.Element {
   return (
     <div className='text-center bg-zinc-200 my-2 rounded-md'>
       <a href={`/people/${data.id}`}>

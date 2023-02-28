@@ -7,18 +7,18 @@ import { tmdbKey } from '../../config';
 import Poster from '../ui/Poster';
 import Person from '../ui/Person';
 
-export default function SearchPage() {
+export default function SearchPage(): JSX.Element {
   //   movie, tv, person
-  const [type, setType] = useState(null);
+  const [type, setType] = useState<any>(null);
   const [state, setState] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   useEffect(() => {
     setType(searchParams.get('type'));
   }, [searchParams]);
 
   useEffect(() => {
     if (type) {
-      (async () => {
+      void (async () => {
         const {
           data: { results },
         } = await axios.get(
@@ -26,7 +26,7 @@ export default function SearchPage() {
             'query',
           )}&language=en-US&page=1`,
         );
-        console.log(results);
+        // console.log(results);
         setState(results);
       })();
     }
@@ -76,8 +76,9 @@ export default function SearchPage() {
           {state.map((item: any) => {
             if (type === 'person') {
               if (item.profile_path === null) return null;
-              return <Person data={item} />;
+              return <Person data={item} key={item.id} />;
             }
+            if (item.poster_path === null) return null;
             return (
               <Poster
                 data={item}

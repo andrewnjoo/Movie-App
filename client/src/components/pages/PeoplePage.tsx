@@ -4,10 +4,10 @@ import axios from 'axios';
 import { tmdbKey } from '../../config';
 import Person from '../ui/Person';
 
-export default function PeoplePage() {
+export default function PeoplePage(): JSX.Element {
   const [state, setState] = useState([]);
   useEffect(() => {
-    (async () => {
+    void (async () => {
       const {
         data: { results },
       } = await axios.get(
@@ -20,8 +20,8 @@ export default function PeoplePage() {
 
   return (
     <div className='grid sm:grid-cols-3 lg:grid-cols-5 gap-x-5 place-items-center my-16'>
-      {state.map((item) => (
-        <Person data={item} />
+      {state.map((item: any) => (
+        <Person data={item} key={item.id} />
       ))}
     </div>
   );

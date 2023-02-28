@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import MovieHero from '../ui/MovieHero';
 import { tmdbKey } from '../../config';
 
-function MoviePage({ movie = true }) {
+function MoviePage({ movie = true }): JSX.Element {
   const [movieData, setMovieData] = useState({});
   const [trailer, setTrailer] = useState('');
-  const [state, setState] = useState({ runOnce: false });
   const { id } = useParams();
-  const history = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
-    (async () => {
+    void (async () => {
       // get movie info
       const res = await axios.get(
         `https://api.themoviedb.org/3/${
@@ -32,11 +29,6 @@ function MoviePage({ movie = true }) {
         res2.data.results.filter((item: any) => item.type === 'Trailer')[0]
           ?.key,
       );
-      // add title to history
-      const temp = (res.data.title || res.data.name)
-        .replace(/:/g, '')
-        .replace(/\s/g, '-')
-        .toLowerCase();
     })();
   }, [id]);
 

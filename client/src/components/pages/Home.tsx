@@ -4,7 +4,7 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import { useGetMoviesQuery, useGetTVQuery } from '../../redux/movies';
 import Poster from '../ui/Poster';
 
-function Home({ movie = true }) {
+function Home({ movie = true }): JSX.Element {
   const [data, setData] = useState([]);
   const reduxData = movie ? useGetMoviesQuery(1) : useGetTVQuery(1);
 
@@ -24,8 +24,8 @@ function Home({ movie = true }) {
       hideScrollbars={false}
     >
       <div className='flex'>
-        {data?.map((element) => (
-          <Poster data={element} movie={movie} />
+        {data?.map((element: any) => (
+          <Poster data={element} movie={movie} key={element.id} />
         ))}
       </div>
     </ScrollContainer>

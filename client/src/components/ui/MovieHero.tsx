@@ -11,7 +11,7 @@ export default function MovieHero({
 }: {
   data: any;
   trailer: string;
-}) {
+}): JSX.Element {
   const [open, setOpen] = useState(false);
   return (
     <div className='flex flex-col md:flex-row px-10 w-full'>
@@ -37,8 +37,7 @@ export default function MovieHero({
             {/* Subheading #1 */}
             <div>
               {`${moment(data.release_date).format('DD MMM YYYY')} • `}
-              {data.genres &&
-                data.genres.map((genre: any) => genre.name).join(', ')}
+              {data?.genres?.map((genre: any) => genre.name).join(', ')}
               {data.runtime
                 ? ` • ${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m`
                 : ''}
@@ -55,7 +54,9 @@ export default function MovieHero({
               <button
                 className='w-32 mx-6 flex items-center'
                 type='button'
-                onClick={() => setOpen(true)}
+                onClick={() => {
+                  setOpen(true);
+                }}
               >
                 <BsFillPlayBtnFill className='mr-2' />
                 Play Trailer

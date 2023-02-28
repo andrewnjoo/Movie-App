@@ -21,7 +21,7 @@ function CustomCircularProgressBar({
   transformData = 'translate(8px, -10px)',
   width = 'w-8',
   textSize = 'text-xs',
-}: CustomCircularProgressBarProps) {
+}: CustomCircularProgressBarProps): JSX.Element {
   const voteAverage: any = (data.vote_average * 10).toFixed(0);
   return (
     <div className={width} style={{ transform: transformData }}>

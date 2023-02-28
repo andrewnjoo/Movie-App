@@ -15,12 +15,12 @@ export default function Poster({
   data: any;
   movie: boolean;
   search?: boolean;
-}) {
+}): JSX.Element {
   const [open, setOpen] = useState(false);
   const [trailer, setTrailer] = useState('');
 
   useEffect(() => {
-    (async () => {
+    void (async () => {
       // get trailer
       const res2 = await axios.get(
         `https://api.themoviedb.org/3/${movie ? 'movie' : 'tv'}/${
@@ -64,7 +64,9 @@ export default function Poster({
             type='button'
             disabled={!trailer}
             style={{ opacity: trailer ? 1 : 0.5 }}
-            onClick={() => setOpen(true)}
+            onClick={() => {
+              setOpen(true);
+            }}
           >
             <AiOutlineYoutube />
           </button>
