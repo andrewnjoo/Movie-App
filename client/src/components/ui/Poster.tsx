@@ -13,7 +13,7 @@ export default function Poster({
   search = false,
 }: {
   data: any;
-  movie: any;
+  movie: boolean;
   search?: boolean;
 }) {
   const [open, setOpen] = useState(false);
@@ -34,6 +34,8 @@ export default function Poster({
     })();
   }, [data]);
 
+  const href = movie ? `movies/${data.id}` : `tv/${data.id}`;
+
   return (
     <div
       key={data.id}
@@ -41,7 +43,7 @@ export default function Poster({
       style={{ minWidth: '150px', width: search ? '150px' : '' }}
     >
       {/* Movie Poster */}
-      <a href={movie ? `movies/${data.id}` : `tv/${data.id}`}>
+      <a href={href}>
         <img
           className='m-auto object-cover w-full rounded'
           src={
@@ -57,18 +59,21 @@ export default function Poster({
         {/* Movie Score */}
         <CustomCircularProgressBar data={data} />
         {/* Trailer Preview */}
-        {trailer && (
-          <IconContext.Provider value={{ size: '1.4em' }}>
-            <button type='button' onClick={() => setOpen(true)}>
-              <AiOutlineYoutube />
-            </button>
-            <TrailerModal open={open} setOpen={setOpen} trailer={trailer} />
-          </IconContext.Provider>
-        )}
+        <IconContext.Provider value={{ size: '1.4em' }}>
+          <button
+            type='button'
+            disabled={!trailer}
+            style={{ opacity: trailer ? 1 : 0.5 }}
+            onClick={() => setOpen(true)}
+          >
+            <AiOutlineYoutube />
+          </button>
+          <TrailerModal open={open} setOpen={setOpen} trailer={trailer} />
+        </IconContext.Provider>
       </div>
       {/* Title and Release Date */}
       <div className='pt-1 px-2.5 pb-3' id='content'>
-        <a href={`movie/${data.id}`}>
+        <a href={href}>
           <div className='text-sm font-bold overflow-clip'>
             {data.title || data.name}
           </div>

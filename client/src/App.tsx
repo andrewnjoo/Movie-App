@@ -17,9 +17,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/movies' element={<Home />} />
           <Route path='/movies/:id' element={<MoviePage />} />
-          {/* <Route path='/tv' element={<TVPage />} />
+          <Route path='/tv' element={<Home movie={false} />} />
           <Route path='/tv/:id' element={<MoviePage movie={false} />} />
-          <Route path='/person' element={<PeoplePage />} />
+          {/* <Route path='/person' element={<PeoplePage />} />
           <Route path='/person/:id' element={<PersonPage />} />
           <Route path='/search' element={<SearchPage />} /> */}
         </Routes>
