@@ -7,7 +7,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
-const hrefs = ['/', '/movies', '/tv', '/person', '/favorites'];
+const hrefs = ['/', '/movies', '/tv', '/people']; // TODO - '/favorites'
 
 export default function Navbar() {
   const { href } = window.location;
@@ -59,7 +59,8 @@ export default function Navbar() {
                   >
                     People
                   </a>
-                  <a
+                  {/* TODO: Favorites */}
+                  {/* <a
                     href={hrefs[4]}
                     className={`${
                       href.includes('favorites')
@@ -68,7 +69,7 @@ export default function Navbar() {
                     } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                   >
                     Favorites
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className='flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end'>
@@ -95,7 +96,18 @@ export default function Navbar() {
                       onKeyPress={(e) => {
                         if (e.key === 'Enter') {
                           e.preventDefault();
-                          window.location.href = `/search?type=movie&query=${searchText}`;
+                          const params = new URLSearchParams(
+                            window.location.search,
+                          );
+                          const typeParam = params.get('type');
+                          let searchUrl = '/search?';
+                          if (typeParam) {
+                            searchUrl += `type=${typeParam}&`;
+                          } else {
+                            searchUrl += `type=movie&`;
+                          }
+                          searchUrl += `query=${searchText}`;
+                          window.location.href = searchUrl;
                         }
                       }}
                     />
@@ -204,7 +216,8 @@ export default function Navbar() {
               >
                 People
               </Disclosure.Button>
-              <Disclosure.Button
+              {/* TODO: Favorites */}
+              {/* <Disclosure.Button
                 as='a'
                 href={hrefs[3]}
                 className={`${
@@ -214,7 +227,7 @@ export default function Navbar() {
                 } block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
               >
                 Favorites
-              </Disclosure.Button>
+              </Disclosure.Button> */}
             </div>
             <div className='pt-4 pb-3 border-t border-gray-200'>
               <div className='flex items-center px-4'>

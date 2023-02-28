@@ -3,12 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import MoviePage from './components/pages/MoviePage';
-// import TVPage from './components/pages/TVPage';
-// import SearchPage from './components/pages/SearchPage';
-// import PeoplePage from './components/pages/PeoplePage';
-// import PersonPage from './components/pages/PersonPage';
+import PeoplePage from './components/pages/PeoplePage';
+import PersonPage from './components/pages/PersonPage';
+import SearchPage from './components/pages/SearchPage';
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
       <Navbar />
@@ -19,9 +18,9 @@ function App() {
           <Route path='/movies/:id' element={<MoviePage />} />
           <Route path='/tv' element={<Home movie={false} />} />
           <Route path='/tv/:id' element={<MoviePage movie={false} />} />
-          {/* <Route path='/person' element={<PeoplePage />} />
-          <Route path='/person/:id' element={<PersonPage />} />
-          <Route path='/search' element={<SearchPage />} /> */}
+          <Route path='/people' element={<PeoplePage />} />
+          <Route path='/people/:id' element={<PersonPage />} />
+          <Route path='/search' element={<SearchPage />} />
         </Routes>
       </BrowserRouter>
     </>
