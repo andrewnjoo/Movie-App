@@ -1,5 +1,7 @@
-# Mac OS
+# General
 .DS_Store
+node_modules/
+.env
 
 # Client
 # Logs
@@ -26,3 +28,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Server
+migrations/
+coverage/
+directory-tree.md
+sloc.md

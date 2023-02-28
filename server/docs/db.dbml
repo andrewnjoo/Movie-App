@@ -1,0 +1,17 @@
+Table User {
+  id       int    [pk, increment]
+  name     varchar
+  email    varchar  [unique]
+  password varchar
+}
+
+Table Movie {
+  id       int    [pk, increment]
+  tmdb_id  int
+  liked_by int
+  user_id  int
+  User     fk_User_liked_by
+}
+
+Ref: Movie.liked_by > User.id
+
