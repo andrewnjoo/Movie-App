@@ -5,7 +5,6 @@ import axios from 'axios';
 import { tmdbKey } from '../../config';
 
 export default function PersonPage(): JSX.Element {
-  // call this
   const { id } = useParams();
   const [state, setState] = React.useState<any>(null);
   useEffect(() => {
@@ -13,7 +12,7 @@ export default function PersonPage(): JSX.Element {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/person/${id}?api_key=${tmdbKey}&language=en-US`,
       );
-      console.log(data);
+      // console.log(data);
       setState(data);
     })();
   }, [id]);

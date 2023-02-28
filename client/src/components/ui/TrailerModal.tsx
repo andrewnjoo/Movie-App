@@ -26,7 +26,7 @@ export default function TrailerModal({
         </Transition.Child>
 
         <div className='fixed z-10 inset-0 overflow-y-auto'>
-          <div className='flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0'>
+          <div className='flex items-center justify-center min-h-full'>
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
@@ -53,7 +53,6 @@ export default function TrailerModal({
                     }`}
                     src={`https://www.youtube.com/embed/${trailer}`}
                     title='YouTube video player'
-                    frameBorder='0'
                     allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                     allowFullScreen
                   />

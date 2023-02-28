@@ -183,13 +183,14 @@ export default function Navbar(): JSX.Element {
             </div>
           </div>
 
+          {/* Mobile menu */}
           <Disclosure.Panel className='lg:hidden'>
             <div className='pt-2 pb-3 space-y-1'>
               <Disclosure.Button
                 as='a'
                 href={hrefs[1]}
                 className={`${
-                  href.slice(-1) === '/' || href.includes('movie')
+                  href.slice(-1) === '/' || href.includes(hrefs[1])
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
                     : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800'
                 } block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
@@ -200,7 +201,7 @@ export default function Navbar(): JSX.Element {
                 as='a'
                 href={hrefs[2]}
                 className={`${
-                  href.includes('tv')
+                  href.includes(hrefs[2])
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
                     : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800'
                 } block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
@@ -211,7 +212,7 @@ export default function Navbar(): JSX.Element {
                 as='a'
                 href={hrefs[3]}
                 className={`${
-                  href.includes('person')
+                  href.includes(hrefs[3])
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
                     : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800'
                 } block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
