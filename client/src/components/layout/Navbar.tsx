@@ -187,7 +187,7 @@ export default function Navbar(): JSX.Element {
             <div className='pt-2 pb-3 space-y-1'>
               <Disclosure.Button
                 as='a'
-                href={hrefs[0]}
+                href={hrefs[1]}
                 className={`${
                   href.slice(-1) === '/' || href.includes('movie')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
@@ -198,7 +198,7 @@ export default function Navbar(): JSX.Element {
               </Disclosure.Button>
               <Disclosure.Button
                 as='a'
-                href={hrefs[1]}
+                href={hrefs[2]}
                 className={`${
                   href.includes('tv')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
@@ -209,7 +209,7 @@ export default function Navbar(): JSX.Element {
               </Disclosure.Button>
               <Disclosure.Button
                 as='a'
-                href={hrefs[2]}
+                href={hrefs[3]}
                 className={`${
                   href.includes('person')
                     ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
