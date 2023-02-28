@@ -32,7 +32,7 @@ export default function Navbar(): JSX.Element {
                   <a
                     href={hrefs[1]}
                     className={`${
-                      href.slice(-1) === '/' || href.includes('movie')
+                      href.includes('movies')
                         ? 'border-indigo-500 text-gray-900'
                         : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                     }  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
@@ -52,7 +52,7 @@ export default function Navbar(): JSX.Element {
                   <a
                     href={hrefs[3]}
                     className={`${
-                      href.includes('person')
+                      href.includes('people')
                         ? 'border-indigo-500 text-gray-900'
                         : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                     } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
