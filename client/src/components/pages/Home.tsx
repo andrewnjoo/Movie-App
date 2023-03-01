@@ -8,18 +8,22 @@ function Home({ movie = true }): JSX.Element {
   const [data, setData] = useState([]);
   const reduxDataPage1 = movie ? useGetMoviesQuery(1) : useGetTVQuery(1);
   const reduxDataPage2 = movie ? useGetMoviesQuery(2) : useGetTVQuery(2);
+  const reduxDataPage3 = movie ? null : useGetTVQuery(3);
+
+  const getEnglishMedia = (data: any): any => {
+    return (
+      data?.data?.filter((item: any) => item.original_language === 'en') || []
+    );
+  };
 
   useEffect(() => {
     const combinedData: any = [
-      ...(reduxDataPage1?.data?.filter(
-        (item: any) => item.original_language === 'en',
-      ) || []),
-      ...(reduxDataPage2?.data?.filter(
-        (item: any) => item.original_language === 'en',
-      ) || []),
+      ...getEnglishMedia(reduxDataPage1),
+      ...getEnglishMedia(reduxDataPage2),
+      ...getEnglishMedia(reduxDataPage3),
     ];
     setData(combinedData);
-  }, [reduxDataPage1, reduxDataPage2]);
+  }, [reduxDataPage1, reduxDataPage2, reduxDataPage3]);
 
   return (
     <ScrollContainer
