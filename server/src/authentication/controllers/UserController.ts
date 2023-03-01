@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
 import { jwtGenerator } from '../utils/jwtGenerator';
+import authorization from '../middleware/authorization';
 
 const prisma = new PrismaClient();
 
@@ -70,4 +71,15 @@ const loginUser = async (req: Request, res: Response) => {
   }
 };
 
-export { registerUser, loginUser };
+const isAuthorized = async (req: Request, res: Response) => {
+  try {
+    await authorization(req, res, async () => {
+      res.json(true);
+    });
+  } catch (err: any) {
+    console.log(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
+export { registerUser, loginUser, isAuthorized };

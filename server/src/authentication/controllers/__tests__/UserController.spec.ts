@@ -4,12 +4,14 @@ import { PrismaClient } from '@prisma/client';
 
 import { jwtSecret } from '../../../config';
 import testUsers from '../../../database/seed/testUsers';
-import { registerUser, loginUser } from '../UserController';
+import { registerUser, loginUser, isAuthorized } from '../UserController';
 
 const testUser = {
   ...testUsers[0],
   email: `alice_${Math.random()}@usercontroller.com`,
 };
+
+let jwtToken = '';
 
 const prisma = new PrismaClient();
 const mockRequest = {
@@ -47,6 +49,7 @@ describe('UserController', () => {
 
       const token = mockResponse.json.mock.calls[0][0].token;
       expect(token).toBeTruthy();
+      jwtToken = token;
 
       const decoded: any = jwt.verify(token, jwtSecret);
       expect(decoded.user).toBe(user?.id);
@@ -70,6 +73,40 @@ describe('UserController', () => {
       expect(res.json).toHaveBeenCalledWith({
         token: expect.any(String),
       });
+    });
+  });
+
+  describe('isAuthorized', () => {
+    it('should return true if the user is authorized', async () => {
+      const req = {
+        header: jest.fn().mockReturnValue(jwtToken),
+      } as any;
+      const res = {
+        json: jest.fn(),
+        status: jest.fn().mockReturnThis(),
+      } as any;
+
+      await isAuthorized(req, res);
+
+      expect(res.status).not.toHaveBeenCalled();
+      expect(res.json).toHaveBeenCalledWith(true);
+    });
+
+    it('should return false if the user is not authorized', async () => {
+      const req = {
+        header: jest.fn().mockReturnValue('invalid token'),
+      } as any;
+      const res = {
+        json: jest.fn(),
+        status: jest.fn().mockReturnThis(),
+      } as any;
+
+      await isAuthorized(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(403);
+      expect(res.json).toHaveBeenCalledWith(
+        'Authorization failed: invalid token',
+      );
     });
   });
 });

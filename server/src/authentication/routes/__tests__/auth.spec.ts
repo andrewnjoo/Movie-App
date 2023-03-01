@@ -9,6 +9,8 @@ const testUser = {
   email: 'test@auth.com',
 };
 
+let jwtToken = '';
+
 const prisma = new PrismaClient();
 
 describe('auth', () => {
@@ -26,6 +28,7 @@ describe('auth', () => {
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('token');
+      jwtToken = response.body.token;
     });
   });
 
@@ -38,6 +41,17 @@ describe('auth', () => {
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('token');
+    });
+  });
+
+  describe('GET /isAuthorized', () => {
+    it('should return true if the user is authorized', async () => {
+      const response = await request(app).get('/auth/isAuthorized').set({
+        token: jwtToken,
+      });
+
+      expect(response.status).toBe(200);
+      expect(response.body).toBe(true);
     });
   });
 });
