@@ -1,11 +1,13 @@
 import React from 'react';
 import { Disclosure, Menu } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import axios from 'axios';
 
 import logo from '@/assets/logo.png';
 import { DesktopProfileDropdown } from './DesktopProfileDropdown';
 import { MobileSelection } from './MobileSelection';
 import { MobileProfile } from './MobileProfile';
+const localServer = import.meta.env.VITE_LOCAL_SERVER;
 
 export function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
@@ -14,7 +16,28 @@ export function classNames(...classes: any): string {
 const hrefs = ['/', '/movies', '/tv', '/people']; // TODO - '/favorites'
 
 export default function Navbar(): JSX.Element {
+  const [loading, setLoading] = React.useState(true);
+  const [isAuthorized, setIsAuthorized] = React.useState(false);
   const { href } = window.location;
+
+  React.useEffect(() => {
+    axios
+      .get(`${localServer}/auth/isAuthorized`, {
+        headers: {
+          token: localStorage.getItem('movie-app-token'),
+        },
+      })
+      .then((res) => {
+        setLoading(false);
+        if (res.data === true) {
+          setIsAuthorized(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <Disclosure as='nav' className='bg-white shadow'>
       {({ open }: { open: boolean }) => (
@@ -78,8 +101,10 @@ export default function Navbar(): JSX.Element {
                 {/* SearchBar */}
               </div>
               <div className='hidden lg:ml-4 lg:flex lg:items-center'>
-                <Menu as='div' className='ml-4 relative flex-shrink-0'>
-                  <div>
+                {loading ? (
+                  <div className='animate-pulse h-8 w-8 rounded-full bg-gray-400'></div>
+                ) : isAuthorized ? (
+                  <Menu as='div' className='ml-4 relative flex-shrink-0'>
                     <Menu.Button className='bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
                       <span className='sr-only'>Open user menu</span>
                       <img
@@ -88,9 +113,16 @@ export default function Navbar(): JSX.Element {
                         alt=''
                       />
                     </Menu.Button>
-                  </div>
-                  <DesktopProfileDropdown />
-                </Menu>
+                    <DesktopProfileDropdown />
+                  </Menu>
+                ) : (
+                  <a
+                    href='/login'
+                    className='inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  >
+                    Login
+                  </a>
+                )}
               </div>
               <div className='flex items-center lg:hidden'>
                 {/* Mobile menu button */}
