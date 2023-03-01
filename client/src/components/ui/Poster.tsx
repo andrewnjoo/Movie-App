@@ -45,7 +45,7 @@ export default function Poster({
       {/* Movie Poster */}
       <a href={href}>
         <img
-          className='m-auto object-cover w-full rounded'
+          className='m-auto object-cover w-full rounded media-poster'
           src={
             data?.poster_path
               ? `https://image.tmdb.org/t/p/original/${data?.poster_path}`
