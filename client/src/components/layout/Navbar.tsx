@@ -3,7 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BsSearch } from 'react-icons/bs';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
-import movie from '@/assets/movie.png';
+import logo from '@/assets/logo.png';
 
 function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
@@ -29,7 +29,7 @@ export default function Navbar(): JSX.Element {
               <div className='flex px-2 lg:px-0'>
                 <div className='flex-shrink-0 flex items-center'>
                   <a href={hrefs[0]}>
-                    <img className='block md:hidden h-8 w-auto' src={movie} />
+                    <img className='block md:hidden h-8 w-auto' src={logo} />
                     <text className='text-2xl font-bold hidden md:block h-8 w-auto'>
                       Movie App
                     </text>
@@ -106,7 +106,7 @@ export default function Navbar(): JSX.Element {
                         if (e.key === 'Enter') {
                           e.preventDefault();
                           const params = new URLSearchParams(
-                            window.location.search,
+                            window.location.search
                           );
                           const typeParam = params.get('type');
                           let searchUrl = '/search?';
@@ -163,7 +163,7 @@ export default function Navbar(): JSX.Element {
                             href='#'
                             className={classNames(
                               active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700',
+                              'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Your Profile
@@ -176,7 +176,7 @@ export default function Navbar(): JSX.Element {
                             href='#'
                             className={classNames(
                               active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700',
+                              'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Sign out

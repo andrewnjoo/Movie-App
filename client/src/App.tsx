@@ -6,6 +6,8 @@ import MoviePage from './components/pages/MoviePage';
 import PeoplePage from './components/pages/PeoplePage';
 import PersonPage from './components/pages/PersonPage';
 import SearchPage from './components/pages/SearchPage';
+import RegisterPage from './components/pages/RegisterPage';
+import LoginPage from './components/pages/LoginPage';
 
 function App(): JSX.Element {
   return (
@@ -21,6 +23,8 @@ function App(): JSX.Element {
           <Route path='/people' element={<PeoplePage />} />
           <Route path='/people/:id' element={<PersonPage />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>
