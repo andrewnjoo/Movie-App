@@ -3,6 +3,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BsSearch } from 'react-icons/bs';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
+import movie from '@/assets/movie.png';
+
 function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
 }
@@ -26,7 +28,12 @@ export default function Navbar(): JSX.Element {
             <div className='flex justify-between h-16'>
               <div className='flex px-2 lg:px-0'>
                 <div className='flex-shrink-0 flex items-center'>
-                  <a href={hrefs[0]}>Movie App</a>
+                  <a href={hrefs[0]}>
+                    <img className='block md:hidden h-8 w-auto' src={movie} />
+                    <text className='text-2xl font-bold hidden md:block h-8 w-auto'>
+                      Movie App
+                    </text>
+                  </a>
                 </div>
                 <div className='hidden lg:ml-6 lg:flex lg:space-x-8'>
                   <a
