@@ -12,6 +12,7 @@ export default function TrailerModal({
 }): JSX.Element {
   return (
     <Transition.Root show={open} as={Fragment}>
+      {/* Background overlay */}
       <Dialog as='div' className='relative z-10' onClose={setOpen}>
         <Transition.Child
           as={Fragment}
@@ -25,6 +26,7 @@ export default function TrailerModal({
           <div className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity' />
         </Transition.Child>
 
+        {/* Modal */}
         <div className='fixed z-10 inset-0 overflow-y-auto'>
           <div className='flex items-center justify-center min-h-full'>
             <Transition.Child
@@ -37,19 +39,19 @@ export default function TrailerModal({
               leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
             >
               <Dialog.Panel className='relative rounded-lg align-center'>
-                <div className='sm:flex sm:items-start'>
+                <div className=''>
                   <iframe
-                    className='trailer-modal rounded-md'
+                    className='rounded-md'
                     loading='lazy'
                     width={`${
-                      window.innerWidth > 400
+                      window.innerWidth > 500
                         ? '800px'
-                        : `${window.innerWidth * 0.8}px`
+                        : `${window.innerWidth}px`
                     }`}
                     height={`${
-                      window.innerWidth > 400
+                      window.innerWidth > 500
                         ? '500px'
-                        : `${window.innerWidth * 0.8}px`
+                        : `${window.innerWidth * 0.56}px`
                     }`}
                     src={`https://www.youtube.com/embed/${trailer}`}
                     title='YouTube video player'
