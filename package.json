@@ -1,0 +1,24 @@
+{
+  "name": "movie-app",
+  "version": "1.0.0",
+  "description": "This application allows users to search for movies and TV shows, view details about each title, and watch trailers.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adnjoo/movie-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adnjoo/movie-app/issues"
+  },
+  "homepage": "https://github.com/adnjoo/movie-app#readme"
+}
