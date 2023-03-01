@@ -21,7 +21,7 @@ This is an Express server that uses Typescript, Prisma, Jest, and Supertest. It 
 To get started, run the following command:
 
 ```
-npm run setup
+npm run setup:local
 ```
 
 This command will install all dependencies, generate database migrations and seed test data.
