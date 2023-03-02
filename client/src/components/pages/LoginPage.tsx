@@ -4,10 +4,12 @@ import axios from 'axios';
 import ErrorModal from '../ui/ErrorModal';
 import logo from '@/assets/logo.png';
 import { useApiUrl } from '../../config';
+import ShowPasswordButton from '../ui/ShowPasswordButton';
 
 const LoginPage = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = React.useState('');
 
   const handleSubmit = (event: any): void => {
@@ -91,7 +93,7 @@ const LoginPage = (): JSX.Element => {
                 <input
                   id='password'
                   name='password'
-                  type='password'
+                  type={showPassword ? 'text' : 'password'}
                   autoComplete='current-password'
                   required
                   value={password}
@@ -99,6 +101,10 @@ const LoginPage = (): JSX.Element => {
                     setPassword(event.target.value);
                   }}
                   className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
+                />
+                <ShowPasswordButton
+                  showPassword={showPassword}
+                  setShowPassword={setShowPassword}
                 />
               </div>
             </div>

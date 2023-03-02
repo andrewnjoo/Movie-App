@@ -4,11 +4,13 @@ import axios from 'axios';
 import ErrorModal from '../ui/ErrorModal';
 import logo from '@/assets/logo.png';
 import { useApiUrl } from '../../config';
+import ShowPasswordButton from '../ui/ShowPasswordButton';
 
 const RegisterPage = (): JSX.Element => {
   const [email, setEmail] = React.useState('');
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [showPassword, setShowPassword] = React.useState(false);
   const [error, setError] = React.useState('');
 
   const handleSubmit = (event: any): void => {
@@ -115,7 +117,7 @@ const RegisterPage = (): JSX.Element => {
                 <input
                   id='password'
                   name='password'
-                  type='password'
+                  type={showPassword ? 'text' : 'password'}
                   autoComplete='current-password'
                   required
                   value={password}
@@ -124,7 +126,11 @@ const RegisterPage = (): JSX.Element => {
                   }}
                   className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 />
-                <p className='mt-2 text-sm text-gray-500'>
+                <ShowPasswordButton
+                  showPassword={showPassword}
+                  setShowPassword={setShowPassword}
+                />
+                <p className='mt-6 text-sm text-gray-500'>
                   Your password must contain:
                   <ul className='list-disc pl-5 mt-1'>
                     <li>At least one digit (0-9)</li>
