@@ -1,7 +1,11 @@
 import React from 'react';
 import { Menu, Transition } from '@headlessui/react';
 
-export const DesktopProfileDropdown = () => {
+export const DesktopProfileDropdown = (): JSX.Element => {
+  const handleLogout = (): void => {
+    localStorage.removeItem('movie-app-token');
+    window.location.href = '/';
+  };
   return (
     <Transition
       as={React.Fragment}
@@ -20,7 +24,11 @@ export const DesktopProfileDropdown = () => {
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a href='#' className='block px-4 py-2 text-sm text-gray-700'>
+          <a
+            href='#'
+            className='block px-4 py-2 text-sm text-gray-700'
+            onClick={handleLogout}
+          >
             Sign out
           </a>
         </Menu.Item>
