@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 router.post('/register', validInfo, registerUser);
-router.post('/login', validInfo, loginUser);
+router.post('/login', loginUser);
 router.get('/isAuthorized', isAuthorized);
 
 module.exports = router;
