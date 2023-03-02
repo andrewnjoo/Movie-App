@@ -31,7 +31,6 @@ dist-ssr
 
 
 # Server
-migrations/
 coverage/
 directory-tree.md
 sloc.md
