@@ -9,7 +9,7 @@ import { DesktopProfileDropdown } from './DesktopProfileDropdown';
 import { MobileSelection } from './MobileSelection';
 import { MobileProfile } from './MobileProfile';
 import { SearchBar } from './SearchBar';
-const localServer = import.meta.env.VITE_LOCAL_SERVER;
+import { useApiUrl } from '../../../config';
 
 export function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
@@ -24,7 +24,7 @@ export default function Navbar(): JSX.Element {
 
   React.useEffect(() => {
     axios
-      .get(`${localServer}/auth/isAuthorized`, {
+      .get(`${useApiUrl}/auth/isAuthorized`, {
         headers: {
           token: localStorage.getItem('movie-app-token'),
         },
