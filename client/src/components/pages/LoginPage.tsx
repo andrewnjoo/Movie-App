@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import ErrorModal from '../ui/ErrorModal';
 import logo from '@/assets/logo.png';
 import { useApiUrl } from '../../config';
 
 const LoginPage = (): JSX.Element => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = React.useState('');
 
   const handleSubmit = (event: any): void => {
     event.preventDefault();
@@ -22,6 +24,7 @@ const LoginPage = (): JSX.Element => {
       })
       .catch((err) => {
         console.log(err);
+        setError(err.response.data);
       });
   };
 
@@ -45,6 +48,14 @@ const LoginPage = (): JSX.Element => {
 
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
         <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
+          {error && (
+            <ErrorModal
+              message={error}
+              onClose={() => {
+                setError('');
+              }}
+            />
+          )}
           <form onSubmit={handleSubmit} className='space-y-6'>
             <div>
               <label
