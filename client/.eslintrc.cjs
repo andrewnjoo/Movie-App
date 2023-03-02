@@ -19,6 +19,7 @@ module.exports = {
     'react'
   ],
   rules: {
+    semi: 'off',
     '@typescript-eslint/semi': ['error', 'always'],
     '@typescript-eslint/comma-dangle': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
