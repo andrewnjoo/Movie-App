@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import ErrorModal from '../ui/ErrorModal';
 import logo from '@/assets/logo.png';
-import { useApiUrl } from '../../config';
+import { useApiUrl } from '../../hooks';
 import ShowPasswordButton from '../ui/ShowPasswordButton';
 
 const RegisterPage = (): JSX.Element => {

@@ -9,7 +9,8 @@ import { DesktopProfileDropdown } from './DesktopProfileDropdown';
 import { MobileSelection } from './MobileSelection';
 import { MobileProfile } from './MobileProfile';
 import { SearchBar } from './SearchBar';
-import { useApiUrl } from '../../../config';
+import { useApiUrl } from '../../../hooks';
+import { LoginButton } from '../../ui/LoginButton';
 
 export function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
@@ -114,12 +115,7 @@ export default function Navbar(): JSX.Element {
                     <DesktopProfileDropdown />
                   </Menu>
                 ) : (
-                  <a
-                    href='/login'
-                    className='inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                  >
-                    Login
-                  </a>
+                  <LoginButton />
                 )}
               </div>
               <div className='flex items-center lg:hidden'>
@@ -137,7 +133,7 @@ export default function Navbar(): JSX.Element {
           </div>
           <Disclosure.Panel className='lg:hidden'>
             <MobileSelection href={href} hrefs={hrefs} />
-            <MobileProfile />
+            <MobileProfile isAuthorized={isAuthorized} />
           </Disclosure.Panel>
         </>
       )}

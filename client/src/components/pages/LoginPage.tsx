@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import ErrorModal from '../ui/ErrorModal';
 import logo from '@/assets/logo.png';
-import { useApiUrl } from '../../config';
+import { useApiUrl } from '../../hooks';
 import ShowPasswordButton from '../ui/ShowPasswordButton';
 
 const LoginPage = (): JSX.Element => {
@@ -117,6 +117,17 @@ const LoginPage = (): JSX.Element => {
                 Sign in
               </button>
             </div>
+            <button
+              type='button'
+              className='flex w-full justify-center rounded-md border border-transparent bg-teal-600 hover:bg-teal-700 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 py-2 px-4 mt-4'
+              onClick={() => {
+                setEmail('alice@example.com');
+                setPassword('C0mplexP@ss');
+                handleSubmit(new Event('submit'));
+              }}
+            >
+              Demo Login
+            </button>
           </form>
         </div>
       </div>

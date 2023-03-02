@@ -1,11 +1,9 @@
 import React from 'react';
 import { Menu, Transition } from '@headlessui/react';
 
+import { useLogout } from '../../../hooks';
+
 export const DesktopProfileDropdown = (): JSX.Element => {
-  const handleLogout = (): void => {
-    localStorage.removeItem('movie-app-token');
-    window.location.href = '/';
-  };
   return (
     <Transition
       as={React.Fragment}
@@ -27,7 +25,7 @@ export const DesktopProfileDropdown = (): JSX.Element => {
           <a
             href='#'
             className='block px-4 py-2 text-sm text-gray-700'
-            onClick={handleLogout}
+            onClick={() => useLogout()}
           >
             Sign out
           </a>
