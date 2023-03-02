@@ -105,7 +105,7 @@ export default function Navbar(): JSX.Element {
               </div>
               <div className='hidden lg:ml-4 lg:flex lg:items-center'>
                 {loading ? (
-                  <div className='animate-pulse h-8 w-8 rounded-full bg-gray-400'></div>
+                  <div className='animate-pulse h-8 w-8 rounded-full bg-white-400'></div>
                 ) : isAuthorized ? (
                   <Menu as='div' className='ml-4 relative flex-shrink-0'>
                     <Menu.Button className='bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
