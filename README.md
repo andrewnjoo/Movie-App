@@ -48,4 +48,4 @@ npm run setup
 
 ## License
 
-This project is licensed under the MIT License - see docs/LICENSE.md file for details
+This project is licensed under the MIT License - see docs/LICENSE.md file for details.
