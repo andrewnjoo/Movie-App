@@ -5,8 +5,8 @@ import logo from '@/assets/logo.png';
 import { useApiUrl } from '../../config';
 
 const LoginPage = (): JSX.Element => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleSubmit = (event: any): void => {
     event.preventDefault();

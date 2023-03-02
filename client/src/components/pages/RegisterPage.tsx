@@ -1,8 +1,31 @@
 import React from 'react';
+import axios from 'axios';
 
 import logo from '@/assets/logo.png';
+import { useApiUrl } from '../../config';
 
-const RegisterPage = () => {
+const RegisterPage = (): JSX.Element => {
+  const [email, setEmail] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const handleSubmit = (event: any): void => {
+    event.preventDefault();
+    axios
+      .post(`${useApiUrl()}/auth/register`, { email, name, password })
+      .then((res) => {
+        if (res.data.token) {
+          localStorage.setItem('movie-app-token', res.data.token);
+          window.location.href = '/';
+        } else {
+          console.log(res.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className='flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8'>
       <div className='sm:mx-auto sm:w-full sm:max-w-md'>
@@ -23,7 +46,7 @@ const RegisterPage = () => {
 
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
         <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
-          <form className='space-y-6' action='#' method='POST'>
+          <form onSubmit={handleSubmit} className='space-y-6'>
             <div>
               <label
                 htmlFor='email'
@@ -38,6 +61,10 @@ const RegisterPage = () => {
                   type='email'
                   autoComplete='email'
                   required
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
@@ -57,6 +84,10 @@ const RegisterPage = () => {
                   type='name'
                   autoComplete='name'
                   required
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                   className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
@@ -76,6 +107,10 @@ const RegisterPage = () => {
                   type='password'
                   autoComplete='current-password'
                   required
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
