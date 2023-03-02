@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "setup": "npm install && npx prisma migrate dev --name init --schema=./src/database/prisma/schema.prisma && npm run seed",
-    "install": "npm install",
     "setup:local": "npm install && npm run generate-env && npx prisma migrate dev --name init --schema=./src/database/prisma/schema.prisma && npm run seed",
     "server": "nodemon --exec ts-node ./src/server.ts",
     "test": "jest --verbose",
