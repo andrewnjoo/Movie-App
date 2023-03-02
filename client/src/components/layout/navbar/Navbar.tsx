@@ -8,6 +8,7 @@ import logo from '@/assets/logo.png';
 import { DesktopProfileDropdown } from './DesktopProfileDropdown';
 import { MobileSelection } from './MobileSelection';
 import { MobileProfile } from './MobileProfile';
+import { SearchBar } from './SearchBar';
 const localServer = import.meta.env.VITE_LOCAL_SERVER;
 
 export function classNames(...classes: any): string {
@@ -99,7 +100,7 @@ export default function Navbar(): JSX.Element {
                 </div>
               </div>
               <div className='flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end'>
-                {/* SearchBar */}
+                <SearchBar />
               </div>
               <div className='hidden lg:ml-4 lg:flex lg:items-center'>
                 {loading ? (
