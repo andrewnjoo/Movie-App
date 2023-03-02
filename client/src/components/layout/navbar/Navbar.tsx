@@ -24,7 +24,7 @@ export default function Navbar(): JSX.Element {
 
   React.useEffect(() => {
     axios
-      .get(`${useApiUrl}/auth/isAuthorized`, {
+      .get(`${useApiUrl()}/auth/isAuthorized`, {
         headers: {
           token: localStorage.getItem('movie-app-token'),
         },
