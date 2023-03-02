@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "seed": "npx ts-node ./src/database/seed/seed.ts",
-    "prisma:migrate": "npm install && npx prisma deploy --schema=./src/database/prisma/schema.prisma && npm run seed",
+    "prisma:deploy": "npm install && npx prisma deploy --schema=./src/database/prisma/schema.prisma && npm run seed",
     "generate-env": "./scripts/generate-env.sh"
   },
   "repository": {
