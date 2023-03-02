@@ -6,17 +6,17 @@ const testUsers: TestUser[] = [
   {
     name: 'Alice',
     email: 'alice@example.com',
-    password: 'password1',
+    password: 'C0mplexP@ss',
   },
   {
     name: 'Bob',
     email: 'bob@example.com',
-    password: 'password2',
+    password: 'Str0ngPassw0rd!',
   },
   {
     name: 'Cindy',
     email: 'cindy@example.com',
-    password: 'password3',
+    password: 'P@ssword1234',
   },
 ];
 

@@ -1,19 +1,25 @@
 import register from '../validInfo';
 
 describe('validInfo', () => {
-  const req = {
-    path: '/register',
-    body: {
-      email: 'test@example.com',
-      name: 'Test User',
-      password: 'password123',
-    },
-  } as any;
-  const res = {
-    json: jest.fn().mockReturnValue('Missing Credentials'),
-    status: jest.fn().mockReturnThis(),
-  } as any;
-  const next = jest.fn();
+  let req: any;
+  let res: any;
+  let next: any;
+
+  beforeEach(() => {
+    req = {
+      path: '/register',
+      body: {
+        email: 'test@example.com',
+        name: 'Test User',
+        password: 'C0mplexP@ss',
+      },
+    } as any;
+    res = {
+      json: jest.fn().mockReturnValue('Missing Credentials'),
+      status: jest.fn().mockReturnThis(),
+    } as any;
+    next = jest.fn();
+  });
 
   it('returns "Missing Credentials" if any credentials are missing', () => {
     const { email, name, password } = req.body;
@@ -33,9 +39,16 @@ describe('validInfo', () => {
     expect(res.json).toHaveBeenCalledWith('Invalid Email');
   });
 
-  it('calls the next function if all credentials are present and email is valid', () => {
-    req.body.email = 'test@example.com';
+  it('returns "Invalid Password" if password is not in the correct format', () => {
+    req.body.password = 'invalid-password';
 
+    register(req, res, next);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith('Invalid Password');
+  });
+
+  it('calls the next function if all credentials are present and email is valid', () => {
     register(req, res, next);
 
     expect(next).toHaveBeenCalled();
