@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "client": "cd client && npm run dev",
-    "server": "cd server && npm run server"
+    "client": "cd client && npm i && npm run dev",
+    "server": "cd server && npm i && npm run setup:local && npm run server"
   },
   "repository": {
     "type": "git",
