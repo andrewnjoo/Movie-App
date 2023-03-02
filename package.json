@@ -8,7 +8,8 @@
   },
   "scripts": {
     "client": "cd client && npm i && npm run dev",
-    "server": "cd server && npm i && npm run setup:local && npm run server"
+    "server": "cd server && npm i && npm run setup:local && npm run server",
+    "gen-dir-tree": "node scripts/gen-dir-tree.js"
   },
   "repository": {
     "type": "git",
