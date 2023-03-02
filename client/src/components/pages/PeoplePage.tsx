@@ -4,7 +4,7 @@ import axios from 'axios';
 import { tmdbKey } from '../../config';
 import Person from '../ui/Person';
 
-export default function PeoplePage(): JSX.Element {
+function PeoplePage(): JSX.Element {
   const [state, setState] = useState([]);
   useEffect(() => {
     void (async () => {
@@ -26,3 +26,5 @@ export default function PeoplePage(): JSX.Element {
     </div>
   );
 }
+
+export { PeoplePage };

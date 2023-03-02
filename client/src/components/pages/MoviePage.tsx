@@ -41,4 +41,4 @@ function MoviePage({ movie = true }): JSX.Element {
   );
 }
 
-export default MoviePage;
+export { MoviePage };

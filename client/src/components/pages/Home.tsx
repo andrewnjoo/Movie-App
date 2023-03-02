@@ -40,4 +40,4 @@ function Home({ movie = true }): JSX.Element {
   );
 }
 
-export default Home;
+export { Home };

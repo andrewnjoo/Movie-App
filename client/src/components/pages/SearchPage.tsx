@@ -7,8 +7,7 @@ import { tmdbKey } from '../../config';
 import Poster from '../ui/Poster';
 import Person from '../ui/Person';
 
-export default function SearchPage(): JSX.Element {
-  //   movie, tv, person
+function SearchPage(): JSX.Element {
   const [type, setType] = useState<any>(null);
   const [state, setState] = useState([]);
   const [searchParams] = useSearchParams();
@@ -26,7 +25,6 @@ export default function SearchPage(): JSX.Element {
             'query',
           )}&language=en-US&page=1`,
         );
-        // console.log(results);
         setState(results);
       })();
     }
@@ -93,3 +91,5 @@ export default function SearchPage(): JSX.Element {
     </>
   );
 }
+
+export { SearchPage };

@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/pages/Home';
+import {
+  Home,
+  MoviePage,
+  PeoplePage,
+  PersonPage,
+  SearchPage,
+  RegisterPage,
+  LoginPage,
+} from './components/pages';
 import Navbar from './components/layout/navbar/Navbar';
-import MoviePage from './components/pages/MoviePage';
-import PeoplePage from './components/pages/PeoplePage';
-import PersonPage from './components/pages/PersonPage';
-import SearchPage from './components/pages/SearchPage';
-import RegisterPage from './components/pages/RegisterPage';
-import LoginPage from './components/pages/LoginPage';
 
 function App(): JSX.Element {
   return (

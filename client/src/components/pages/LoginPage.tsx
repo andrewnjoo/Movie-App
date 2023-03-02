@@ -107,4 +107,4 @@ const LoginPage = (): JSX.Element => {
   );
 };
 
-export default LoginPage;
+export { LoginPage };
