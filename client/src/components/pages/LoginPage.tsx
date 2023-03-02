@@ -24,7 +24,7 @@ const LoginPage = (): JSX.Element => {
       })
       .catch((err) => {
         console.log(err);
-        setError(err.response.data);
+        setError(err.response.data || err.message);
       });
   };
 
