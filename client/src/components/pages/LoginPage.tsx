@@ -123,7 +123,9 @@ const LoginPage = (): JSX.Element => {
               onClick={() => {
                 setEmail('alice@example.com');
                 setPassword('C0mplexP@ss');
-                handleSubmit(new Event('submit'));
+                setTimeout(() => {
+                  handleSubmit(new Event('submit'));
+                }, 100);
               }}
             >
               Demo Login
