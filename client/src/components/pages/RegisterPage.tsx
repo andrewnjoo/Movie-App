@@ -139,6 +139,11 @@ const RegisterPage = (): JSX.Element => {
                     <li>Minimum length of 8 characters</li>
                   </ul>
                 </p>
+                <p className='mt-2 pt-2 text-sm text-gray-600 border-t-2 border-gray-200'>
+                  <span className='font-medium text-red-600'>Warning:</span> The
+                  database is in alpha mode and gets occasionally overwritten.
+                  Please do not enter any sensitive information.
+                </p>
               </div>
             </div>
 
