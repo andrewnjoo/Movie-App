@@ -34,18 +34,18 @@ describe('authorization', () => {
 
     expect(res.status).toHaveBeenCalledWith(403);
     expect(res.json).toHaveBeenCalledWith(
-      'Authorization failed: invalid token'
+      'Authorization failed: invalid token',
     );
     expect(next).not.toHaveBeenCalled();
   });
 
   it('calls the next function if a valid token is provided', async () => {
-    const token = jwt.sign({ user: 'test-user' }, jwtSecret);
+    const token = jwt.sign({ user: '1' }, jwtSecret);
     req.header.mockReturnValueOnce(token);
 
     await authorization(req, res, next);
 
-    expect(req.user).toEqual('test-user');
+    expect(req.user).toEqual('1');
     expect(next).toHaveBeenCalled();
   });
 });

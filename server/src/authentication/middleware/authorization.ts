@@ -1,6 +1,9 @@
 import jwt from 'jsonwebtoken';
+import { PrismaClient } from '@prisma/client';
 
 import { jwtSecret } from '../../config/';
+
+const prisma = new PrismaClient();
 
 async function authorization(req: any, res: any, next: any) {
   try {
@@ -13,7 +16,14 @@ async function authorization(req: any, res: any, next: any) {
 
     const payload: any = jwt.verify(jwtToken, jwtSecret);
 
+    const user = await prisma.user.findUnique({
+      where: {
+        id: Number(payload.user),
+      },
+    });
+
     req.user = payload.user;
+    req.name = user?.name;
 
     next();
   } catch (err: any) {

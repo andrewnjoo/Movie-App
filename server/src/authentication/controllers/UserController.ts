@@ -71,9 +71,10 @@ const loginUser = async (req: Request, res: Response) => {
   }
 };
 
-const isAuthorized = async (req: Request, res: Response) => {
+const isAuthorized = async (req: any, res: any) => {
   try {
     await authorization(req, res, async () => {
+      res.user = req?.user;
       res.json(true);
     });
   } catch (err: any) {

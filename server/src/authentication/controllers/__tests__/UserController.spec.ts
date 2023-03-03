@@ -77,7 +77,7 @@ describe('UserController', () => {
   });
 
   describe('isAuthorized', () => {
-    it('should return true if the user is authorized', async () => {
+    it('should return true with user name, if authorized', async () => {
       const req = {
         header: jest.fn().mockReturnValue(jwtToken),
       } as any;
@@ -90,6 +90,7 @@ describe('UserController', () => {
 
       expect(res.status).not.toHaveBeenCalled();
       expect(res.json).toHaveBeenCalledWith(true);
+      expect(req.name).toBe(testUser.name);
     });
 
     it('should return false if the user is not authorized', async () => {
