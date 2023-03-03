@@ -7,6 +7,10 @@ The code is held in a mono-repo, which contains two directories:
 1. client - a web application built with React and Redux
 1. server - an Express server that provides an API for the client
 
+## Deployment
+
+Movie App's frontend was deployed on Vercel for simple React deployment and the backend on Railway for deployment management.
+
 ## Technologies Used
 
 ### Client
