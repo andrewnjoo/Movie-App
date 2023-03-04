@@ -11,12 +11,12 @@ import {
   addMovie,
   deleteMovie,
 } from '../MovieController';
-import authorization from '../../../authentication/middleware/authorization';
+import { authorization } from '../../../authentication/middleware';
 
 jest.mock('../../../authentication/middleware/authorization');
 const prisma = new PrismaClient();
 const movieIds = Array.from({ length: 3 }, () =>
-  Math.ceil(Math.random() * 100)
+  Math.ceil(Math.random() * 100),
 );
 const modifiedTestUsers = testUsers.map((user) => ({
   ...user,
@@ -26,7 +26,7 @@ const modifiedTestUsers = testUsers.map((user) => ({
 describe('MovieController', () => {
   const testUsersInfo: any = [];
   (authorization as jest.Mock).mockImplementation(
-    (req: any, res: any, next: any) => next()
+    (req: any, res: any, next: any) => next(),
   );
 
   beforeAll(async () => {
@@ -129,7 +129,7 @@ describe('MovieController', () => {
           expect.objectContaining({
             tmdb_id: movieIds[1],
           }),
-        ])
+        ]),
       );
     });
   });
@@ -154,7 +154,7 @@ describe('MovieController', () => {
       expect(res.json.mock.calls[0][0]).toEqual(
         expect.objectContaining({
           tmdb_id: movieIds[2],
-        })
+        }),
       );
     });
   });
@@ -179,7 +179,7 @@ describe('MovieController', () => {
       expect(res.json.mock.calls[0][0]).toEqual(
         expect.objectContaining({
           tmdb_id: movieIds[2],
-        })
+        }),
       );
     });
   });

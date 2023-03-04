@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { PrismaClient, Movie } from '@prisma/client';
 
-import authorization from '../../authentication/middleware/authorization';
+import { authorization } from '../../authentication/middleware';
 
 const prisma = new PrismaClient();
 

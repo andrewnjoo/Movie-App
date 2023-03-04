@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-function register(req: Request, res: Response, next: NextFunction) {
+function validInfo(req: Request, res: Response, next: NextFunction) {
   const { email, name, password } = req.body;
 
   if (req.path === '/register') {
@@ -29,4 +29,5 @@ function register(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
-export default register;
+export { validInfo };
+validInfo;

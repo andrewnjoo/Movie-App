@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
 import { jwtGenerator } from '../utils/jwtGenerator';
-import authorization from '../middleware/authorization';
+import { authorization } from '../middleware';
 
 const prisma = new PrismaClient();
 

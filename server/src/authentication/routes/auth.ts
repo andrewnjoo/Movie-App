@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import validInfo from '../middleware/validInfo';
+import { validInfo, authorization } from '../middleware';
 import {
   registerUser,
   loginUser,

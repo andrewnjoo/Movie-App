@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-import authorization from '../authorization';
+import { authorization } from '../';
 import { jwtSecret } from '../../../config/';
 
 describe('authorization', () => {

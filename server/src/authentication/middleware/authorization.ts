@@ -33,4 +33,4 @@ async function authorization(req: any, res: any, next: any) {
   }
 }
 
-export default authorization;
+export { authorization };

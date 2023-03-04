@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 import { jwtSecret } from '../../../config';

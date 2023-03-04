@@ -1,4 +1,4 @@
-import register from '../validInfo';
+import { validInfo } from '../validInfo';
 
 describe('validInfo', () => {
   let req: any;
@@ -25,7 +25,7 @@ describe('validInfo', () => {
     const { email, name, password } = req.body;
     delete req.body.email;
 
-    register(req, res, next);
+    validInfo(req, res, next);
 
     expect(res.json).toHaveBeenCalledWith('Missing Credentials');
   });
@@ -33,7 +33,7 @@ describe('validInfo', () => {
   it('returns "Invalid Email" if email is not in the correct format', () => {
     req.body.email = 'invalid-email';
 
-    register(req, res, next);
+    validInfo(req, res, next);
 
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.json).toHaveBeenCalledWith('Invalid Email');
@@ -42,14 +42,14 @@ describe('validInfo', () => {
   it('returns "Invalid Password" if password is not in the correct format', () => {
     req.body.password = 'invalid-password';
 
-    register(req, res, next);
+    validInfo(req, res, next);
 
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.json).toHaveBeenCalledWith('Invalid Password');
   });
 
   it('calls the next function if all credentials are present and email is valid', () => {
-    register(req, res, next);
+    validInfo(req, res, next);
 
     expect(next).toHaveBeenCalled();
   });
