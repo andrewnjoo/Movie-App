@@ -20,8 +20,6 @@ const LoginPage = (): JSX.Element => {
         if (res.data.token) {
           localStorage.setItem('movie-app-token', res.data.token);
           window.location.href = '/';
-        } else {
-          console.log(res.data);
         }
       })
       .catch((err) => {

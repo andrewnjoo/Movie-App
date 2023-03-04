@@ -86,11 +86,11 @@ const isAuthorized = async (req: any, res: any) => {
 const getUserDetails = async (req: any, res: any) => {
   try {
     await authorization(req, res, async () => {
-      res.data = {
+      res.json({
         user: req?.user,
         name: req?.name,
         email: req?.email,
-      };
+      });
     });
   } catch (err: any) {
     console.log(err.message);

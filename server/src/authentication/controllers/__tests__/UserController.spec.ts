@@ -129,7 +129,7 @@ describe('UserController', () => {
       await getUserDetails(req, res);
 
       expect(res.status).not.toHaveBeenCalled();
-      expect(res.data).toStrictEqual({
+      expect(res.json.mock.calls[0][0]).toStrictEqual({
         user: req.user,
         name: testUser.name,
         email: testUser.email,

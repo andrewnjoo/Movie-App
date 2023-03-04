@@ -5,3 +5,4 @@ export * from './PeoplePage';
 export * from './PersonPage';
 export * from './RegisterPage';
 export * from './SearchPage';
+export * from './ProfilePage';

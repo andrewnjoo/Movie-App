@@ -8,6 +8,7 @@ import {
   SearchPage,
   RegisterPage,
   LoginPage,
+  ProfilePage,
 } from './components/pages';
 import Navbar from './components/layout/navbar/Navbar';
 
@@ -27,6 +28,7 @@ function App(): JSX.Element {
           <Route path='/search' element={<SearchPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/profile' element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </>

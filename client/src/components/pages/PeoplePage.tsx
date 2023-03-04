@@ -13,7 +13,7 @@ function PeoplePage(): JSX.Element {
       } = await axios.get(
         `https://api.themoviedb.org/3/person/popular?api_key=${tmdbKey}&language=en-US&page=1`,
       );
-      console.log(results);
+      // console.log(results);
       setState(results);
     })();
   }, []);
