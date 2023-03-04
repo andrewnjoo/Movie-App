@@ -17,7 +17,7 @@ export const DesktopProfileDropdown = (): JSX.Element => {
       {/* Desktop profile options */}
       <Menu.Items className='origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
         <Menu.Item>
-          <a href='#' className='block px-4 py-2 text-sm text-gray-700'>
+          <a href='/profile' className='block px-4 py-2 text-sm text-gray-700'>
             Your Profile
           </a>
         </Menu.Item>
