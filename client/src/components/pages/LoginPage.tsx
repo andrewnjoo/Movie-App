@@ -30,6 +30,12 @@ const LoginPage = (): JSX.Element => {
       });
   };
 
+  React.useEffect(() => {
+    if (email === 'alice@example.com' && password === 'C0mplexP@ss') {
+      handleSubmit(new Event('submit'));
+    }
+  }, [email, password]);
+
   return (
     <div className='flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8'>
       <div className='sm:mx-auto sm:w-full sm:max-w-md'>
@@ -123,9 +129,6 @@ const LoginPage = (): JSX.Element => {
               onClick={() => {
                 setEmail('alice@example.com');
                 setPassword('C0mplexP@ss');
-                setTimeout(() => {
-                  handleSubmit(new Event('submit'));
-                }, 100);
               }}
             >
               Demo Login
