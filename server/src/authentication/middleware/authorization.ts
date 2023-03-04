@@ -24,6 +24,7 @@ async function authorization(req: any, res: any, next: any) {
 
     req.user = payload.user;
     req.name = user?.name;
+    req.email = user?.email;
 
     next();
   } catch (err: any) {

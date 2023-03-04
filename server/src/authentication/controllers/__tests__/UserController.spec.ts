@@ -4,7 +4,12 @@ import { PrismaClient } from '@prisma/client';
 
 import { jwtSecret } from '../../../config';
 import testUsers from '../../../database/seed/testUsers';
-import { registerUser, loginUser, isAuthorized } from '../UserController';
+import {
+  registerUser,
+  loginUser,
+  isAuthorized,
+  getUserDetails,
+} from '../UserController';
 
 const testUser = {
   ...testUsers[0],
@@ -108,6 +113,27 @@ describe('UserController', () => {
       expect(res.json).toHaveBeenCalledWith(
         'Authorization failed: invalid token',
       );
+    });
+  });
+
+  describe('getUserDetails', () => {
+    it('should return user details if the user is authorized', async () => {
+      const req = {
+        header: jest.fn().mockReturnValue(jwtToken),
+      } as any;
+      const res = {
+        json: jest.fn(),
+        status: jest.fn().mockReturnThis(),
+      } as any;
+
+      await getUserDetails(req, res);
+
+      expect(res.status).not.toHaveBeenCalled();
+      expect(res.data).toStrictEqual({
+        user: req.user,
+        name: testUser.name,
+        email: testUser.email,
+      });
     });
   });
 });

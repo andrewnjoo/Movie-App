@@ -83,4 +83,19 @@ const isAuthorized = async (req: any, res: any) => {
   }
 };
 
-export { registerUser, loginUser, isAuthorized };
+const getUserDetails = async (req: any, res: any) => {
+  try {
+    await authorization(req, res, async () => {
+      res.data = {
+        user: req?.user,
+        name: req?.name,
+        email: req?.email,
+      };
+    });
+  } catch (err: any) {
+    console.log(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
+export { registerUser, loginUser, isAuthorized, getUserDetails };
