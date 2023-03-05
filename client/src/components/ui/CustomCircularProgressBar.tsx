@@ -34,7 +34,7 @@ function CustomCircularProgressBar({
           trailColor: data.vote_average > 7 ? '#2da661' : '#a8aa27',
         })}
       >
-        <span className={`flex align-center text-white ${textSize}`}>
+        <span className={`align-center flex text-white ${textSize}`}>
           {voteAverage}
           <IconContext.Provider
             value={{

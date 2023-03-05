@@ -34,14 +34,14 @@ function SearchPage(): JSX.Element {
     <>
       {/* Left Column */}
       <div className='flex flex-col text-center'>
-        <div className='text-2xl font-bold mt-6 mb-3'>Search</div>
+        <div className='mt-6 mb-3 text-2xl font-bold'>Search</div>
         <div className='text-md'>
           <a
             className={`${
               searchParams.get('type') === 'movie'
                 ? 'border-indigo-500'
                 : 'border-transparent'
-            } hover:text-sky-700 border-b-2 mx-1`}
+            } mx-1 border-b-2 hover:text-sky-700`}
             href={`/search?type=movie&query=${searchParams.get('query')}`}
           >
             Movies
@@ -51,7 +51,7 @@ function SearchPage(): JSX.Element {
               searchParams.get('type') === 'tv'
                 ? 'border-indigo-500'
                 : 'border-transparent'
-            } hover:text-sky-700 border-b-2 mx-1`}
+            } mx-1 border-b-2 hover:text-sky-700`}
             href={`/search?type=tv&query=${searchParams.get('query')}`}
           >
             TV
@@ -61,7 +61,7 @@ function SearchPage(): JSX.Element {
               searchParams.get('type') === 'person'
                 ? 'border-indigo-500'
                 : 'border-transparent'
-            } hover:text-sky-700 border-b-2 mx-1`}
+            } mx-1 border-b-2 hover:text-sky-700`}
             href={`/search?type=person&query=${searchParams.get('query')}`}
           >
             People
@@ -70,7 +70,7 @@ function SearchPage(): JSX.Element {
       </div>
       <ScrollContainer className='scroll-container py-12'>
         {/* Right Column */}
-        <div className='grid sm:grid-cols-3 lg:grid-cols-5 place-items-center'>
+        <div className='grid place-items-center sm:grid-cols-3 lg:grid-cols-5'>
           {state.map((item: any) => {
             if (type === 'person') {
               if (item.profile_path === null) return null;

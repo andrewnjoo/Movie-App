@@ -17,11 +17,11 @@ function PersonPage(): JSX.Element {
     })();
   }, [id]);
   return (
-    <div className='flex flex-col md:flex-row my-12'>
+    <div className='my-12 flex flex-col md:flex-row'>
       {/* Left Column */}
-      <div className='px-3 mx-auto'>
+      <div className='mx-auto px-3'>
         <img
-          className='object-cover w-full rounded-xl'
+          className='w-full rounded-xl object-cover'
           src={`https://image.tmdb.org/t/p/original${state?.profile_path}`}
           alt='Headshot'
           style={{ width: '300px', minWidth: '300px' }}
@@ -29,14 +29,14 @@ function PersonPage(): JSX.Element {
       </div>
       {/* Right Column */}
       <div
-        className='px-4 my-3 mx-auto md:text-left text-center'
+        className='my-3 mx-auto px-4 text-center md:text-left'
         style={{ maxWidth: '70%' }}
       >
         {/* Heading */}
         <div className='text-3xl font-bold'>{`${state?.name}`}</div>
         {/* Biography */}
         <div className='mt-6'>
-          <div className='font-bold mb-3'>Biography</div>
+          <div className='mb-3 font-bold'>Biography</div>
           {state?.biography}
         </div>
       </div>

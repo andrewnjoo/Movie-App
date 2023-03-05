@@ -45,7 +45,7 @@ export default function Poster({
       {/* Movie Poster */}
       <a href={href}>
         <img
-          className='m-auto object-cover w-full rounded media-poster'
+          className='media-poster m-auto w-full rounded object-cover'
           src={
             data?.poster_path
               ? `https://image.tmdb.org/t/p/original/${data?.poster_path}`
@@ -74,9 +74,9 @@ export default function Poster({
         </IconContext.Provider>
       </div>
       {/* Title and Release Date */}
-      <div className='pt-1 px-2.5 pb-3' id='content'>
+      <div className='px-2.5 pt-1 pb-3' id='content'>
         <a href={href}>
-          <div className='text-sm font-bold overflow-clip'>
+          <div className='overflow-clip text-sm font-bold'>
             {data.title || data.name}
           </div>
         </a>

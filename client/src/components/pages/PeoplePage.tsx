@@ -19,7 +19,7 @@ function PeoplePage(): JSX.Element {
   }, []);
 
   return (
-    <div className='grid sm:grid-cols-3 lg:grid-cols-5 gap-x-5 place-items-center my-16'>
+    <div className='my-16 grid place-items-center gap-x-5 sm:grid-cols-3 lg:grid-cols-5'>
       {state.map((item: any) => (
         <Person data={item} key={item.id} />
       ))}

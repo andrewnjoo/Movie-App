@@ -14,20 +14,20 @@ export default function MovieHero({
 }): JSX.Element {
   const [open, setOpen] = useState(false);
   return (
-    <div className='flex flex-col md:flex-row px-10 w-full'>
+    <div className='flex w-full flex-col px-10 md:flex-row'>
       {data && (
         <>
           {/* Left Column / Poster */}
-          <div className='px-3 mx-auto' style={{ width: '300px' }}>
+          <div className='mx-auto px-3' style={{ width: '300px' }}>
             <img
-              className='m-auto mb-2 object-cover w-full rounded'
+              className='m-auto mb-2 w-full rounded object-cover'
               src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
               alt='Movie Poster'
               style={{ minWidth: '300px' }}
             />
           </div>
           {/* Right Column / Info */}
-          <div className='px-4 my-3 ml-3 mx-auto md:text-left text-center'>
+          <div className='my-3 mx-auto ml-3 px-4 text-center md:text-left'>
             {/* Heading */}
             <div className='text-xl font-bold'>
               {`${data.title || data.name} (${moment(data.release_date).format(
@@ -43,16 +43,16 @@ export default function MovieHero({
                 : ''}
             </div>
             {/* Subheading #2 */}
-            <div className='my-6 flex justify-center md:justify-start items-center'>
+            <div className='my-6 flex items-center justify-center md:justify-start'>
               <CustomCircularProgressBar
                 transformData=''
                 data={data}
                 width='w-14'
                 textSize='text-lg'
               />
-              <div className='w-6 mx-4'>User Score</div>
+              <div className='mx-4 w-6'>User Score</div>
               <button
-                className='w-32 mx-6 flex items-center'
+                className='mx-6 flex w-32 items-center'
                 type='button'
                 onClick={() => {
                   setOpen(true);

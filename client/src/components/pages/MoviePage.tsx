@@ -34,7 +34,7 @@ function MoviePage({ movie = true }): JSX.Element {
 
   return (
     <div>
-      <section className='flex my-12'>
+      <section className='my-12 flex'>
         <MovieHero data={movieData} trailer={trailer} />
       </section>
     </div>

@@ -27,8 +27,8 @@ export default function TrailerModal({
         </Transition.Child>
 
         {/* Modal */}
-        <div className='fixed z-10 inset-0 overflow-y-auto'>
-          <div className='flex items-center justify-center min-h-full'>
+        <div className='fixed inset-0 z-10 overflow-y-auto'>
+          <div className='flex min-h-full items-center justify-center'>
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
@@ -38,7 +38,7 @@ export default function TrailerModal({
               leaveFrom='opacity-100 translate-y-0 sm:scale-100'
               leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
             >
-              <Dialog.Panel className='relative rounded-lg align-center'>
+              <Dialog.Panel className='align-center relative rounded-lg'>
                 <div className=''>
                   <iframe
                     className='rounded-md'

@@ -48,7 +48,7 @@ const RegisterPage = (): JSX.Element => {
       </div>
 
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
-        <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-gray-300 mx-4'>
+        <div className='mx-4 border border-gray-300 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
           {error && (
             <ErrorModal
               message={error}
@@ -130,14 +130,14 @@ const RegisterPage = (): JSX.Element => {
                 />
                 <p className='mt-6 text-sm text-gray-500'>
                   Your password must contain:
-                  <ul className='list-disc pl-5 mt-1'>
+                  <ul className='mt-1 list-disc pl-5'>
                     <li>At least one digit (0-9)</li>
                     <li>At least one lowercase letter (a-z)</li>
                     <li>At least one uppercase letter (A-Z)</li>
                     <li>Minimum length of 8 characters</li>
                   </ul>
                 </p>
-                <p className='mt-2 pt-2 text-sm text-gray-600 border-t-2 border-gray-200'>
+                <p className='mt-2 border-t-2 border-gray-200 pt-2 text-sm text-gray-600'>
                   <span className='font-medium text-red-600'>Warning:</span> The
                   database is in alpha mode and gets occasionally overwritten.
                   Please do not enter any sensitive information.

@@ -25,18 +25,18 @@ const ProfilePage = (): JSX.Element => {
   }, []);
 
   return (
-    <div className='mt-10 mx-auto max-w-sm rounded overflow-hidden shadow-lg border border-gray-300'>
-      <p className='text-gray-700 text-xl font-bold mb-2 m-6'>My Profile</p>
+    <div className='mx-auto mt-10 max-w-sm overflow-hidden rounded border border-gray-300 shadow-lg'>
+      <p className='m-6 mb-2 text-xl font-bold text-gray-700'>My Profile</p>
       <div className='px-6 py-4'>
-        <div className='flex items-center mb-4'>
-          <FaUserCircle className='text-4xl mr-4' />
+        <div className='mb-4 flex items-center'>
+          <FaUserCircle className='mr-4 text-4xl' />
           <div>
-            <div className='font-bold text-xl mb-2'>{name}</div>
-            <p className='text-gray-700 text-base'>{email}</p>
+            <div className='mb-2 text-xl font-bold'>{name}</div>
+            <p className='text-base text-gray-700'>{email}</p>
           </div>
         </div>
         {/* TODO: movies liked */}
-        <div className='font-bold text-xl my-6'>Movies liked: 0</div>
+        <div className='my-6 text-xl font-bold'>Movies liked: 0</div>
       </div>
     </div>
   );

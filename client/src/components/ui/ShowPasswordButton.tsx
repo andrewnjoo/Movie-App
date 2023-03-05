@@ -13,7 +13,7 @@ function ShowPasswordButton({
   return (
     <button
       type='button'
-      className='mt-4 pr-3 flex items-center text-sm leading-5 text-gray-500 focus:outline-none'
+      className='mt-4 flex items-center pr-3 text-sm leading-5 text-gray-500 focus:outline-none'
       onClick={() => {
         setShowPassword(!showPassword);
       }}

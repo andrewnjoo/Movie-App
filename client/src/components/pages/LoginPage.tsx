@@ -53,7 +53,7 @@ const LoginPage = (): JSX.Element => {
       </div>
 
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
-        <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-gray-300 mx-4'>
+        <div className='mx-4 border border-gray-300 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
           {error && (
             <ErrorModal
               message={error}
@@ -123,7 +123,7 @@ const LoginPage = (): JSX.Element => {
             </div>
             <button
               type='button'
-              className='flex w-full justify-center rounded-md border border-transparent bg-teal-600 hover:bg-teal-700 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 py-2 px-4 mt-4'
+              className='mt-4 flex w-full justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
               onClick={() => {
                 setEmail('alice@example.com');
                 setPassword('C0mplexP@ss');
