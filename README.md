@@ -41,7 +41,7 @@ npm run dev
 To start the development server you must follow these steps:
 
 1. Create a MySQL database called `express_db`
-1. Configure the database connection in the generate-env.sh script located in `/scripts`
+1. Configure the database connection in the `generate-env.sh` script located in `/scripts`
 1. Then run the following command:
 
 ```
