@@ -1,22 +1,22 @@
-import React from 'react';
 import { Disclosure, Menu } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { FaUserCircle } from 'react-icons/fa';
 import axios from 'axios';
+import React from 'react';
+import { FaUserCircle } from 'react-icons/fa';
 
 import logo from '@/assets/logo.png';
-import { DesktopProfileDropdown } from './DesktopProfileDropdown';
-import { MobileSelection } from './MobileSelection';
-import { MobileProfile } from './MobileProfile';
-import { SearchBar } from './SearchBar';
 import { useApiUrl } from '../../../hooks';
 import { LoginButton } from '../../ui/LoginButton';
+import { DesktopProfileDropdown } from './DesktopProfileDropdown';
+import { MobileProfile } from './MobileProfile';
+import { MobileSelection } from './MobileSelection';
+import { SearchBar } from './SearchBar';
 
 export function classNames(...classes: any): string {
   return classes.filter(Boolean).join(' ');
 }
 
-const hrefs = ['/', '/movies', '/tv', '/people']; // TODO - '/favorites'
+export const hrefs = ['/', '/movies', '/tv', '/people']; // TODO - '/favorites'
 
 export default function Navbar(): JSX.Element {
   const [loading, setLoading] = React.useState(true);
@@ -42,21 +42,21 @@ export default function Navbar(): JSX.Element {
   }, []);
 
   return (
-    <Disclosure as='nav' className='bg-white shadow'>
+    <Disclosure as="nav" className="bg-white shadow">
       {({ open }: { open: boolean }) => (
         <>
-          <div className='mx-auto max-w-7xl px-2 sm:px-4 lg:px-8'>
-            <div className='flex h-16 justify-between'>
-              <div className='flex px-2 lg:px-0'>
-                <div className='flex flex-shrink-0 items-center'>
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+            <div className="flex h-16 justify-between">
+              <div className="flex px-2 lg:px-0">
+                <div className="flex flex-shrink-0 items-center">
                   <a href={hrefs[0]}>
-                    <img className='block h-8 w-auto md:hidden' src={logo} />
-                    <text className='hidden h-8 w-auto text-2xl font-bold md:block'>
+                    <img className="block h-8 w-auto md:hidden" src={logo} />
+                    <text className="hidden h-8 w-auto text-2xl font-bold md:block">
                       Movie App
                     </text>
                   </a>
                 </div>
-                <div className='hidden lg:ml-6 lg:flex lg:space-x-8'>
+                <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   <a
                     href={hrefs[1]}
                     className={`${
@@ -100,17 +100,17 @@ export default function Navbar(): JSX.Element {
                   </a> */}
                 </div>
               </div>
-              <div className='flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end'>
+              <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
                 <SearchBar />
               </div>
-              <div className='hidden lg:ml-4 lg:flex lg:items-center'>
+              <div className="hidden lg:ml-4 lg:flex lg:items-center">
                 {loading ? (
-                  <div className='bg-white-400 h-8 w-8 animate-pulse rounded-full'></div>
+                  <div className="bg-white-400 h-8 w-8 animate-pulse rounded-full"></div>
                 ) : isAuthorized ? (
-                  <Menu as='div' className='relative ml-4 flex-shrink-0'>
-                    <Menu.Button className='flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
-                      <span className='sr-only'>Open user menu</span>
-                      <FaUserCircle className='h-8 w-8' />
+                  <Menu as="div" className="relative ml-4 flex-shrink-0">
+                    <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      <span className="sr-only">Open user menu</span>
+                      <FaUserCircle className="h-8 w-8" />
                     </Menu.Button>
                     <DesktopProfileDropdown />
                   </Menu>
@@ -118,20 +118,20 @@ export default function Navbar(): JSX.Element {
                   <LoginButton />
                 )}
               </div>
-              <div className='flex items-center lg:hidden'>
+              <div className="flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className='inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
-                  <span className='sr-only'>Open main menu</span>
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className='block h-6 w-6' aria-hidden='true' />
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className='block h-6 w-6' aria-hidden='true' />
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
             </div>
           </div>
-          <Disclosure.Panel className='lg:hidden'>
+          <Disclosure.Panel className="lg:hidden">
             <MobileSelection href={href} hrefs={hrefs} />
             <MobileProfile isAuthorized={isAuthorized} />
           </Disclosure.Panel>
