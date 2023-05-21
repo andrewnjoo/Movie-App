@@ -80,6 +80,7 @@ function SearchPage(): JSX.Element {
             return (
               <Poster
                 data={item}
+                isFetching={false}
                 movie={type === 'movie'}
                 key={item.id}
                 search

@@ -1,16 +1,14 @@
 import React from 'react';
-import { BsPercent } from 'react-icons/bs';
-import { IconContext } from 'react-icons';
 import {
   buildStyles,
   CircularProgressbarWithChildren,
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { IconContext } from 'react-icons';
+import { BsPercent } from 'react-icons/bs';
 
 export interface CustomCircularProgressBarProps {
-  data: {
-    vote_average: number;
-  };
+  data: any;
   transformData?: string;
   width?: string;
   textSize?: string;

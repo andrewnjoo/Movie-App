@@ -4,6 +4,7 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlineYoutube } from 'react-icons/ai';
+import { v4 as uuid } from 'uuid';
 
 import type { Movie, Tv } from '@/types';
 import CustomCircularProgressBar from './CustomCircularProgressBar';
@@ -46,7 +47,7 @@ export function Poster({
 
   return (
     <div
-      key={data.id}
+      key={uuid()}
       className="mx-4"
       style={{ minWidth: '150px', width: search ? '150px' : '' }}
     >
@@ -66,7 +67,9 @@ export function Poster({
             loading="lazy"
             src={
               data?.poster_path
-                ? `https://image.tmdb.org/t/p/original/${data?.poster_path}`
+                ? `https://image.tmdb.org/t/p/original/${String(
+                    data?.poster_path
+                  )}`
                 : 'https://i.stack.imgur.com/6M513.png'
             }
             style={{ minHeight: '225px', maxWidth: '150px' }}
@@ -99,6 +102,7 @@ export function Poster({
       <div className="px-2.5 pt-1 pb-3" id="content">
         <a href={href}>
           <div className="overflow-clip text-sm font-bold">
+            {/* @ts-expect-error title not in tv type, name not in movie type */}
             {isFetching ? <Skeleton variant="text" /> : data.title || data.name}
           </div>
         </a>
@@ -106,6 +110,7 @@ export function Poster({
           {isFetching ? (
             <Skeleton variant="text" />
           ) : (
+            // @ts-expect-error release_date not in tv type, first_air_date not in movie type
             moment(data.release_date || data.first_air_date).format(
               'DD MMM YYYY'
             )
