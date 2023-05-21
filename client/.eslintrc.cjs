@@ -29,5 +29,6 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'multiline-ternary': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/indent': 'off',
   }
 }

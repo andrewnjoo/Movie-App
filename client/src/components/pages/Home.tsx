@@ -1,9 +1,11 @@
-import { Pagination, Skeleton } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Pagination } from '@mui/material';
+import React, { useState } from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import { v4 as uuid } from 'uuid';
 
 import { Poster } from '@/components/ui/Poster';
 import { useGetMoviesQuery, useGetTVQuery } from '@/redux';
+import type { Movie, Tv } from '@/types';
 
 function Home({ movie = true }): JSX.Element {
   const [page, setPage] = useState(1);
@@ -23,14 +25,18 @@ function Home({ movie = true }): JSX.Element {
         hideScrollbars={false}
       >
         <div className="flex">
-          {data?.map((element: any) => (
-            <Poster
-              data={element}
-              movie={movie}
-              key={element.id}
-              // isFetching={isFetching}
-            />
-          ))}
+          {isFetching
+            ? Array.from(new Array(10)).map((_) => (
+                <Poster data={{}} movie={movie} key={uuid()} isFetching />
+              ))
+            : data?.map((element: Movie | Tv) => (
+                <Poster
+                  data={element}
+                  movie={movie}
+                  key={uuid()}
+                  isFetching={false}
+                />
+              ))}
         </div>
         <Pagination count={10} onChange={handleChange} />
       </ScrollContainer>
