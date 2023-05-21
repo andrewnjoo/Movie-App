@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/layout/navbar/Navbar';
 import {
   Home,
+  LoginPage,
   MoviePage,
   PeoplePage,
   PersonPage,
-  SearchPage,
-  RegisterPage,
-  LoginPage,
   ProfilePage,
+  RegisterPage,
+  SearchPage,
 } from './components/pages';
-import Navbar from './components/layout/navbar/Navbar';
 
 function App(): JSX.Element {
   return (
@@ -19,16 +19,17 @@ function App(): JSX.Element {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path='/movies' element={<Home />} />
-          <Route path='/movies/:id' element={<MoviePage />} />
-          <Route path='/tv' element={<Home movie={false} />} />
-          <Route path='/tv/:id' element={<MoviePage movie={false} />} />
-          <Route path='/people' element={<PeoplePage />} />
-          <Route path='/people/:id' element={<PersonPage />} />
-          <Route path='/search' element={<SearchPage />} />
-          <Route path='/register' element={<RegisterPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/profile' element={<ProfilePage />} />
+          <Route path="/movies" element={<Home />} />
+          <Route path="/movies/:id" element={<MoviePage />} />
+          <Route path="/tv" element={<Home movie={false} />} />
+          <Route path="/tv/:id" element={<MoviePage movie={false} />} />
+          <Route path="/people" element={<PeoplePage />} />
+          <Route path="/people/:id" element={<PersonPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/*" element={<h1>404</h1>} />
         </Routes>
       </BrowserRouter>
     </>
