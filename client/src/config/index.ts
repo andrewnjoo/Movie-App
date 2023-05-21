@@ -1,1 +1,1 @@
-export * from './tmdbKey';
+export * from './tmdbConfig';
