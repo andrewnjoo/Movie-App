@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { v4 as uuid } from 'uuid';
 
+import type { Movie, Tv } from '#/types';
 import { Poster } from '@/components/ui/Poster';
 import { useGetMoviesQuery, useGetTVQuery } from '@/redux';
-import type { Movie, Tv } from '@/types';
 
 function Home({ movie = true }): JSX.Element {
   const [page, setPage] = useState(1);

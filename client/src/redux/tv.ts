@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+import type { Tv } from '#/types';
 import { tmdbApi, tmdbKey } from '@/config';
-import type { GetTVReq, GetTVRes, Tv } from '@/types';
+import type { GetTVReq, GetTVRes } from '@/types';
 
 export const tvApi = createApi({
   reducerPath: 'tmdbTvApi',

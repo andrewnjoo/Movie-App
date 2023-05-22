@@ -6,7 +6,7 @@ import { IconContext } from 'react-icons';
 import { AiOutlineYoutube } from 'react-icons/ai';
 import { v4 as uuid } from 'uuid';
 
-import type { Movie, Tv } from '@/types';
+import type { Movie, Tv } from '#/types';
 import CustomCircularProgressBar from './CustomCircularProgressBar';
 import TrailerModal from './TrailerModal';
 
