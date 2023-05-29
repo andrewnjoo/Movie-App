@@ -4,9 +4,11 @@ import type { Tv } from '#/types';
 import { tmdbApi, tmdbKey } from '@/config';
 import type { GetTVReq, GetTVRes } from '@/types';
 
+const baseUrl = 'https://api.themoviedb.org/3';
+
 export const tvApi = createApi({
   reducerPath: 'tmdbTvApi',
-  baseQuery: fetchBaseQuery({ baseUrl: tmdbApi }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getTV: builder.query<GetTVRes, GetTVReq>({
       query: (page = 1) =>
