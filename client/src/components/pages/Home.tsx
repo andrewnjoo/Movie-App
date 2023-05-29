@@ -23,7 +23,7 @@ function Home({ movie = true }): JSX.Element {
     <>
       {data &&
         data.length > 0 &&
-        data.map((e) => <div>{e?.title || e?.name}</div>)}
+        data.map((e: any) => <div key={e.id}>{e?.title || e?.name}</div>)}
       <ScrollContainer
         className="scroll-container py-12 lg:mx-24"
         horizontal
