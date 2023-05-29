@@ -25,18 +25,19 @@ function Home({ movie = true }): JSX.Element {
         hideScrollbars={false}
       >
         <div className="flex">
-          {isFetching
-            ? Array.from(new Array(10)).map((_) => (
-                <Poster data={{}} movie={movie} key={uuid()} isFetching />
-              ))
-            : data?.map((element: Movie | Tv) => (
-                <Poster
-                  data={element}
-                  movie={movie}
-                  key={uuid()}
-                  isFetching={false}
-                />
-              ))}
+          {isFetching ??
+            Array.from(new Array(10)).map((_) => (
+              <Poster data={{}} movie={movie} key={uuid()} isFetching />
+            ))}
+          {data?.length > 0 &&
+            data?.map((element: Movie | Tv) => (
+              <Poster
+                data={element}
+                movie={movie}
+                key={uuid()}
+                isFetching={false}
+              />
+            ))}
         </div>
         <Pagination count={10} onChange={handleChange} />
       </ScrollContainer>
