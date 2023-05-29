@@ -29,8 +29,9 @@ function Home({ movie = true }): JSX.Element {
             Array.from(new Array(10)).map((_) => (
               <Poster data={{}} movie={movie} key={uuid()} isFetching />
             ))}
-          {data?.length > 0 &&
-            data?.map((element: Movie | Tv) => (
+          {data &&
+            data.length > 0 &&
+            data.map((element: Movie | Tv) => (
               <Poster
                 data={element}
                 movie={movie}
