@@ -17,20 +17,15 @@ function Home({ movie = true }): JSX.Element {
     setPage(value);
   };
 
-  console.log(data);
-
   return (
     <>
-      {data &&
-        data.length > 0 &&
-        data.map((e: any) => <div key={e.id}>{e?.title || e?.name}</div>)}
       <ScrollContainer
         className="scroll-container py-12 lg:mx-24"
         horizontal
         hideScrollbars={false}
       >
         <div className="flex">
-          {isFetching ??
+          {isFetching &&
             Array.from(new Array(10)).map((_) => (
               <Poster data={{}} movie={movie} key={uuid()} isFetching />
             ))}
