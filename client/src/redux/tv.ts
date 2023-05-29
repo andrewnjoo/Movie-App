@@ -13,8 +13,7 @@ export const tvApi = createApi({
         `/discover/tv/?api_key=${tmdbKey}&include_adult=false&with_origin_country=US&language=en-US&page=${String(
           page
         )}`,
-      // transformResponse: (response: any) =>
-      //   response.results.filter((tv: Tv) => tv.original_language === 'en'),
+      transformResponse: (response: any) => response.results,
     }),
   }),
 });
