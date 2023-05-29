@@ -13,10 +13,8 @@ export const moviesApi = createApi({
         `/discover/movie?api_key=${tmdbKey}&include_adult=false&with_origin_country=US&language=en-US&page=${String(
           page
         )}`,
-      transformResponse: (response: any) =>
-        response.results.filter(
-          (movie: Movie) => movie.original_language === 'en'
-        ),
+      transformResponse: ({ results }: { results: Movie[] }) =>
+        results.filter((movie) => movie.original_language === 'en'),
     }),
   }),
 });

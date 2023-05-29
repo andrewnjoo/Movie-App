@@ -10,6 +10,7 @@ import {
   ProfilePage,
   RegisterPage,
   SearchPage,
+  TestPage,
 } from './components/pages';
 
 function App(): JSX.Element {
@@ -21,7 +22,8 @@ function App(): JSX.Element {
           <Route index element={<Home />} />
           <Route path="/movies" element={<Home />} />
           <Route path="/movies/:id" element={<MoviePage />} />
-          <Route path="/tv" element={<Home movie={false} />} />
+          {/* <Route path="/tv" element={<Home movie={false} />} /> */}
+          <Route path="/tv" element={<TestPage />} />
           <Route path="/tv/:id" element={<MoviePage movie={false} />} />
           <Route path="/people" element={<PeoplePage />} />
           <Route path="/people/:id" element={<PersonPage />} />
