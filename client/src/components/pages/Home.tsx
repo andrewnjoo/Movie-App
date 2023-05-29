@@ -9,10 +9,9 @@ import { useGetMoviesQuery, useGetTVQuery } from '@/redux';
 
 function Home({ movie = true }): JSX.Element {
   const [page, setPage] = useState(1);
-  // const { data, isFetching } = movie
-  //   ? useGetMoviesQuery(page)
-  //   : useGetTVQuery(page);
-  const { data, isFetching } = useGetMoviesQuery(page);
+  const { data, isFetching } = movie
+    ? useGetMoviesQuery(page)
+    : useGetTVQuery(page);
 
   const handleChange = (_: any, value: number): void => {
     setPage(value);

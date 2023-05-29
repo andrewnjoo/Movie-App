@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import type { Movie } from '#/types';
+import { tmdbApi, tmdbKey } from '@/config';
 import type { GetMoviesReq, GetMoviesRes } from '@/types';
-import { tmdbApi, tmdbKey } from '../config';
 
 export const moviesApi = createApi({
   reducerPath: 'tmdbMoviesApi',
