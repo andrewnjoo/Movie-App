@@ -10,7 +10,7 @@ export const tvApi = createApi({
   endpoints: (builder) => ({
     getTV: builder.query<GetTVRes, GetTVReq>({
       query: (page = 1) =>
-        `discover/tv/?api_key=${tmdbKey}&include_adult=false&with_origin_country=US&language=en-US&page=${String(
+        `discover/tv?api_key=${tmdbKey}&include_adult=false&with_origin_country=US&language=en-US&page=${String(
           page
         )}`,
       transformResponse: ({ results }: { results: Tv[] }) => results,
