@@ -10,7 +10,7 @@ export const moviesApi = createApi({
   endpoints: (builder) => ({
     getMovies: builder.query<GetMoviesRes, GetMoviesReq>({
       query: (page = 1) =>
-        `/discover/movie?api_key=${tmdbKey}&include_adult=false&with_origin_country=US&language=en-US&page=${String(
+        `discover/movie?api_key=${tmdbKey}&include_adult=false&with_origin_country=US&language=en-US&page=${String(
           page
         )}`,
       transformResponse: ({ results }: { results: Movie[] }) =>
