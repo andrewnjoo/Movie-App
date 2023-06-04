@@ -18,9 +18,9 @@ function Home({ movie = true }): JSX.Element {
   };
 
   return (
-    <>
+    <div className="py-12 lg:mx-24">
       <ScrollContainer
-        className="scroll-container py-12 lg:mx-24"
+        className="scroll-container "
         horizontal
         hideScrollbars={false}
       >
@@ -40,9 +40,9 @@ function Home({ movie = true }): JSX.Element {
               />
             ))}
         </div>
-        <Pagination count={10} onChange={handleChange} />
       </ScrollContainer>
-    </>
+      <Pagination count={10} onChange={handleChange} />
+    </div>
   );
 }
 
